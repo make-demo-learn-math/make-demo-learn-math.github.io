@@ -10,6 +10,9 @@
 | Point clusters on planet            | reference frames, hypoteuse     |
 | Camera motion                       | quaternions, SLERP              |
 
+(Shared experience: deterministic point generation
+and an orbit centered on a fictitious, Mars-like planet based on `Date.now()`)
+
 ## Feature Flags
 
 ```javascript
