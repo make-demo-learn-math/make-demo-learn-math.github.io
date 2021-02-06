@@ -6,7 +6,7 @@
 - you are motivated to learn the mathematical concepts
 - this motivation tends to be intrinsic
 
-# Orbital Path
+# Simple Orbit
 
 - pick an orbit centred around a fictitious planet
 - Kepler's Third Law for a circular orbit:
@@ -32,11 +32,11 @@ where:
 $$
 \begin{aligned}
   T
+  &=
+  2\pi\sqrt{\frac{R^3}{GM}} \\
   &\doteq
   2\pi\sqrt{\frac{(3.39\times10^6+1.6\times10^5)^3}
   {6.67\times10^{-11}\times6.39\times10^{23}}} \\
-  &\doteq
-  6437\text{ seconds} \\
   &\doteq
   107\text{ minutes} \\
 \end{aligned}
@@ -48,10 +48,10 @@ $$
 \begin{aligned}
   x(t)
   &=
-  R\cos(\frac{2\pi}{T}t) \\
+  R\cos(\tfrac{2\pi}{T}t) \\
   y(t)
   &=
-  R\sin(\frac{2\pi}{T}t) \\
+  R\sin(\tfrac{2\pi}{T}t) \\
 \end{aligned}
 $$
 
