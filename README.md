@@ -7,12 +7,11 @@
 - Every player sees the same planet from the same orbit (currently it's only client side, so we need to design that in)
 - Here are some of the mathematical concepts that I've learned from it:
 
-| Feature                  | Math Concept                                                             |
-| ------------------------ | ------------------------------------------------------------------------ |
-| Simple orbit             | Kepler's laws, trigonometry                                              |
-| Distant stars            | simple yet consistent hash-like function to get angle from grid position |
-| Point clusters on planet | LCG w/seed, hypershere point picking                                     |
-| Camera transitions       | quaternions, SLERP                                                       |
+| Feature                  | Math Concept                         |
+| ------------------------ | ------------------------------------ |
+| Simple orbit             | Kepler's laws, trigonometry          |
+| Point clusters on planet | LCG w/seed, hypershere point picking |
+| Camera transitions       | quaternions, SLERP                   |
 
 ## Feature Flags
 
