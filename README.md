@@ -1,17 +1,18 @@
 # make-demo-learn-math
 
-- Making a demo or a simple game can be a great way to learn math
+- Making a demo or a simple web game can be a great way to learn math
 - You can do this with just a Raspberry Pi and VSCode
-- Here some of the cool mathematical concepts that I've learned myself over the years
+- Here is a demo that I wrote to try out some possible game mechanics
+- You are in orbit around a fictitious Mars-like planet
+- Every player sees the same planet from the same orbit (currently it's only client side, so we need to design that in)
+- Here are some of the mathematical concepts that I've learned from it:
 
-| Demo                                | Math                            |
-| ----------------------------------- | ------------------------------- |
-| Distant stars (click for next view) | simple hash (position to color) |
-| Point clusters on planet            | reference frames, hypoteuse     |
-| Camera motion                       | quaternions, SLERP              |
-
-(Shared experience: deterministic point generation
-and an orbit centered on a fictitious, Mars-like planet based on `Date.now()`)
+| Feature                  | Math Concept                                                             |
+| ------------------------ | ------------------------------------------------------------------------ |
+| Simple orbit             | Kepler's laws, trigonometry                                              |
+| Distant stars            | simple yet consistent hash-like function to get angle from grid position |
+| Point clusters on planet | LCG w/seed, hypershere point picking                                     |
+| Camera transitions       | quaternions, SLERP                                                       |
 
 ## Feature Flags
 
