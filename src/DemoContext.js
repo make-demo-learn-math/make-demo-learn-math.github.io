@@ -22,6 +22,8 @@ export default class DemoContext {
   }
 
   close() {
-    this.timer.close();
+    if (this.timer) {
+      this.timer.close();
+    }
   }
 }
