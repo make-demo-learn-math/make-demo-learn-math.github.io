@@ -144,6 +144,11 @@ $$
 - but we also want to orient them randomly
 - hypersphere point picking, quaternion rotation
 
+Note to self: For the floating-point "seed" needed
+to generate the stars using the `mash` function,
+just call `Pseudorandom.nextScalar()`
+which is included in the demo context.
+
 # About this project
 
 - This presentation and its code samples are in GitHub
