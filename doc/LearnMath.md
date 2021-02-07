@@ -143,3 +143,8 @@ $$
 - sphere point picking (Marsaglia)
 - but we also want to orient them randomly
 - hypersphere point picking, quaternion rotation
+
+# About this project
+
+- This presentation and its code samples are in GitHub
+  at [make-demo-learn-math](https://make-demo-learn-math.github.io/)
