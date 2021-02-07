@@ -1,5 +1,31 @@
 # Is Writing a Game a Good Way To Learn Math?
 
+- making a demo or writing a small game can be
+  a great way to learn math
+- in my own personal experience, this is
+  what kept me motivated in school
+- design is a creative process -> intrinsic motivation
+- breaking down the problem into features -> independent thinking
+- implementation of a feature -> research skills
+- visually testing the code -> positive reinforcement
+
+# Removing Barriers in Education
+
+- the Raspberry Pi and the promise of widespread
+  affordable internet can help remove the traditional
+  barriers to higher education
+- unfortunately the development tools for popular
+  game engines only run on high-end computers
+- in contrast, web development can be done on
+  an inexpensive computer
+- the demos used in this presentation are all
+  web-based, written and tested on less powerful
+  computers
+
+---
+
+# Is Writing a Game a Good Way To Learn Math?
+
 - making a demo or a simple game can be a great way to learn math
 - starting from a concept, you break down the problem into distinct features
 - you look for ways to implement each feature
