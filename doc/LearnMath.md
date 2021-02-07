@@ -12,15 +12,15 @@
 # Removing Barriers in Education
 
 - the Raspberry Pi and the promise of widespread
-  affordable internet can help remove the traditional
-  barriers to higher education
+  affordable internet are helping to remove the traditional
+  barriers in education
 - unfortunately the development tools for popular
   game engines only run on high-end computers
 - in contrast, web development can be done on
   an inexpensive computer
 - the demos used in this presentation are all
-  web-based, written and tested on less powerful
-  computers
+  web-based, written and tested on a less powerful
+  computer
 
 ---
 

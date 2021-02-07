@@ -1,7 +1,7 @@
 {
     "name": "make-demo-learn-math",
     "version": "0.0.1",
-    "description": "writing a demo or simple game is a great way to learn math",
+    "description": "Writing a demo or simple game is a great way to learn math",
     "main": "index.md",
     "type": "module",
     "scripts": {
