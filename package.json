@@ -1,0 +1,20 @@
+{
+    "name": "make-demo-learn-math",
+    "version": "0.0.1",
+    "description": "writing a demo or simple game is a great way to learn math",
+    "main": "index.md",
+    "type": "module",
+    "scripts": {
+      "test": "node test/index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/make-demo-learn-math/make-demo-learn-math.github.io.git"
+    },
+    "author": "",
+    "bugs": {
+      "url": "https://github.com/make-demo-learn-math/make-demo-learn-math.github.io/issues"
+    },
+    "homepage": "https://github.com/make-demo-learn-math/make-demo-learn-math.github.io#readme"
+  }
+  
