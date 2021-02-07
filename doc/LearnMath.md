@@ -55,6 +55,8 @@ $$
 \end{aligned}
 $$
 
+![Image](Polar.png)
+
 # Smooth Transitions Between Views
 
 - want it to be realistic, i.e., representative of a real orbiting spacecraft
