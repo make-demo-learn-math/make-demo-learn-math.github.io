@@ -6,7 +6,17 @@
 - you are motivated to learn the mathematical concepts
 - this motivation tends to be intrinsic
 
+Note to self:
+Remember to include just a little bit of back story
+for each of the mathematicians attributed to the
+concepts that I present: Kepler, Hamilton,
+Marsaglia, and Shoemake.
+
 # Simple Orbit
+
+> UPDATE: Consider presenting circular motion first
+> as an example of how math can come to life
+> when you program it into a computer.
 
 - pick an orbit centred around a fictitious planet
 - Kepler's Third Law for a circular orbit:
@@ -79,3 +89,5 @@ $$
 - The axis of rotation is Euler's axis
 - ~~If we assume a uniform mass distribution,
   this is a "minimum energy" rotation~~
+
+# Random colonies on planet

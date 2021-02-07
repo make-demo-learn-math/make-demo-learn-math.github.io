@@ -11,7 +11,7 @@
 | -------------------------------- | ------------------------------------ |
 | Simple orbit                     | Kepler's third law, circular motion  |
 | Smooth transitions between views | quaternions, SLERP                   |
-| Point clusters on planet         | LCG w/seed, hypershere point picking |
+| Random colonies on planet        | LCG w/seed, hypershere point picking |
 
 ## Feature Flags
 
