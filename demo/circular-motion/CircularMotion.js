@@ -1,8 +1,8 @@
 export default class CircularMotion {
-  start(demoContext) {
-    const visualContext = demoContext.visual;
+  async start(context) {
+    const visualContext = context.visual;
     let time = 0;
-    demoContext.timer.forEachAnimationFrame((elapsedTime) => {
+    context.timer.forEachAnimationFrame((elapsedTime) => {
       const w = visualContext.canvas.width;
       const h = visualContext.canvas.height;
       const d = Math.min(w, h);

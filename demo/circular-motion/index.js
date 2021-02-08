@@ -3,17 +3,21 @@ import CircularMotion from "./CircularMotion.js";
 
 const MAIN_CANVAS_ID = "main-canvas"; // by convention
 
-let theDemoContext;
+let theContext;
 
-try {
-  theDemoContext = new DemoContext(MAIN_CANVAS_ID);
-  new CircularMotion().start(theDemoContext);
-} catch (err) {
-  if (theDemoContext) {
-    theDemoContext.close();
+const start = async (mainWindow) => {
+  try {
+    theContext = new DemoContext(MAIN_CANVAS_ID);
+    await new CircularMotion().start(theContext);
+    mainWindow.console.log("Demo started");
+  } catch (err) {
+    if (theContext) {
+      theContext.close();
+    }
+
+    mainWindow.console.error({ err }, "An unexpected error occurred");
+    mainWindow.alert(`Unexpected error: ${err.message}`);
   }
+};
 
-  const mainWindow = window;
-  mainWindow.console.error({ err }, "An unexpected error occurred");
-  mainWindow.alert(`Unexpected error: ${err.message}`);
-}
+start(window);
