@@ -1,5 +1,5 @@
 import DemoContext from "../../src/DemoContext.js";
-import CircularMotionDemo from "./CircularMotionDemo.js";
+import CircularMotion from "./CircularMotion.js";
 
 const MAIN_CANVAS_ID = "main-canvas"; // by convention
 
@@ -7,7 +7,7 @@ let theDemoContext;
 
 try {
   theDemoContext = new DemoContext(MAIN_CANVAS_ID);
-  new CircularMotionDemo().start(theDemoContext);
+  new CircularMotion().start(theDemoContext);
 } catch (err) {
   if (theDemoContext) {
     theDemoContext.close();
