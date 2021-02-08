@@ -11,7 +11,7 @@ export default class DemoContext {
   ) {
     const canvas = deps.window.document.getElementById(canvasId);
     if (!canvas) {
-      throw new Error(`No element found with ID ${canvasId}`);
+      throw new Error(`No element found with ID '${canvasId}'`);
     }
 
     this.features = new deps.Features(featureNames);
