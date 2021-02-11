@@ -2,30 +2,30 @@
 
 - Writing a demo or a small game can be a great way to learn
   some of the mathematics behind today's video games.
-- For any serious game development it's probably best to use
-  one of the existing game engines like Unity or Unreal
+- For serious game development it's likely more practical
+  to use one of the existing game engines
+  like Unity or Unreal
   which offer very high performance.
-- Using an engine or a framework often means
+- However, using one of those frameworks often means
   that some of the really interesting math
-  has been done for you
-  and while that may be practical,
-  it's still worthwhile to take a close look
-  at some of the underlying principles and their history.
+  has been done for you.
+- Writing your own small routines can give you
+  more insight into the underlying principles
+  and how they work.
 - I will share some of the topics that I've learned
   just by dabbling.
-- These algorithms look simple and yield impressive results,
-  but they are also easy to get wrong
-  which helps us to appreciate the remarkable efforts
-  of the mathematicians and computer scientists
+- These algorithms seem simple and elegant,
+  but would have involved remarkable efforts
+  by the mathematicians and computer scientists
   who first discovered them.
 
-# Some Motivation
+# Motivation
 
-Suppose we want to:
+Suppose that we want to:
 
 - Generate "random" points on a fictitious planet
   based on an initial "seed" such that
-  every player will see the same pattern
+  every player will see the exact same pattern
   given the same initial seed.
 - Transition smoothly between views of the planet
   from a satellite, giving the illusion of inertia
