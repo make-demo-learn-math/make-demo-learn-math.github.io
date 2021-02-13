@@ -70,6 +70,7 @@
   many of them require 64-bit (long) integer types
   which JavaScript does not natively support
 - it so happens that the values recommended by Park-Miller
+  ("MINSTD" with revised multipler value)
   fit nicely within the limitations of JavaScript's number representation
 - [JavaScript code for my Pseudorandom class]
 
@@ -164,3 +165,4 @@
 - Used for character animation (Shoemake), robotics,
   spacecraft attitude control, RMSD bioinformatics, etc.
 - As we might expect, LERP is a very good approximation
+- [include link to interactive demo]
