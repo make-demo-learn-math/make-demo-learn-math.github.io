@@ -40,12 +40,14 @@
   - Generating random numbers
   - Mapping random numbers to points on a planet
 - JavaScript's `Math.random()` has no way to set the seed
-  so let's take a brief look at random number generators
+  so let's look at random number generators
 
-# Poll #1: Vote for the most random-looking
+# Poll #1: Vote for the most random sequence
 
-- Which sequence below do **you** think is the most random-looking?
-  = [call them sequence "A" and sequence "B"]
+- Which sequence do **you** think is the most random-looking?
+  1. Sequence "A": [...`(3 * x) % 31`...]
+  1. Sequence "B": [...`(13 * x) % 31`...]
+  1. They seem equally random
 - [Insert output from `(3 * x) % 31` and `(13 * x) % 31`
   starting from a common seed chosen to make both sequences
   appear equally random]
@@ -54,21 +56,21 @@
 
 - Reveal the formulae used to generate the two sequences
 - Show their respective spectral tests
-- Now the choice is more obvious: "B" is more random
-- Testing for randomness is hard
+- These plots help us realize that "B" is more random than "A"
+- Takeaway: testing for randomness is hard
 - Marsaglia's tests for randomness
 
 # Pseudorandom number generators
 
-- Both sequences used the same expression
+- Both sequences used the same expression (called LCG)
   but with different multiplier values
-- The key is in picking suitable values to
-  produce sufficient randomness in the output
+- The key is in picking a suitable multiplier
+  and modulus to produce sufficient randomness in the output
 - There's a table of the values in common use, but
   many of them require 64-bit (long) integer types
   which JavaScript does not natively support
-- Park-Miller selected values which fit within
-  the limitations of JavaScript's number representation
+- it so happens that the values recommended by Park-Miller
+  fit nicely within the limitations of JavaScript's number representation
 - [JavaScript code for my Pseudorandom class]
 
 # Mapping numbers to points on a sphere
@@ -97,25 +99,28 @@
 
 # Poll #2: Vote for the most natural rotation
 
-- One "before" diagram with a camera pointing right,
-  and one "after" diagram with a camera pointing up
-- There are many possibilities for the rotation
-  which explains this result
-- Which rotation below do **you** think in the most natural?
-- [Show choices of 270 degrees clockwise, 90 degrees counter-clockwise,
-  450 degrees counter-clockwise]
+- [Insert one "Before" diagram with a camera pointing right,
+  and one "After" diagram with a camera pointing up]
+- There are many possible angles which can rotate the "Before"
+  view to the "After" view
+- Which one do you think in the most natural (assuming
+  that these represent camera views in a game)?
+  1. 270 degrees clockwise
+  1. 90 degrees counter-clockwise
+  1. I'm getting dizzy now
 
 # Shortest arc rotations
 
-- In our case we are interested in the shortest arc
-  (or shortest path)
-- I.e., 90 degrees counter-clockwise in this case
+- For camera transitions in games and simulations,
+  we are generally interested in the shortest arc
+  (a.k.a. shortest path)
+- So 90 degrees counter-clockwise in this example
 - Given two arbitrary camera orientations,
   the angle of shortest arc between them
-  will be between -180 and +180 degrees
-- Let's compare two methods to represent this:
-  1. Using the angle itself
-  1. Using the sine and cosine of the angle
+  will always be between -180 and +180 degrees
+- We can represent these rotations using either:
+  1. The angle itself
+  1. The sine and cosine of the angle
 
 # Method 1: Using the angle itself
 
