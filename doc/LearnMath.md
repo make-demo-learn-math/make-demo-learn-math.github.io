@@ -71,7 +71,7 @@
 
 # Shortest Arc Rotations in 2D
 
-- For our game, we are interested in the shortest arc
+- In our case we are interested in the shortest arc
   (or shortest path)
 - I.e., 90 degrees counter-clockwise in this case
 - Given two arbitrary camera orientations,
@@ -94,9 +94,9 @@
 - Cosine and sine of the angle
 - Constraint of unit length
 - [Insert JavaScript class with sum, double, halve, etc.]
-- Interpolation (SLERP)
-- LERP is a poor approximation
-- Is there some way to improve that approximation?
+- Interpolation (SLERP) (Shoemake)
+- LERP is a poor approximation above 90 degrees
+- Is there some way to improve that?
 
 # Method 2(b): Sine and cosine of half the angle
 
@@ -106,15 +106,20 @@
 - A "double cover"
 - Use the double angle formula to recover the original pair
 - LERP is now a very good approximation
-- This is a 2D unit quaternion
+- This is a essentially 2D unit quaternion
 - It's now just a small leap from 2D to 3D
 
-# Unit Quaternions
+# Quaternion SLERP
 
-- [Quaternion brief history; unit quaternion for rotations]
+- [Quaternion brief history, Hamilton, unit quaternion
+  as a point on the unit hypersphere and
+  for Euler rotations, Euler parameters, advantages
+  over three-parameter representations]
 - One parameter is cosine of half the angle as before,
   the other three come from scaling the axis vector
   by sine of half the angle
 - Quaternion SLERP (endpoints are unit length, result is
   unit length)
+- Used for character animation (Shoemake), robotics,
+  spacecraft attitude control, RMSD bioinformatics, etc.
 - As we might expect, LERP is a very good approximation
