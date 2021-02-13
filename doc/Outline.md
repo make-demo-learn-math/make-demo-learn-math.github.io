@@ -134,14 +134,16 @@ Suppose that we want to:
 
 # Summary (Description)
 
-Writing a even a small game can be a great way to learn some very interesting math.
-I will share some of the topics that I've learned myself
+Writing even a small game can be a great way
+to learn math.
+I will share the topics that I've learned myself
 just by dabbling.
-To provide motivation, we start with a description of
-two features in a hypothetical game.
+To provide motivation, we start with a description
+of two features in a hypothetical game.
 By the end of the presentation
-we will have an appreciation for some of the math
+developers and non-developers alike
+will have an appreciation for some of the math
 used in video games.
-Takeaways include a seedable pseudorandom number generator
-in JavaScript
+Takeaways include a seedable pseudorandom
+number generator in JavaScript
 and a fast approximation to quaternion SLERP.
