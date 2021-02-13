@@ -84,6 +84,13 @@ Suppose that we want to:
   - It's actually easier to start by looking at the problem
     in 2D first.
   - Then the leap from 2D to 3D is small enough to manage.
+- Poll: Rotation angle
+  - Figure 1 is original shape
+  - Figure 2 is the same shape rotated 135 degrees counter-clockwise
+  - What is the rotation angle in degrees: 135, -225, 495?
+  - Those are all correct
+  - For our purposes will will consider [-180,180) only
+    so 135 in this example
 - 2D rotations
   - just the principal angle (i.e., we are not keeping track
     of how many times the object has turned)
@@ -95,9 +102,8 @@ Suppose that we want to:
   - Double the rotation
   - Composition
   - Halve the rotation (note the trick for method 2)
+  - Average the rotation (note the trick for method 2)
   - Integration
-- Pop Quiz: Average of two rotations (method of your choice)
-  - note the trick for method 2
 - Interpolation between two rotations
   - scalar LERP
   - 2D SLERP and the difficulty implementing it
@@ -125,3 +131,17 @@ Suppose that we want to:
     bioinformatics for measuring RMSD, etc.
   - further reading: unit dual quaternion for representing
     rotation AND translation (a.k.a. rigid motion)
+
+# Summary (Description)
+
+Writing a even a small game can be a great way to learn some very interesting math.
+I will share some of the topics that I've learned myself
+just by dabbling.
+To provide motivation, we start with a description of
+two features in a hypothetical game.
+By the end of the presentation
+we will have an appreciation for some of the math
+used in video games.
+Takeaways include a seedable pseudorandom number generator
+in JavaScript
+and a fast approximation to quaternion SLERP.
