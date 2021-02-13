@@ -1,7 +1,6 @@
 export default class CircularMotion {
   async start(context) {
     const visualContext = context.visual;
-    let time = 0;
     context.timer.forEachAnimationFrame((elapsedTime) => {
       const w = visualContext.canvas.width;
       const h = visualContext.canvas.height;
@@ -11,13 +10,11 @@ export default class CircularMotion {
       visualContext.scale(d / 2, -d / 2);
       visualContext.beginPath();
 
-      visualContext.arc(0, Math.sin(time), 0.01, 0, 2 * Math.PI);
-      visualContext.arc(Math.cos(time), 0, 0.01, 0, 2 * Math.PI);
+      const time = Date.now() / 1000;
       visualContext.arc(Math.cos(time), Math.sin(time), 0.01, 0, 2 * Math.PI);
 
       visualContext.restore();
       visualContext.stroke();
-      time += elapsedTime;
     });
   }
 }
