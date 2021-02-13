@@ -73,6 +73,7 @@ Suppose that we want to:
   - homework: suppose we want to generate random colonies
     on the plant (not just lat and long, but also heading);
     hint: hypersphere point picking
+  - CUE share link to live demo
 - Feature 2: Smooth 3D camera transitions
   - Suppose that we want to transition smoothly
     between views of the planet from a satellite,
@@ -131,6 +132,7 @@ Suppose that we want to:
     bioinformatics for measuring RMSD, etc.
   - further reading: unit dual quaternion for representing
     rotation AND translation (a.k.a. rigid motion)
+  - CUE (re-)share link to live demo
 
 # Summary (Description)
 
