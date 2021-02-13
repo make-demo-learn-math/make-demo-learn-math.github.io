@@ -106,8 +106,8 @@
   view to the "After" view
 - Which one do you think in the most natural (assuming
   that these represent camera views in a game)?
-  1. 270 degrees clockwise
   1. 90 degrees counter-clockwise
+  1. 270 degrees clockwise
   1. I'm getting dizzy now
 
 # Shortest arc rotations
