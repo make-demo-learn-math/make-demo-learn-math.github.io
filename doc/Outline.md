@@ -136,10 +136,10 @@ Suppose that we want to:
 
 Writing even a small game can be a great way
 to learn math.
-I will share the topics that I've learned myself
+I will share topics that I've learned myself
 just by dabbling.
-To provide motivation, we start with a description
-of two features in a hypothetical game.
+Starting with two features in a hypothetical game,
+I will show how math can be interesting and interactive.
 By the end of the presentation
 developers and non-developers alike
 will have an appreciation for some of the math
