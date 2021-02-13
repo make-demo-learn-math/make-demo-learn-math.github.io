@@ -14,6 +14,7 @@
 # Poll #1: Vote for the most random-looking
 
 - Which sequence below do **you** think is the most random-looking?
+  = [call them sequence "A" and sequence "B"]
 - [Insert output from `(3 * x) % 31` and `(13 * x) % 31`
   starting from a common seed chosen to make both sequences
   appear equally random]
@@ -22,7 +23,7 @@
 
 - Reveal the formulae used to generate the two sequences
 - Show their respective spectral tests
-- Now the choice is more obvious
+- Now the choice is more obvious: "B" is more random
 - Testing for randomness is hard
 - Marsaglia's tests for randomness
 
@@ -69,7 +70,7 @@
 - [Show choices of 270 degrees clockwise, 90 degrees counter-clockwise,
   450 degrees counter-clockwise]
 
-# Shortest Arc Rotations in 2D
+# Shortest arc rotations
 
 - In our case we are interested in the shortest arc
   (or shortest path)
