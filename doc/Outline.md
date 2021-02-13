@@ -41,19 +41,87 @@ Suppose that we want to:
 # Slides
 
 - Feature 1: Random points on a planet
+  - Suppose that we want to generate "random" points
+    on a fictitious planet based on an initial "seed"
+    such that every player will see the exact same pattern
+    given the same initial seed
+  - Break this down into:
+    1. Generate a sequence of numbers from a given seed
+    1. Map those numbers to points on a sphere
 - What is "random"?
-- Poll: Which sequence below has the most randomness?
-- Testing for randomness
+  - We want to generate a repeatable sequence that
+    looks random, but will be exactly the same for each player
+    based on an initial seed value
+  - We want "pseudorandom": looks random but is deterministic
+  - What does it mean to "look random"?
+  - Some degree of "randomness"
+- Poll: Which of these sequences has the most randomness?
+  - A few sequences to choose from, all with the same uniform distribution
+    but in a different order (one is just in ascending order, the others
+    look more random, but only one passes the spectral test)
+- Measuring randomness
+  - Marsaglia's suite of tests
 - Pseudorandom number generators
+  - LCG
+  - Values in use but many require long ints to compute
+  - JavaScript: no long ints, and `Math.random()` cannot be seeded
 - A seedable generator in JavaScript
+  - Park-Miller
+  - code
 - Point picking
+  - Marsaglia (again)
+  - homework: suppose we want to generate random colonies
+    on the plant (not just lat and long, but also heading);
+    hint: hypersphere point picking
 - Feature 2: Smooth 3D camera transitions
-- Rotations in 2D
-- Poll: after 360 degrees... (can't make it physical due to non-rigidity etc.): true or false?
-- Representing 2D rotations (angle vs sine and cosine i.e., point in unit circle)
-- Comparison...
-- planar SLERP (yes!)
-- Introduce double cover
-- planar LERP as a good approximation
-- now just a small leap to unit quaternions (i.e., mult sine by axis vector!)
-- Quaternions follow easily constraint mgmt, dbl cover, LERP, SLERP
+  - Suppose that we want to transition smoothly
+    between views of the planet from a satellite,
+    giving the illusion of inertia
+    without the need to simulate any real physics.
+  - Break this down into:
+    1. Find a suitable way to represent rotations
+    1. Find a way to smoothly transition between rotations
+  - It's actually easier to start by looking at the problem
+    in 2D first.
+  - Then the leap from 2D to 3D is small enough to manage.
+- 2D rotations
+  - just the principal angle (i.e., we are not keeping track
+    of how many times the object has turned)
+  - There are many ways to represent rotations
+    but the two methods that we will look at are:
+    1. Principal angle (in degrees or radians for example)
+    1. Point on the unit circle (x, y) = (cos(theta), sin(theta))
+- Comparing the two methods
+  - Double the rotation
+  - Composition
+  - Halve the rotation (note the trick for method 2)
+  - Integration
+- Pop Quiz: Average of two rotations (method of your choice)
+  - note the trick for method 2
+- Interpolation between two rotations
+  - scalar LERP
+  - 2D SLERP and the difficulty implementing it
+  - is there a simpler, fast approximation?
+  - NLERP is simple but poor (and numerically unstable near 180 deg)
+- Double cover
+  - cos(theta/2), sin(theta/2)
+  - now we have greatly improved NLERP as a fast approximation to SLERP
+  - recover via double-angle formula, etc.
+- 3D rotations
+  - Euler rotation theorem
+  - history: the quest for a 3D version of complex numbers
+  - Hamilton and his inscription on the bridge in Scotland
+  - unit quaternion => point on the surface of the 3-sphere
+  - representations with 3 parameters and the unavoidable singularity
+  - using a unit quaternion is equivalent to something called Euler
+    parameters, and avoids the singularity (but also has other advantages)
+  - to represent a 3D rotation, we use cos(theta/2) as the first parameter
+    and sin(theta/2)\*a where a is the unit vector of the axis of rotation
+    as the last 3 parameters
+- Quaternion SLERP
+  - as with our 2D method, LERP is a good approximation
+  - used in character animation for body joints, robotics
+    for mechanical joints, aerospace for attitude control,
+    bioinformatics for measuring RMSD, etc.
+  - further reading: unit dual quaternion for representing
+    rotation AND translation (a.k.a. rigid motion)
