@@ -78,6 +78,11 @@ Suppose that we want to:
   - We want to generate a repeatable sequence that
     looks random, but will be exactly the same for each player
     based on an initial seed value
+  - not really "random", but "pseudo random" based on a seed value
+  - a different seed value will generate a completely
+    different universe
+  - every player with the same seed value will see the same
+    universe
   - We want "pseudorandom": looks random but is deterministic
   - What does it mean to "look random"?
   - Some degree of "randomness"
@@ -91,6 +96,16 @@ Suppose that we want to:
   - LCG (Knuth et al)
   - Values in use but many require long ints to compute
   - JavaScript: no long ints, and `Math.random()` cannot be seeded
+  - Linear Congruential Generator
+  - simple algorithm but picking suitable values
+    is very difficult (and also very difficult to test)
+  - Marsaglia's famous test suite for randomness
+  - JavaScript's built-in `Math.random()` does not allow
+    you to set the seed
+  - the other problem is that numbers in JavaScript
+    as 64-bit double-precision floating-point numbers
+    (no 64-bit integer type built-in)
+  - after a bit of digging: Park-Miller (show code)
 - A seedable generator in JavaScript
   - Park-Miller
   - code
@@ -133,8 +148,9 @@ Suppose that we want to:
   - Average the rotation (note the trick for method 2)
   - Integration
 - Interpolation between two rotations
-  - scalar LERP
-  - 2D SLERP and the difficulty implementing it
+  - scalar LERP ((L)iner Int(erp)olation)
+  - 2D SLERP ((S)pherical (L)iner Int(erp)olation)
+    and the difficulty implementing it
   - is there a simpler, fast approximation?
   - NLERP is simple but poor (and numerically unstable near 180 deg)
 - Double cover
@@ -142,7 +158,8 @@ Suppose that we want to:
   - now we have greatly improved NLERP as a fast approximation to SLERP
   - recover via double-angle formula, etc.
 - 3D rotations
-  - Euler rotation theorem
+  - Euler rotation theorem (any 3D rotation can be expressed
+    as a single rotation about a fixed axis)
   - history: the quest for a 3D version of complex numbers
   - Hamilton and his inscription on the bridge in Scotland
   - unit quaternion => point on the surface of the 3-sphere
@@ -154,6 +171,8 @@ Suppose that we want to:
     as the last 3 parameters
 - Quaternion SLERP
   - as with our 2D method, LERP is a good approximation
+  - both SLERP and LERP take the path of "minimum energy"
+    which is exactly what we want for a spacecraft simulation!
   - used in character animation for body joints (Shoemake), robotics
     for mechanical joints, aerospace for attitude control,
     bioinformatics for measuring RMSD, etc.
@@ -162,6 +181,11 @@ Suppose that we want to:
     also used in character animation (Kavan et al)
     and robotics
   - CUE (re-)share link to live demo
+
+# About this project
+
+- This presentation and its code samples are in GitHub
+  at [make-demo-learn-math](https://make-demo-learn-math.github.io/)
 
 # Summary (Description)
 
