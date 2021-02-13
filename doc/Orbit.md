@@ -11,12 +11,12 @@ $$
 \end{aligned}
 $$
 
-- where:
-
-  - $T$ is the orbital period
-  - $R$ is the radius of the circular orbit
-  - $G$ is the gravitational constant
-  - $M$ is the mass of the planet
+> where:
+>
+> - $T$ is the orbital period
+> - $R$ is the radius of the circular orbit
+> - $G$ is the gravitational constant
+> - $M$ is the mass of the planet
 
 - For relatively low altitude (160km):
 
@@ -46,5 +46,3 @@ $$
   R\sin(\tfrac{2\pi}{T}t) \\
 \end{aligned}
 $$
-
-![Image](Polar.png)

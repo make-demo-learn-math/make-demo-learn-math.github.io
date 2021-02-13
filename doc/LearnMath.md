@@ -1,60 +1,49 @@
-# Smooth Transitions Between Views
+# Introduction
 
-- want it to be realistic, i.e., representative of a real orbiting spacecraft
-- to that end, the transition should take the path of "minimum energy"
+# Why JavaScript?
 
-## Euler's rotation theorem
+# Feature #1: Random points on a planet
 
-> In three-dimensional space, any displacement
-> of a rigid body such that a point on the rigid body
-> remains fixed, is equivalent to
-> a single rotation about some axis
-> that runs through the fixed point
+- Suppose that we want to ...
+- Break this down into two steps:
+  - Generating random numbers
+  - Mapping random numbers to points on a planet
+- JavaScript's `Math.random()` has no way to set the seed
+  so we will take a brief look at random number generators
 
-- Any 3D rotation can be expressed as a single rotation about a fixed axis
+# Poll #1: The most random-looking sequence
 
-## SLERP
+- Vote for which sequence below is the most random-looking
+- [Insert output from `(3 * x) % 31` and `(13 * x) % 31`
+  starting from a common seed chosen to make both sequences
+  appear equally random]
 
-- (S)pherical (L)iner Int(erp)olation
-- A smooth interpolation between 2 rotations
-- The axis of rotation is Euler's axis
-- ~~If we assume a uniform mass distribution,
-  this is a "minimum energy" rotation~~
+# The spectral test for randomness
 
-# Random colonies on planet
+- Reveal the formulae used to generate the two sequences
+- Show their respective spectral tests
+- Now the choice is more obvious
+- Testing for randomness is actually very difficult
+- Marsaglia
 
-- we want the locations to appear random,
-  but we want every player to see the same world
-- not really "random", but "pseudo random" based on a seed value
-- a different seed value will generate a completely
-  different universe
-- every player with the same seed value will see the same
-  universe
+# Pseudorandom number generators
 
-- Linear Congruential Generator
-- simple algorithm but picking suitable values
-  is very difficult (and also very difficult to test)
-- Marsaglia's famous test suite for randomness
-- JavaScript's built-in `Math.random()` does not allow
-  you to set the seed
-- the other problem is that numbers in JavaScript
-  as 64-bit double-precision floating-point numbers
-  (no 64-bit integer type built-in)
-- after a bit of digging: Park-Miller (show code)
+- Both sequences used the same expression
+  but with different multiplier values
+- The key is in picking suitable values to
+  produce sufficient randomness in the output
+- There's a table of the values in common use, but
+  many of them require 64-bit (long) integer types
+  which JavaScript does not natively support
+- Park-Miller selected values that fit within
+  the limitations of JavaScript's number representation
+- [JavaScript code for my Pseudorandom class]
 
-- now, how do we scatter the colonies
-  evenly over the planet?
+# Feature #2: Smooth transitions between views
 
-- sphere point picking (Marsaglia)
-- but we also want to orient them randomly
-- hypersphere point picking, quaternion rotation
+- Suppose that we want to ...
+- Break this down into two steps:
+  - Smooth transitions in 2D
+  - Smooth transitions in 3D
 
-Note to self: For the floating-point "seed" needed
-to generate the stars using the `mash` function,
-just call `Pseudorandom.nextScalar()`
-which is included in the demo context.
-
-# About this project
-
-- This presentation and its code samples are in GitHub
-  at [make-demo-learn-math](https://make-demo-learn-math.github.io/)
+# Poll #2: The most natural rotation between views
