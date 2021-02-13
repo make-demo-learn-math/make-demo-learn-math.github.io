@@ -85,5 +85,36 @@
 
 - A single parameter which is the angle itself,
   always kept in the valid range -180 to 180 degrees
+- [Insert JavaScript class with sum, double, halve, etc.]
+- Interpolation
 
-#
+# Method 2(a): Using sine and cosine of the angle
+
+- Two parameters representing a point on the unit circle
+- Cosine and sine of the angle
+- Constraint of unit length
+- [Insert JavaScript class with sum, double, halve, etc.]
+- Interpolation (SLERP)
+- LERP is a poor approximation
+- Is there some way to improve that approximation?
+
+# Method 2(b): Sine and cosine of half the angle
+
+- Still a point on the unit circle,
+  but now **half** the angle
+- I.e., cosine and sine of half of the angle
+- A "double cover"
+- Use the double angle formula to recover the original pair
+- LERP is now a very good approximation
+- This is a 2D unit quaternion
+- It's now just a small leap from 2D to 3D
+
+# Unit Quaternions
+
+- [Quaternion brief history; unit quaternion for rotations]
+- One parameter is cosine of half the angle as before,
+  the other three come from scaling the axis vector
+  by sine of half the angle
+- Quaternion SLERP (endpoints are unit length, result is
+  unit length)
+- As we might expect, LERP is a very good approximation
