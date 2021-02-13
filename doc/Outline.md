@@ -40,6 +40,32 @@ Suppose that we want to:
 
 # Slides
 
+- Is Writing a Game a Good Way to Learn Math?
+  - Writing a demo or a small game can be a great way to learn
+    some of the mathematics behind today's video games.
+  - I will share some of the topics that I've learned
+    just by dabbling.
+  - The algorithms themselves look simple and elegant.
+  - When you understand the problems that they solve,
+    you begin to appreciate the remarkable efforts
+    by the mathematicians and computer scientists
+    who first discovered them.
+- Why JavaScript?
+  - For serious game development it's likely more practical
+    to use one of the existing game engines
+    like Unity or Unreal
+    which offer very high performance.
+  - However, using one of those frameworks often means
+    that some of the really interesting math
+    has been done for you.
+  - Writing your own small routines can give you
+    more insight into the underlying principles
+    and how they work.
+  - I also believe in removing barriers to education.
+  - Unfortunately the development tools for popular
+    game engines only run on high-end computers
+  - In contrast, web development can be done on
+    an inexpensive computer
 - Feature 1: Random points on a planet
   - Suppose that we want to generate "random" points
     on a fictitious planet based on an initial "seed"
@@ -62,7 +88,7 @@ Suppose that we want to:
 - Measuring randomness
   - Marsaglia's suite of tests
 - Pseudorandom number generators
-  - LCG
+  - LCG (Knuth et al)
   - Values in use but many require long ints to compute
   - JavaScript: no long ints, and `Math.random()` cannot be seeded
 - A seedable generator in JavaScript
@@ -92,9 +118,10 @@ Suppose that we want to:
   - Those are all correct
   - For our purposes will will consider [-180,180) only
     so 135 in this example
+  - just the principal angle but in [-180,180)]
+  - i.e., we are not keeping track
+    of how many times the object has turned
 - 2D rotations
-  - just the principal angle (i.e., we are not keeping track
-    of how many times the object has turned)
   - There are many ways to represent rotations
     but the two methods that we will look at are:
     1. Principal angle (in degrees or radians for example)
@@ -127,11 +154,13 @@ Suppose that we want to:
     as the last 3 parameters
 - Quaternion SLERP
   - as with our 2D method, LERP is a good approximation
-  - used in character animation for body joints, robotics
+  - used in character animation for body joints (Shoemake), robotics
     for mechanical joints, aerospace for attitude control,
     bioinformatics for measuring RMSD, etc.
   - further reading: unit dual quaternion for representing
     rotation AND translation (a.k.a. rigid motion)
+    also used in character animation (Kavan et al)
+    and robotics
   - CUE (re-)share link to live demo
 
 # Summary (Description)
