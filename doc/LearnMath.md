@@ -1,6 +1,34 @@
 # Introduction
 
-# Why JavaScript?
+- Writing a demo or a small game can be a great way to learn
+  some of the mathematics behind today's video games
+- I will share a few topics that I've learned
+  just by dabbling
+- The algorithms themselves look simple and elegant
+  but the problems that they solve are formidable
+  and the efforts by the mathematicians and
+  computer scientists who first discovered them
+  are remarkable
+- For motivation, I will describe two features in
+  a hypothetical game:
+  1. Random points on a fictitious planet
+  1. Smooth camera transitions between views
+
+# Why web?
+
+- For serious game development the practical choice
+  is to use one of the popular game engines
+  like Unity or Unreal
+  which offer very high performance
+  and a rich set of APIs
+- However that tends to shield you from the underlying math
+  which, I think, is the really interesting stuff
+- That also requires an expensive computer
+  with a high-end graphics card
+- In contrast, writing your own small routines
+  in something like JavaScript can give you
+  more insight into the underlying math
+  and can be done on an inexpensive computer
 
 # Feature #1: Random points on a planet
 
