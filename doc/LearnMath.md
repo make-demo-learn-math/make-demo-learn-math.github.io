@@ -32,7 +32,10 @@
 
 # Feature #1: Random points on a planet
 
-- Suppose that we want to ...
+- Suppose that we want to generate "random" points
+  on a fictitious planet based on an initial "seed"
+  such that every player will see the exact same pattern
+  given the same initial seed
 - Break this down into two steps:
   - Generating random numbers
   - Mapping random numbers to points on a planet
@@ -83,10 +86,14 @@
 
 # Feature #2: Smooth transitions between views
 
-- Suppose that we want to ...
-- Break this down into two steps:
-  - Smooth transitions in 2D
-  - Smooth transitions in 3D
+- Suppose that we want to transition smoothly
+  between views of the planet from a satellite,
+  giving the illusion of inertia
+  without the need to simulate any real physics
+- Start with 2D
+- Each view is represented by a rotation angle
+- Find a way to smoothly transition between views
+- The leap from 2D to 3D is then an easy one
 
 # Poll #2: Vote for the most natural rotation
 
