@@ -26,9 +26,10 @@
 - That also requires an expensive computer
   with a high-end graphics card
 - In contrast, writing your own small routines
-  in something like JavaScript can give you
+  in JavaScript can give you
   more insight into the underlying math
   and can be done on an inexpensive computer
+- Just don't expect high performance :-)
 
 # Feature #1: Random points on a planet
 
@@ -37,10 +38,11 @@
   such that every player will see the exact same pattern
   given the same initial seed
 - Break this down into two steps:
-  - Generating random numbers
+  - Generating random numbers from a seed
   - Mapping random numbers to points on a planet
 - JavaScript's `Math.random()` has no way to set the seed
-  so let's look at random number generators
+  so let's look at how random number generators work
+- What is "random"?
 
 # Poll #1: Vote for the most random sequence
 
@@ -56,7 +58,7 @@
 
 - Reveal the formulae used to generate the two sequences
 - Show their respective spectral tests
-- These plots help us realize that "B" is more random than "A"
+- These plots help us visualize how "B" is more random than "A"
 - Takeaway: testing for randomness is hard
 - Marsaglia's tests for randomness
 
@@ -66,6 +68,9 @@
   but with different multiplier values
 - The key is in picking a suitable multiplier
   and modulus to produce sufficient randomness in the output
+- In our example, note that a seed of zero is catastrophic
+  but since the modulus is a prime number
+  we will never get an output of zero for a non-zero input
 - There's a table of the values in common use, but
   many of them require 64-bit (long) integer types
   which JavaScript does not natively support
@@ -77,7 +82,7 @@
 # Mapping numbers to points on a sphere
 
 - Given a source of random numbers,
-  there are many ways to map them onto the surface
+  there are several ways to map them onto the surface
   of a planet (or sphere):
   1. Take each triplet as a 3D vector and
      normalize it [not uniform unless you reject
@@ -94,76 +99,146 @@
   giving the illusion of inertia
   without the need to simulate any real physics
 - Start with 2D
-- Each view is represented by a rotation angle
-- Find a way to smoothly transition between views
-- The leap from 2D to 3D is then an easy one
+- Learn how to transition between views in 2D
+- Then, the leap to 3D is relatively easy
 
-# Poll #2: Vote for the most natural rotation
+# What is a view?
 
-- [Insert one "Before" diagram with a camera pointing right,
-  and one "After" diagram with a camera pointing up]
-- There are many possible angles which can rotate the "Before"
-  view to the "After" view
-- Which one do you think in the most natural (assuming
-  that these represent camera views in a game)?
-  1. 90 degrees counter-clockwise
-  1. 270 degrees clockwise
-  1. I'm getting dizzy now
+- For this feature, the camera is fixed
+  to a satellite which is orbiting the planet
+- Assume the orbit is stable
+- We can rotate the satellite
+  to view some distant point
+  called $p$,
+  the point of interest
+- [Insert diagram with 2D camera at the origin
+  and a point of interest on a surrounding circle]
+
+# Poll #2: Which path would you choose?
+
+- [Insert a diagram with two points on a circle,
+  $p_1$ and $p_2$,
+  where $p_2$ is 90 degrees counter-clockwise
+  from $p_1$]
+- Suppose we have two points of interest, $p_1$
+  and $p_2$
+- We call $p_1$ the "from" point
+- We call $p_2$ the "to" point
+- We want a smooth transition from $p_1$ to $p_2$
+- There are many possible rotations from $p_1$ to $p_2$
+- Which of the following would you take?
+  1. 90 degrees counter-clockwise (because it's shorter)
+  1. 270 degrees clockwise (because I need the exercise)
+  1. Other (because it's late and I'm getting dizzy)
 
 # Shortest arc rotations
 
 - For camera transitions in games and simulations,
   we are generally interested in the shortest arc
-  (a.k.a. shortest path)
-- So 90 degrees counter-clockwise in this example
-- Given two arbitrary camera orientations,
-  the angle of shortest arc between them
+  (90 degrees counter-clockwise in our example)
+- Given any two endpoints
+  the shortest arc rotation from $p_1$ to $p_2$
   will always be between -180 and +180 degrees
-- We can represent these rotations using either:
-  1. The angle itself $\theta$
-  1. The sine and cosine of the angle $q$
+- Let's look at two possible representations:
+  1. Using angles $\theta_1$ and $\theta_2$
+  1. Using unit vectors $\hat{p}_1$ and $\hat{p}_2$
 
-# Method 1: Using the angle itself
+# Using angles
 
-- A single parameter which is the angle itself,
-  always kept in the valid range -180 to 180 degrees
-- [Insert JavaScript class with sum, double, halve, etc.]
-- Interpolation
+- [Insert a diagram with points $p_1$ and $p_2$
+  as before,
+  but also now their angles $\theta_1$ and $\theta_2$]
+- At first glance, it seems like we can just interpolate
+  from $\theta_1$
+  to $\theta_2$:
 
-# Method 2(a): Using sine and cosine of the angle
+$$
+\begin{aligned}
+  \theta
+  &=
+  \theta_1 + t(\theta_2-\theta_1) \\
+  &=
+  (1-t)\theta_1 + t\theta_2 \\
+\end{aligned}
+$$
 
-- Two parameters representing a point on the unit circle
-- Cosine and sine of the angle
-- Constraint of unit length
-- [Insert JavaScript class with sum, double, halve, etc.]
-- Interpolation (SLERP) (Shoemake)
-- LERP is a poor approximation above 90 degrees
-- Is there some way to improve that?
+- where $t$ goes from $0$ to $1$
+- At $t=0$ we get $\theta=\theta_1$
+  which represents the first endpoint ("from")
+- At $t=1$ we get $\theta=\theta_2$
+  which represents the second endpoint ("to")
+- The problem is that we won't always get the shortest arc
+  with this approach
 
-# Method 2(b): Sine and cosine of half the angle
+# Using unit vectors
 
-- Still a point on the unit circle,
-  but now **half** the angle
-- I.e., cosine and sine of half of the angle
-- A "double cover"
-- Use the double angle formula to recover the original pair
-- LERP is now a very good approximation
-- This is a essentially 2D unit quaternion
-- It's now just a small leap from 2D to 3D
+- [Insert a diagram with points $\hat{p}_1$ and $\hat{p}_2$
+  as before but on the **unit** circle]
+- As we did on the previous page, let's try to interpolate
+  from $\hat{p}_1$
+  to $\hat{p}_2$
 
-# Quaternion SLERP
+$$
+\begin{aligned}
+  \hat{p}
+  &=
+  \operatorname{normalize}\{
+    \hat{p}_1+t(\hat{p}_2-\hat{p}_1)
+    \} \\
+  &=
+  \operatorname{normalize}\{
+    (1-t)\hat{p}_1+t\hat{p}_2
+    \} \\
+\end{aligned}
+$$
 
-- [Quaternion brief history, Hamilton, unit quaternion
-  as a point on the unit hypersphere and
-  for Euler rotations, Euler parameters, advantages
-  over three-parameter representations]
+- Now we get the shortest arc
+  but still have problems:
+  1. $\hat{p}$ passes through zero if $\hat{p}_1=-\hat{p}_2$
+  1. The angular velocity is not constant
+- We can solve the first problem
+  using spherical linear interpolation
+  or "SLERP" (Shoemake):
+
+$$
+\begin{aligned}
+  \hat{p}
+  &=
+  \frac{\sin[(1-t)\phi]}{\sin\phi}\hat{p}_1
+  +\frac{\sin(t\phi)}{\sin\phi}\hat{p}_2 \\
+\end{aligned}
+$$
+
+- where $\cos\phi=\hat{p}_1\cdot\hat{p}_2$
+- ...unit length output for unit length inputs,
+  constant velocity,
+  but tricky to implement due to inverse trig
+  and the singularity at $\phi=0$
+
+# Double cover
+
+- ...still unit vectors but now **half** the angle...
+- ...use the double angle formula to recover the original...
+- ...negate one endpoint if $\cos\phi<0$...
+- ...solves first problem since the endpoints
+  are never more than 90 deg apart...
+- ...also gives us a very good approximation to SLERP
+  without the inverse trig or the singularity...
+- This is are essentially unit quaternion in 2D...
+  and it's now just a small leap to 3D
+
+# Unit quaternions and 3D rotations
+
+- [Quaternion brief history, Hamilton, special relativity]
+- [unit quaternion as a point on the unit hypersphere,
+  Euler rotations, Euler parameters, advantages
+  over three-parameter representations,
+  used for character animation Shoemake,
+  spacecraft attitude control,
+  robotics, and RMSD in bioinformatics]
 - One parameter is cosine of half the angle as before,
   the other three come from scaling the axis vector
   by sine of half the angle
 - Quaternion SLERP (endpoints are unit length, result is
   unit length)
-- Used for character animation (Shoemake), robotics,
-  spacecraft attitude control, RMSD bioinformatics, etc.
-  even special relativity (WAIT: QUATERNIONS VS. SLERP careful!)
-- As we might expect, LERP is a very good approximation
 - [include link to interactive demo]
