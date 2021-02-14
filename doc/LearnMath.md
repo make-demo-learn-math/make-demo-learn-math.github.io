@@ -198,7 +198,7 @@ $$
   1. The angular velocity is not constant
 - We can solve the first problem
   using spherical linear interpolation
-  or "SLERP" (Shoemake):
+  or "Slerp" (Shoemake):
 
 $$
 \begin{aligned}
@@ -222,7 +222,7 @@ $$
 - ...negate one endpoint if $\cos\phi<0$...
 - ...solves first problem since the endpoints
   are never more than 90 deg apart...
-- ...also gives us a very good approximation to SLERP
+- ...also gives us a very good approximation to Slerp
   without the inverse trig or the singularity...
 - This is are essentially unit quaternion in 2D...
   and it's now just a small leap to 3D
@@ -239,6 +239,12 @@ $$
 - One parameter is cosine of half the angle as before,
   the other three come from scaling the axis vector
   by sine of half the angle
-- Quaternion SLERP (endpoints are unit length, result is
+- Quaternion Slerp (endpoints are unit length, result is
   unit length)
 - [include link to interactive demo]
+
+# TO DO
+
+- consider renaming angles: the Wikipedia page
+  for Slerp now uses $\Omega$
+- consider renaming unit vectors
