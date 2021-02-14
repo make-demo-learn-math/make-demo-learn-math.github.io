@@ -120,8 +120,8 @@
   the angle of shortest arc between them
   will always be between -180 and +180 degrees
 - We can represent these rotations using either:
-  1. The angle itself
-  1. The sine and cosine of the angle
+  1. The angle itself $\theta$
+  1. The sine and cosine of the angle $q$
 
 # Method 1: Using the angle itself
 
@@ -164,5 +164,6 @@
   unit length)
 - Used for character animation (Shoemake), robotics,
   spacecraft attitude control, RMSD bioinformatics, etc.
+  even special relativity (WAIT: QUATERNIONS VS. SLERP careful!)
 - As we might expect, LERP is a very good approximation
 - [include link to interactive demo]
