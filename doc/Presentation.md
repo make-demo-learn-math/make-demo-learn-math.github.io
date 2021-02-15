@@ -108,23 +108,27 @@
 
 # Feature 2: Smooth transitions between views
 
-- We start with a satellite which circles the planet
+- Suppose we have a satellite which circles the planet
   according to a prescribed orbit
 - You can imagine the view from a camera
   which is fixed to the satellite
 - If we rotate the satellite,
   we will transition to a different view
-- We want those transitions (i.e., rotations)
+- We want those camera transitions (i.e., satellite rotations)
   to be smooth
 - We could try to simulate the real physics of the satellite
-  or we could just interpolate smoothly between the start
-  and end
-- Game engines such as Unity and Unreal provide a rich API
-  for interpolating rotations and simulating physics
-- A very common technique for interpolating 3D rotations
-  is quaternion Slerp which involves some heavy math
-- If we simplify the problem to 2D it becomes more manageable
-  and we can easily extend our solution to 3D
+  but that's a lot of work
+- Alternatively we could just interpolate smoothly
+  between views, something known as quaternion Slerp
+- 3D game engines such as Unity and Unreal provide a rich API
+  with all of the capabilities needed for both alternatives
+- Using these existing APIs tends to insulate the developer
+  from the underlying details
+- If we start by simplifying the problem to 2D,
+  we can actually learn about those issues and tradeoffs
+  without requiring a deep dive into quaternion algebra
+- Then, after we have a solution in 2D
+  we can easily apply what we've learned to 3D
 
 # Poll: Which rotation would you expect?
 
