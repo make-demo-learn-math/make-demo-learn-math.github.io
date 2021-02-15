@@ -81,7 +81,7 @@
 # Poll: Which sequence looks more random?
 
 - By "random" we mean "no visible pattern"
-- ...show number sequences...
+- ...show number sequences A and B...
   1. Sequence A looks more random
   1. Sequence B looks more random
   1. Both sequences look equally random
@@ -110,10 +110,11 @@
 
 # Poll: Which rotation would you expect?
 
-- ...
+- ...2D camera which rotates to look at the point of interest...
+- ...view A is to the right, view B is up...
 - There are many possible rotations
-  from view "A" to view "B"
-- As a player, which one would you expect?
+  from view A to view B
+- In a game or a simulation, which one would you expect?
   1. 90 degrees counter-clockwise (the shorter arc)
   1. 270 degrees clockwise (the longer arc)
   1. Other (it's late and I'm getting dizzy)
@@ -121,14 +122,15 @@
 # Did we learn anything?
 
 - We learned that:
-  - A poor pseudorandom number generator
-    can produce sequences that contain undesirable patterns,
-    but that the spectral test can help identify this problem
-  - If we ever need a seedable generator in HTML5,
-    we can use one based on the constants recommended
-    by Park and Miller
-  - To understand vector and quaternion math
-    it sometimes helps to start in 2D
-    before trying to generalize it to 3D
-  - Lerp is a fast approximation to Slerp
-    and is easier to implement correctly
+  - The output of a poorly-chosen pseudorandom number generator
+    can contain undesirable patterns
+    which are difficult to see just by inspectiion,
+    but that the spectral test helps to identify this problem
+  - JavaScript's generator has no way to set the seed,
+    but we can implement a seedable generator in JavaScript
+    based on the constants recommended by Park and Miller
+  - When working with 3D vectors and rotations,
+    sometimes it helps to start in 2D
+    before trying to generalize to 3D
+  - Quaternion Nlerp is a fast approximation to Slerp
+    which is easy to implement
