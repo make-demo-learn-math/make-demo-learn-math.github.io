@@ -139,9 +139,21 @@
 
 # Shortest arc rotations
 
+- possible representations
+
 # Interpolating between views
 
+- slerp and lerp
+- lerp singularity at midpoint between +v and -v,
+  and is not constant velocity
+
+# Double cover
+
+- lerp is now singularity free, and velocity is nearly constant
+
 # Extension to 3D
+
+- the same applies to quaternion Slerp in 3D
 
 # Did we learn anything?
 
