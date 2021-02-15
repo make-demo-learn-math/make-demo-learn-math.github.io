@@ -1,6 +1,11 @@
 # Introduction
 
-- ...
+- The fact that games and programming can help people learn math
+  is not really surprizing when you consider
+  the potential for motivation and positive feedback,
+  but writing a complete game is a huge undertaking
+- In my experience, even writing a demo or a small feature
+  can be a great way to learn math
 - To demonstrate this, we will consider two features
   in a hypothetical game
   and go through some of the math that a developer might encounter
@@ -9,10 +14,7 @@
 - Interruptions are welcome
 - There are no pop quizes or surprize tests
   so don't worry about the details
-- It's less about the math itself and more about the way we learn it
-- We will conduct small polls
-  to give you an opportunity to cast your votes
-  and have a little fun
+- _It's less about the math itself and more about the way we learn it_
 
 # A hypothetical game
 
@@ -24,11 +26,11 @@
   and then share their results with the community
 - Players get credit when they contribute to discoveries
 - It sounds like fun, but for now we are just going to focus
-  on two very small pieces...
-- Players will need to view the planet from an orbiting satellite,
-  so the two features relate to:
+  on two very small pieces
+- We will focus on two features which relate to viewing the planet
+  from an orbiting satellite:
   1. Generating random-looking terrain on the planet
-  1. How we view the planet from space
+  1. Transitions between views of the planet from space
 
 # Feature: Generating points at random locations
 
