@@ -108,24 +108,44 @@
 
 # Feature 2: Smooth transitions between views
 
+- We start with a satellite which circles the planet
+  according to a prescribed orbit
+- You can imagine the view from a camera
+  which is fixed to the satellite
+- If we rotate the satellite,
+  we will transition to a different view
+- We want those transitions (i.e., rotations)
+  to be smooth
+- We could try to simulate the real physics of the satellite
+  or we could just interpolate smoothly between the start
+  and end
+- Game engines such as Unity and Unreal provide a rich API
+  for interpolating rotations and simulating physics
+- But here again we will gain unique insight by digging
+  a little deeper into the underlying math
+
 # Poll: Which rotation would you expect?
 
 - ...2D camera which rotates to look at the point of interest...
 - ...view A is to the right, view B is up...
 - There are many possible rotations
   from view A to view B
-- In a game or a simulation, which one would you expect?
+- For the camera in a game or a simulation, which one would you expect?
   1. 90 degrees counter-clockwise (the shorter arc)
   1. 270 degrees clockwise (the longer arc)
   1. Other (it's late and I'm getting dizzy)
+
+# Shortest arc rotations
+
+# Interpolating between views
 
 # Did we learn anything?
 
 - We learned that:
   - The output of a poorly-chosen pseudorandom number generator
     can contain undesirable patterns
-    which are difficult to see just by inspectiion,
-    but that the spectral test helps to identify this problem
+    which are difficult to see just by inspection
+  - The spectral test helps to identify this problem
   - JavaScript's generator has no way to set the seed,
     but we can implement a seedable generator in JavaScript
     based on the constants recommended by Park and Miller
