@@ -113,21 +113,22 @@
 - You can imagine the view from a camera
   which is fixed to the satellite
 - If we rotate the satellite,
-  we will transition to a different view
-- We want those camera transitions (i.e., satellite rotations)
+  we transition to a different view
+- We want those camera transitions and satellite rotations
   to be smooth
+  to give the illusion of real rotational inertia
 - We could try to simulate the real physics of the satellite
   but that's a lot of work
 - Alternatively we could just interpolate smoothly
-  between views, something known as quaternion Slerp
+  between views using something known as quaternion Slerp
 - 3D game engines such as Unity and Unreal provide a rich API
   with all of the capabilities needed for both alternatives
-- Using these existing APIs tends to insulate the developer
+- Using those existing APIs tends to insulate the developer
   from the underlying details
 - If we start by simplifying the problem to 2D,
   we can actually learn about those issues and tradeoffs
   without requiring a deep dive into quaternion algebra
-- Then, after we have a solution in 2D
+- Then, after we have our solution in 2D,
   we can easily apply what we've learned to 3D
 
 # Poll: Which rotation would you expect?
