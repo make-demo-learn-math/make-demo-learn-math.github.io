@@ -121,8 +121,10 @@
   and end
 - Game engines such as Unity and Unreal provide a rich API
   for interpolating rotations and simulating physics
-- But here again we will gain unique insight by digging
-  a little deeper into the underlying math
+- A very common technique for interpolating 3D rotations
+  is quaternion Slerp which involves some heavy math
+- If we simplify the problem to 2D it becomes more manageable
+  and we can easily extend our solution to 3D
 
 # Poll: Which rotation would you expect?
 
@@ -130,14 +132,16 @@
 - ...view A is to the right, view B is up...
 - There are many possible rotations
   from view A to view B
-- For the camera in a game or a simulation, which one would you expect?
+- For the camera in a game or simulation, which one would you expect?
   1. 90 degrees counter-clockwise (the shorter arc)
   1. 270 degrees clockwise (the longer arc)
-  1. Other (it's late and I'm getting dizzy)
+  1. "Other" (it's late and I'm getting dizzy)
 
 # Shortest arc rotations
 
 # Interpolating between views
+
+# Extension to 3D
 
 # Did we learn anything?
 
