@@ -137,7 +137,7 @@
 - ...view A is to the right, view B is up...
 - There are many possible rotations
   from view A to view B
-- For the camera in a game or simulation, which one would you expect?
+- In a game or simulation, which one would you expect?
   1. 90 degrees counter-clockwise (the shorter arc)
   1. 270 degrees clockwise (the longer arc)
   1. "Other" (it's late and I'm getting dizzy)
@@ -145,6 +145,8 @@
 # Shortest arc rotations
 
 - possible representations
+- we choose the unit vector representation
+  because it generalizes to 3D rotations with unit quaternions
 
 # Interpolating between views
 
@@ -158,7 +160,7 @@
 
 # Extension to 3D
 
-- the same applies to quaternion Slerp in 3D
+- the same issues and tradeoffs apply to quaternion Slerp in 3D
 
 # Did we learn anything?
 
@@ -173,5 +175,5 @@
   - When working with 3D vectors and rotations,
     sometimes it helps to start in 2D
     before trying to generalize to 3D
-  - Quaternion Nlerp is a fast approximation to Slerp
+  - Quaternion (N)lerp is a fast approximation to Slerp
     which is easy to implement
