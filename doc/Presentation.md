@@ -1,16 +1,16 @@
 # Introduction
 
 - ...
-- To demonstrate this, we will consider two small features
+- To demonstrate this, we will consider two features
   in a hypothetical game
   and go through some of the math that a developer might encounter
-  while trying to implement them
 - The goal is to keep things interesting and interactive
 - Please feel free to ask questions
 - Interruptions are welcome
-- There are no pop quizes or hidden tests so don't worry about the details
-- It's less about the math itself and more about learning it
-- We will also conduct polls
+- There are no pop quizes or surprize tests
+  so don't worry about the details
+- It's less about the math itself and more about the way we learn it
+- We will conduct small polls
   to give you an opportunity to cast your votes
   and have a little fun
 
@@ -30,7 +30,7 @@
   1. Generating random-looking terrain on the planet
   1. How we view the planet from space
 
-# Feature 1: Generating points at random locations
+# Feature: Generating points at random locations
 
 - Rather than using a detailed image of a real planet,
   suppose that we want to generate the planet's terrain procedurally
@@ -50,11 +50,11 @@
 
 - A useful skill in software development
   is being able to break-down a problem into smaller pieces
-- For this feature we will just focus on generating points
-  at random locations
-- We won't worry about how to generate the actual terrain from those points
+- For this feature we will assume that we already know
+  how to generate the actual terrain from a given set of points,
+  which lets us focus on generating just the points
 - We can also assume that the planet is just a large sphere
-- This lets us break the problem down into small steps:
+- Then we can break it down into two steps:
   - Generate pseudorandom numbers from an initial seed
   - Map those numbers to points on a sphere
 
@@ -64,16 +64,19 @@
   and have been a topic of research in the past,
   but today they are readily available
 - JavaScript has one called `Math.random()`
-- Oddly however `Math.random()` has no way to set the seed
-- If we try to use `Math.random()` for generating our points,
-  we have no way to guarantee
+- However, unlike most generators, JavaScript
+  provides no way to set the seed
+- This means that if we try to use `Math.random()`
+  for generating our points,
+  then we have no way to guarantee
   that every player will see the same thing
-- We could look for an existing library
-  which provides a seedable generator
-  and just use that
-- But digging a bit deeper gives us some insight into the
-  underlying math
-- We will also gain an appreciation for the remarkable efforts
+- So we could look for an existing library
+  which provides a seedable generator,
+  but if we dig a little deeper
+  we might gain more insight
+  into the underlying math
+  as well as an appreciation
+  for the remarkable efforts
   of the computer scientists who first discovered it
 
 # Poll: Which sequence looks more random?
@@ -86,8 +89,35 @@
   for detecting hidden patterns
   in a sequence of pseudorandom numbers
 
-# Spectral test for randomness
+# The spectral test for randomness
 
-# A seedable pseudorandom number generator in JavaScript
+# A seedable pseudorandom number generator
 
-# Feature 2: Smooth transitions between views
+# Mapping numbers to points on a sphere
+
+# Feature: Smooth transitions between views
+
+# Poll: Which rotation would you expect?
+
+- ...
+- There are many possible rotations
+  from view "A" to view "B"
+- As a player, which one would you expect?
+  1. 90 degrees counter-clockwise (the shorter arc)
+  1. 270 degrees clockwise (the longer arc)
+  1. Other (it's late and I'm getting dizzy)
+
+# Did we learn anything?
+
+- We learned that:
+  - A poor pseudorandom number generator
+    can produce sequences that contain undesirable patterns,
+    but that the spectral test can help identify this problem
+  - If we ever need a seedable generator in HTML5,
+    we can use one based on the constants recommended
+    by Park and Miller
+  - To understand vector and quaternion math
+    it sometimes helps to start in 2D
+    before trying to generalize it to 3D
+  - Lerp is a fast approximation to Slerp
+    and is easier to implement correctly
