@@ -2,9 +2,9 @@
 
 - The fact that games and programming can help people learn math
   is not really surprizing when you consider
-  the potential for motivation and positive feedback,
+  the potential for motivation and positive reinforcement,
   but writing a complete game is a huge undertaking
-- In my experience, even writing a demo or a small feature
+- In my experience, even writing a small demo or feature
   can be a great way to learn math
 - To demonstrate this, we will consider two features
   in a hypothetical game
@@ -12,9 +12,6 @@
 - The goal is to keep things interesting and interactive
 - Please feel free to ask questions
 - Interruptions are welcome
-- There are no pop quizes or surprize tests
-  so don't worry about the details
-- _It's less about the math itself and more about the way we learn it_
 
 # A hypothetical game
 
@@ -26,13 +23,13 @@
   and then share their results with the community
 - Players get credit when they contribute to discoveries
 - It sounds like fun, but for now we are just going to focus
-  on two very small pieces
-- We will focus on two features which relate to viewing the planet
-  from an orbiting satellite:
+  on two very small features of the game
+  which relate to viewing the planet from space:
   1. Generating random-looking terrain on the planet
-  1. Transitions between views of the planet from space
+  1. Transitions between views of the planet
+     from an orbiting satellite
 
-# Feature: Generating points at random locations
+# Feature 1: Generating points at random locations
 
 - Rather than using a detailed image of a real planet,
   suppose that we want to generate the planet's terrain procedurally
@@ -45,8 +42,8 @@
 - So we want the terrain to look the same for every player
   but we also want it to "appear random"
 - That is, we don't want any visible patterns
-- We call this **pseudorandom**: it's looks random
-  but it is also consistent and repeatable
+- We want it to be **pseudorandom**: random in appearance
+  but also consistent and reproducible for each player
 
 # Breaking-down the problem
 
@@ -54,9 +51,9 @@
   is being able to break-down a problem into smaller pieces
 - For this feature we will assume that we already know
   how to generate the actual terrain from a given set of points,
-  which lets us focus on generating just the points
-- We can also assume that the planet is just a large sphere
-- Then we can break it down into two steps:
+  which lets us focus just on generating the points themselves
+- We can also assume that the planet is a perfect sphere
+- We can break it down into two steps:
   - Generate pseudorandom numbers from an initial seed
   - Map those numbers to points on a sphere
 
@@ -64,40 +61,52 @@
 
 - Pseudorandom number generators are non-trivial
   and have been a topic of research in the past,
-  but today they are readily available
-- JavaScript has one called `Math.random()`
-- However, unlike most generators, JavaScript
+  but nowadays they are readily available
+- In JavaScript the function is called `Math.random()`
+  however, unlike most generators, JavaScript
   provides no way to set the seed
 - This means that if we try to use `Math.random()`
   for generating our points,
-  then we have no way to guarantee
+  we have no way to guarantee
   that every player will see the same thing
-- So we could look for an existing library
+- We could look for an existing library
   which provides a seedable generator,
   but if we dig a little deeper
   we might gain more insight
   into the underlying math
-  as well as an appreciation
+- We might also gain an appreciation
   for the remarkable efforts
   of the computer scientists who first discovered it
 
 # Poll: Which sequence looks more random?
 
-- ...
-- It's interesting to see how two pseudorandom sequences
-  that appear equally random
-  can have very different properties
+- By "random" we mean "no visible pattern"
+- ...show number sequences...
+  1. Sequence A looks more random
+  1. Sequence B looks more random
+  1. Both sequences look equally random
 - Fortunately there is a simple test
   for detecting hidden patterns
   in a sequence of pseudorandom numbers
+- ...reveal spectral test plots for each...
+- It's interesting to see how two pseudorandom sequences
+  which appear equally random
+  can have very different properties
+  when displayed like this
 
 # The spectral test for randomness
 
+- spectral test, RANDU, Marsaglia's tests, values in use
+
 # A seedable pseudorandom number generator
+
+- my code for Park-Miller
 
 # Mapping numbers to points on a sphere
 
-# Feature: Smooth transitions between views
+- sphere point picking, Marsaglia (again)
+
+# Feature 2: Smooth transitions between views
 
 # Poll: Which rotation would you expect?
 
