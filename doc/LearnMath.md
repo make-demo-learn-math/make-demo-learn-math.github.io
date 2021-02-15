@@ -248,3 +248,22 @@ $$
 - consider renaming angles: the Wikipedia page
   for Slerp now uses $\Omega$
 - consider renaming unit vectors
+- add a slide (slide #3) for education,
+  i.e., address your assertion that writing a game
+  is a good way to learn math
+- also: say that I will show how breakdown the first feature
+  into 2 problems, and show how to test a sequence of random-looking numbers
+  for randomness
+- also: I will show a common technique for learning something difficult like
+  quaternions and 3D rotations, which is to start with 2D first
+- make it clear that the 2 features are meant to be mock requirements
+  for us as a game developer; i.e., that we dig into the math because
+  we are passionate about game design (e.g., we don't want any discernable
+  patterns in our "random" points!)
+- add a conclusions slide at the end, perhaps
+  entitled "Did we learn anything?"
+  - yes, we learned how random numbers can be generated
+    and tested, we learned how to map those numbers
+    to points on a planet, we learned how to get
+    smooth transitions between views in 2D
+    and that we can apply a similar technique in 3D
