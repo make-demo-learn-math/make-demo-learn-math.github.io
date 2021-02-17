@@ -1,135 +1,199 @@
-# Introduction
+# Is Writing a Game a Good Way to Learn Mathematics?
 
-- The fact that games and programming can help people learn math
+- The fact that games and programming
+  can help people learn mathematics
   is not really surprizing when you consider
-  the potential for motivation and positive reinforcement,
-  but writing a complete game is a huge undertaking
+  the potential for intrinsic motivation
+  and positive reinforcement,
+  but writing a complete game is a huge undertaking.
 - In my experience, even writing a small demo or feature
-  can be a great way to learn math
-- To demonstrate this, we will consider two features
-  in a hypothetical game
-  and go through some of the math that a developer might encounter
-- The goal is to keep things interesting and interactive
-- Please feel free to ask questions
-- Interruptions are welcome
+  can be a great way to learn mathematical concepts
+  which are not normally covered in school.
+- To demonstrate this, we will consider
+  two features in a hypothetical game
+  and walk through some of the math
+  that a developer might encounter.
+- The goal is to keep things interesting and interactive.
+- Please feel free to ask questions.
+- Interruptions are welcome!
 
 # A hypothetical game
 
 - Suppose that we want to write a multi-player web game
-  about exploring a Mars-like planet
+  about exploring a Mars-like planet.
 - Players can remotely control satellites, deploy rovers
-  to the surface of the plant to collect samples,
+  to the surface of the planet to collect samples,
   run tests on those samples to look for signs of life,
-  and then share their results with the community
-- Players get credit when they contribute to discoveries
+  and then share their results with the community.
+- Players get credit when they contribute to discoveries.
 - It sounds like fun, but for now we are just going to focus
-  on two very small features of the game
+  on two features of the game
   which relate to viewing the planet from space:
   1. Generating random-looking terrain on the planet
   1. Transitions between views of the planet
-     from an orbiting satellite
+     from an orbiting satellite.
 
-# Feature 1: Generating points at random locations
+# Feature 1: Generating random terrain
 
 - Rather than using a detailed image of a real planet,
   suppose that we want to generate the planet's terrain procedurally
   based on a "seed" value,
   similar to how each different Minecraft world
-  is generated from a unique seed
-- The golden rule is:
+  is generated from a unique seed.
+- For a proper shared experience,
+  the golden rule is that:
   > Given the same initial seed,
-      every player will see the exact same world
-- So we want the terrain to look the same for every player
-  but we also want it to "appear random"
-- That is, we don't want any visible patterns
-- We want it to be **pseudorandom**: random in appearance
-  but also consistent and reproducible for each player
+        every player sees the exact same virtual world.
+- For our game we want the terrain to look the same
+  for every player
+  but we also want it to look random,
+  which means that we don't want any visible patterns.
+- This is called "pseudorandom";
+  it's random-looking but perfectly reproducible
+  based on the initial seed.
 
 # Breaking-down the problem
 
 - A useful skill in software development
-  is being able to break-down a problem into smaller pieces
-- For this feature we will assume that we already know
-  how to generate the actual terrain from a given set of points,
-  which lets us focus just on generating the points themselves
-- We can also assume that the planet is a perfect sphere
-- We can break it down into two steps:
+  is being able to break-down a problem into smaller pieces.
+- For the purposes of this presentation
+  we will assume that we already have a way
+  to generate the actual terrain from a given set of points,
+  and therefore we will just focus
+  on generating the points themselves.
+- We can also assume that the planet is a perfect sphere.
+- We can break this feature down into two incremental steps:
   - Generate pseudorandom numbers from an initial seed
-  - Map those numbers to points on a sphere
+  - Map those numbers to points on a sphere.
+- After a few Google searches
+  and reading several posts on Stack Overflow,
+  we discover that
+  for the first step we need a pseudorandom number generator,
+  and for the second step we need something
+  known as sphere point picking.
 
 # Pseudorandom number generators
 
-- Pseudorandom number generators are non-trivial
-  and have been a topic of research in the past,
-  but nowadays they are readily available
-- In JavaScript the function is called `Math.random()`
-  however, unlike most generators, JavaScript
-  provides no way to set the seed
-- This means that if we try to use `Math.random()`
-  for generating our points,
+- For our game,
+  we don't need a cryptographically-strong generator
+  so the built-in generators
+  provided by most programming languages
+  should be sufficient.
+- Unfortunately, the generator that JavaScript provides
+  (called `Math.random()`)
+  has no way to set the seed.
+- If we try to use `Math.random()`
+  for generating the points on our planet,
   we have no way to guarantee
-  that every player will see the same thing
-- We could look for an existing library
-  which provides a seedable generator,
-  but if we dig a little deeper
-  we might gain more insight
-  into the underlying math
-- We might also gain an appreciation
-  for the remarkable efforts
-  of the computer scientists who first discovered it
+  that every player will see the same thing.
+- Since we cannot break the golden rule,
+  we need to find a seedable generator.
+- We could search for an existing library
+  which provides a seedable generator
+  and simply use it,
+  but we gain a deeper understanding
+  by spending a few minutes on Wikipedia
+  where we learn about the "linear congruential generator" (LCG).
+- The LCG formula is very simple
+  but involves several constants
+  which must be chosen carefully.
+- Selecting the constants to ensure sufficient randomness
+  is non-trivial and has been a topic of research.
+- On the next slide we will see
+  how the output of a generator with poorly-chosen constants
+  can contain undesirable patterns
+  which are difficult to see at first glance.
 
 # Poll: Which sequence looks more random?
 
-- By "random" we mean "no visible pattern"
+- Below are two sets of output
+  from a very simple LCG formula.
+- A different multiplier constant was used
+  to generate each sequence.
 - ...show number sequences A and B...
+- Which do you think looks more "random"?
+- Possible responses:
   1. Sequence A looks more random
   1. Sequence B looks more random
   1. Both sequences look equally random
+- It turns out that one of the sequences
+  actually contains a very noticeable pattern
+  if you try to plot points with it.
+
+# A test for randomness
+
+- For the random terrain in our game,
+  we need some assurance
+  that the player won't see any patterns.
 - Fortunately there is a simple test
   for detecting hidden patterns
-  in a sequence of pseudorandom numbers
+  in a sequence of pseudorandom numbers.
+- Here are the spectral plots
+  for the two random-looking sequences
+  from our poll:
 - ...reveal spectral test plots for each...
 - It's interesting to see how two pseudorandom sequences
   which appear equally random
-  can have very different properties
-  when displayed like this
+  can actually have very different properties
+  when displayed like this.
+- ...spectral method, RANDU, Marsaglia's tests, values in use...
 
-# The spectral test for randomness
+# A seedable generator in JavaScript
 
-- spectral test, RANDU, Marsaglia's tests, values in use
-
-# A seedable pseudorandom number generator
-
-- my code for Park-Miller
+- ...values suitable for JavaScript, my code for Park-Miller...
 
 # Mapping numbers to points on a sphere
 
-- sphere point picking, Marsaglia (again)
+- ...sphere point picking, Marsaglia's method...
 
 # Feature 2: Smooth transitions between views
 
-- Suppose we have a satellite which circles the planet
-  according to a prescribed orbit
+- Suppose we have a satellite circling the planet
+  according to a prescribed orbit.
 - You can imagine the view from a camera
-  which is fixed to the satellite
+  fastened to the satellite.
 - If we rotate the satellite,
-  we transition to a different view
-- We want those camera transitions and satellite rotations
-  to be smooth
-  to give the illusion of real rotational inertia
-- We could try to simulate the real physics of the satellite
-  but that's a lot of work
+  we transition to a different view.
+- The view transitions
+  represent rotations of the satellite,
+  and we want them to be smooth
+  in order to create the illusion
+  of physical inertia.
+- This is sort of like the game designer's
+  equivalent of "suspension of disbelief".
+- If the transitions are not smooth
+  then the physics appears unrealistic
+  and we loose that suspension of disbelief.
+- We could try to simulate the actual physics of the satellite
+  but that's a lot of work.
 - Alternatively we could just interpolate smoothly
-  between views using something known as quaternion Slerp
-- 3D game engines such as Unity and Unreal provide a rich API
-  with all of the capabilities needed for both alternatives
-- Using those existing APIs tends to insulate the developer
-  from the underlying details
-- If we start by simplifying the problem to 2D,
-  we can actually learn about those issues and tradeoffs
-  without requiring a deep dive into quaternion algebra
-- Then, after we have our solution in 2D,
-  we can easily apply what we've learned to 3D
+  between views using something known as quaternion Slerp.
+- Both alternatives are valid,
+  and indeed APIs for them already exist
+  in popular 3D frameworks such as `three.js`
+  as well as game engines like Unity and Unreal.
+- If you start to read about quaternion Slerp,
+  it almost feels like you need a graduate degree.
+- That's because quaternions show up
+  in advanced topics like quantum mechanics
+  and special relativity.
+- Quaternions with a length of one
+  are called unit quaternions
+  and are used to represent 3D rotations.
+- There are very lengthy Wikipedia articles
+  on quaternions, spatial rotation, and Slerp.
+- I actually find it very surprizing that Slerp
+  is only ever presented in the context of 3D
+  and quaternion algebra.
+- I actually believe that a better way
+  to learn Slerp
+  is to start with 2D.
+- Therefore we will first look at Slerp
+  in the context of 2D rotations and unit vectors
+  which are much more familiar to us
+  than 3D rotations and unit quaternions.
+- Then, after we have an understanding in 2D,
+  we can easily extend that to 3D.
 
 # Poll: Which rotation would you expect?
 
@@ -164,16 +228,21 @@
 
 # Did we learn anything?
 
-- We learned that:
-  - The output of a poorly-chosen pseudorandom number generator
+- Using game programming as our motivation,
+  we've learned that:
+  - The output of a generator with poorly-chosen constants
     can contain undesirable patterns
-    which are difficult to see just by inspection
-  - The spectral test helps to identify this problem
-  - JavaScript's generator has no way to set the seed,
+    which are difficult to see just by inspection.
+  - The spectral test helps us to identify those problems.
+  - JavaScript's built-in generator has no way to set the seed
     but we can implement a seedable generator in JavaScript
-    based on the constants recommended by Park and Miller
+    based on the constants recommended by Park and Miller.
   - When working with 3D vectors and rotations,
-    sometimes it helps to start in 2D
-    before trying to generalize to 3D
-  - Quaternion (N)lerp is a fast approximation to Slerp
-    which is easy to implement
+    it helps to start with a solution in 2D
+    before trying to generalize it to 3D.
+  - Quaternion (N)lerp is a good approximation to Slerp
+    and easier to implement.
+- Even though the game is hypothetical
+  and writing it would involve much more than just math,
+  we've seen some examples of very interesting things
+  we can learn along the way.
