@@ -1,4 +1,4 @@
-### Presenter Notes
+# (Presenter Notes)
 
 - open the same presentation in two tabs
   and share one of the tabs
@@ -9,14 +9,24 @@
 
 # Is writing a game a good way to learn math?
 
+- (intro)
+
 # Is there life on planet X?
 
-- overall premise (intrinsic motivation) (just an example - you can come up with a better one)
-- player needs a view of the planet from orbit
+- This is just an example of a premise for a hypothetical game
+- Feel free to come up with a better one
+- What's important here is the motivation
+- It needs to be something that captures your imagination
+- (image of rover on Mars-like planet)
+- overall premise
+- players will need a way to view the planet
+  from the orbiting satellite
+  so they can plan their expedition to the surface
+- (image of planet with orbiting satellite)
 - more description around the game/simulation scenario
   of the orbiting satellite and its view of the planet
   (e.g., so the player can plan out their expedition to the surface of the planet, etc.)
-- the two features
+- the two features...
 
 # Feature #1: Generating random terrain
 
