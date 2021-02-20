@@ -1,30 +1,21 @@
-# (Presenter Notes)
-
-- open the same presentation in two tabs
-  and share one of the tabs
-- in the shared tab, you will follow each link
-  to the image/diagram/plot
-  and use the back button to return
-- the other tab just provides a script for you to follow
-
 # Is writing a game a good way to learn math?
 
-- Video games by design
-  provide many key ingredients for effective learning
+- Video games can provide many key ingredients
+  for effective learning
   such as positive reinforcement
   and intrinsic motivation.
 - For someone with a passion for video games,
   writing a game can be a great way
   to learn problem solving skills
   and mathematics.
-- The problem is that writing a complete game
+- However writing a complete game
   is a huge undertaking
   even with all of the development tools
   and game engines
   that are available.
 - Rather than writing a complete game,
   let's consider writing a small demo
-  or a single feature within a game.
+  or just a single feature within a game.
 - If we break the task down into smaller pieces like this,
   we can focus more on the interesting things
   that we might learn along the way.
@@ -36,8 +27,8 @@
 - This is just an example
   of a hypothetical game.
 - Feel free to come up with a better one!
-- The important thing is that is captures your imagination.
-- With all of the recent news
+- The important thing is that it captures your imagination.
+- With all of the exciting news recently
   about the successful landing on Mars,
   I have chosen a theme
   of planetary exploration.
@@ -56,37 +47,55 @@
 - Players get credit when they contribute to discoveries.
 - It all sounds like fun,
   but for now we are just going to focus
-  on two small features of the game
-  which relate to viewing the planet from space.
-- To plan their expeditions on the surface,
-  players will need some way to view
-  the details of the planet
-  from an orbiting satellite.
-- They will be able to point the satellite
+  on two small "features" of the game
+  which relate to how players
+  can view the surface of the planet from space.
+- To plan their simulated expeditions,
+  players will use an orbiting satellite
+  equipped with a camera.
+- Players will be able to point the camera
   at a particular region and zoom in
-  to see the terrain details.
+  to see the terrain in detail.
+- Maybe the player is looking for a particular
+  outcropping of rocks
+  or evidence of an ancient lake bed.
 - As a game developer,
-  we need to generate the terrain in the game
+  we need to generate the terrain itself
   and we need to simulate the view from the satellite.
-- Those are the two "features" of the game
-  that we will use as the example.
-- Feature #1 is about generating
-  random-looking terrain on the planet.
-- Feature #2 is about realistic transitions
-  between views of the planet from
-  an orbiting satellite.
+- So, the two features are:
+  1. Generating random-looking terrain on the planet
+  1. Realistic transitions between views
+     of the planet from an orbiting satellite.
 
 # Feature #1: Generating random terrain
 
-- (defining the problem)
-- what we want is "pseudorandom"
-- definition of "random-looking"
+- (defining the problem and the requirements)
+- what we want is "pseudorandom" based on a seed
+- our own definition of "random-looking"
+- also require it to be distributed over the planet uniformly
 
-# Generating pseudorandom points on a sphere
+# A big assumption
 
-- (finding a solution and showing how it solves the problem)
+- Generating realistic terrain in a game
+  is a whole separate topic
+  and best left for another presentation
+  (and for someone else to present)!
+- For this presentation
+  let's assume that we know how to generate terrain
+  from a given set of points located randomly
+  on the surface of the planet.
+- eg include ...
+- assume we know how to generate terrain from random points
+- (e.g., Voronoi cells with truncation for height map,
+  Perlin noise over an irregular grid, etc.)
+- that's a big assumption but necessary to manage the
+  scope of this presentation
+- with this assumption, we can divide this feature
+  into two incremental steps: generating the numbers
+  and mapping the numbers to points (locations) on the planet
 - LCG and Lehmer, and seeds
 - sphere point picking
+- (finding a solution and showing how it solves the problem)
 
 # Pseudorandom number generators
 
@@ -109,7 +118,7 @@
 - Marsaglia's method and its advantages (speed, no rejection / deterministic ingress requirements)
 - show result (positive reinforcement)
 
-# Feature #2: Realistic view transitions
+# Feature #2: Realistic transitions between views
 
 - (defing the problem and the acceptance criteria)
 - desirable properties of a "realistic rotation"
