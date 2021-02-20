@@ -9,13 +9,13 @@
   to learn problem solving skills
   and mathematics.
 - However writing a complete game
-  is a huge undertaking
+  is a huge undertaking,
   even with all of the development tools
   and game engines
   that are available.
 - Rather than writing a complete game,
-  let's consider writing a small demo
-  or just a single feature within a game.
+  let's consider writing just a small demo
+  or individual features within a game.
 - If we break the task down into smaller pieces like this,
   we can focus more on the interesting things
   that we might learn along the way.
@@ -25,7 +25,7 @@
 - We need a premise for a game
   to provide some motivation.
 - This is just an example
-  of a hypothetical game.
+  of a hypothetical, simulation-type game.
 - Feel free to come up with a better one!
 - The important thing is that it captures your imagination.
 - With all of the exciting news recently
@@ -62,44 +62,64 @@
 - As a game developer,
   we need to generate the terrain itself
   and we need to simulate the view from the satellite.
-- Feature #1 is all about generating
+- Feature #1 is about generating
   random-looking terrain on the planet.
-- Feature #2 is for realistic transitions
-  between views of the planet from the orbiting satellite.
+- Feature #2 is about simulating realistic transitions
+  between views of the planet from an orbiting satellite.
 
 # Feature #1: Generating random terrain
 
-- (defining the problem and the requirements)
-- what we want is "pseudorandom" based on a seed
-- our own definition of "random-looking"
-- also require it to be distributed over the planet uniformly
+- Rather than using a detailed image of a real planet,
+  we want to generate the planet's terrain procedurally
+  based on a "seed" value.
+- This is similar to the game of Minecraft
+  where each different world
+  is generated from a unique seed.
+- Since our game is multi-player,
+  it is important that every player
+  sees the exact same world.
+- We also want the terrain to look "random",
+  which means that there should be no visible patterns
+  and the distribution should be more or less uniform.
+- We call this "pseudorandom":
+  random-looking but perfectly reproducible
+  based on the initial seed.
 
 # A big assumption
 
-- Generating realistic terrain in a game
-  is a whole separate topic
-  and best left for another presentation
-  (and for someone else to present)!
-- For this presentation
-  let's assume that we know how to generate terrain
-  from a given set of points located randomly
-  on the surface of the planet.
-- eg include ...
-- assume we know how to generate terrain from random points
-- (e.g., Voronoi cells with truncation for height map,
-  Perlin noise over an irregular grid, etc.)
-- that's a big assumption but necessary to manage the
-  scope of this presentation
-- with this assumption, we can divide this feature
-  into two incremental steps: generating the numbers
-  and mapping the numbers to points (locations) on the planet
-- LCG and Lehmer, and seeds
-- sphere point picking
-- (finding a solution and showing how it solves the problem)
+- There are many techniques
+  for generating realistic terrain in a game.
+- Indeed that is a whole topic onto itself
+  and deserves its own presentation.
+- Typically the goal is to generate terrain information
+  like height, slope, and colour for each location
+  on the planet that we are interested in.
+- Perlin noise is one popular approach for this.
+- In order to keep this presentation well-focused,
+  we are going to make a sweeping assumption.
+- We are going to assume that we already know
+  how to generate terrain information
+  given a set of points located randomly
+  over the surface of the planet.
+- We won't worry about how those points are used
+  to generate the height and colour of the terrain,
+  and it is sufficient to say that a suitable
+  technique exists (for example, using Voronoi diagrams).
+- With this assumption, we can focus on simply generating
+  points at random (or pseudorandom) locations.
+- The first step is to generate a sequence of
+  pseudorandom numbers,
+  and the second step is to map those numbers
+  to locations on the planet.
+- Roughly speaking, the planet is just a large sphere.
+- We will look at how to generate pseudorandom numbers,
+  and how to map them to points on a sphere.
 
 # Pseudorandom number generators
 
-- (implementation)
+- just a game, not cryptography
+- LCG and Lehmer
+- simple formulas but with carefully chosen constants
 - JavaScript provides no way to set the seed!
 - whether we use a third party lib or write our own
   we need a way to test the output for "randomness"
@@ -122,6 +142,11 @@
 
 - (defing the problem and the acceptance criteria)
 - desirable properties of a "realistic rotation"
+  - minimum energy/torque: a single rotation
+    about a single axis
+  - shortest arc
+  - roughly constant velocity (only as far
+    as player can perceive)
 
 # Smooth interpolation of 3D rotations
 
@@ -132,8 +157,13 @@
 
 - (implementation)
 - difficulties of finding the angle (inverse cosine)
+  - clamp to avoid NaN (e.g., `Math.min()` but still
+    want sign to we can negate one endpoint...)
 - singularity when the angle vanishes (division by zero)
-- yes there are ways to deal with that, but our solution is starting to get cumbersome
+  - use Lerp below a certain threshold but how do we know
+    what value to use? Not just continuity but also we
+    must ensure the result is unit length!
+- so yes there are ways to deal with that, but our solution is starting to get cumbersome
 - (show a reference implementation as an example)
 - is there a better way?
 
