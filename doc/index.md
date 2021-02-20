@@ -29,22 +29,52 @@
   we can focus more on the interesting things
   that we might learn along the way.
 
-# Is there life on planet X?
+# A hypothetical game
 
-- This is just an example of a premise for a hypothetical game
-- Feel free to come up with a better one
-- What's important here is the motivation
-- It needs to be something that captures your imagination
-- (image of rover on Mars-like planet)
-- overall premise
-- players will need a way to view the planet
-  from the orbiting satellite
-  so they can plan their expedition to the surface
-- (image of planet with orbiting satellite)
-- more description around the game/simulation scenario
-  of the orbiting satellite and its view of the planet
-  (e.g., so the player can plan out their expedition to the surface of the planet, etc.)
-- the two features...
+- We need a premise for a game
+  to provide some motivation.
+- This is just an example
+  of a hypothetical game.
+- Feel free to come up with a better one!
+- The important thing is that is captures your imagination.
+- With all of the recent news
+  about the successful landing on Mars,
+  I have chosen a theme
+  of planetary exploration.
+
+### [A multi-player web game](./rover.png)
+
+- Suppose that we want to write a multi-player web game
+  about exploring a Mars-like planet.
+- Players can remotely control satellites,
+  deploy rovers to the surface of the planet
+  for collecting samples,
+  run tests on those samples
+  to look for signs of life,
+  and then share their results
+  with the community.
+- Players get credit when they contribute to discoveries.
+- It all sounds like fun,
+  but for now we are just going to focus
+  on two small features of the game
+  which relate to viewing the planet from space.
+- To plan their expeditions on the surface,
+  players will need some way to view
+  the details of the planet
+  from an orbiting satellite.
+- They will be able to point the satellite
+  at a particular region and zoom in
+  to see the terrain details.
+- As a game developer,
+  we need to generate the terrain in the game
+  and we need to simulate the view from the satellite.
+- Those are the two "features" of the game
+  that we will use as the example.
+- Feature #1 is about generating
+  random-looking terrain on the planet.
+- Feature #2 is about realistic transitions
+  between views of the planet from
+  an orbiting satellite.
 
 # Feature #1: Generating random terrain
 
