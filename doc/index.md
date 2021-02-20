@@ -29,7 +29,7 @@
   we can focus more on the interesting things
   that we might learn along the way.
 
-# A hypothetical game
+# Game premise
 
 - We need a premise for a game
   to provide some motivation.
