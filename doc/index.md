@@ -9,7 +9,25 @@
 
 # Is writing a game a good way to learn math?
 
-- (intro)
+- Video games by design
+  provide many key ingredients for effective learning
+  such as positive reinforcement
+  and intrinsic motivation.
+- For someone with a passion for video games,
+  writing a game can be a great way
+  to learn problem solving skills
+  and mathematics.
+- The problem is that writing your own game
+  is a huge undertaking
+  even if you take advantage of
+  the various tools and game engines
+  that are available.
+- Rather than writing a complete game,
+  consider writing a small demo
+  or a single feature within a game.
+- If we break the task down into smaller pieces like this,
+  we can focus more on the interesting things
+  that we might learn along the way.
 
 # Is there life on planet X?
 
