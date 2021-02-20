@@ -62,10 +62,10 @@
 - As a game developer,
   we need to generate the terrain itself
   and we need to simulate the view from the satellite.
-- So, the two features are:
-  1. Generating random-looking terrain on the planet
-  1. Realistic transitions between views
-     of the planet from an orbiting satellite.
+- Feature #1 is all about generating
+  random-looking terrain on the planet.
+- Feature #2 is for realistic transitions
+  between views of the planet from the orbiting satellite.
 
 # Feature #1: Generating random terrain
 
