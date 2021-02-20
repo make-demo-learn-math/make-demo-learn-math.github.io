@@ -17,13 +17,13 @@
   writing a game can be a great way
   to learn problem solving skills
   and mathematics.
-- The problem is that writing your own game
+- The problem is that writing a complete game
   is a huge undertaking
-  even if you take advantage of
-  the various tools and game engines
+  even with all of the development tools
+  and game engines
   that are available.
 - Rather than writing a complete game,
-  consider writing a small demo
+  let's consider writing a small demo
   or a single feature within a game.
 - If we break the task down into smaller pieces like this,
   we can focus more on the interesting things
