@@ -124,6 +124,31 @@
   we need a way to test the output for "randomness"
 - let's see why that is important
 
+- This is just a game, not cryptography,
+  so we don't need a cryptographically-strong generator.
+- The built-in generators
+  provided by most programming languages
+  should be sufficient.
+- Unfortunately the generator that JavaScript provides
+  (called `Math.random()`)
+  has no way to set the seed.
+- If we try to use it
+  for generating the points on our planet
+  we cannot guarantee
+  that every player will see the same world.
+- We need to a seedable generator.
+- The equation often used for this
+  is called a linear congruential generator (LCG).
+- The equation itself is very simple
+  but involves several constants
+  which must be chosen very carefully.
+- Selecting the constants to ensure sufficient randomness
+  is non-trivial and has been a topic of research.
+- Let's see how the output of a generator
+  with poorly-chosen constants
+  can contain undesirable patterns
+  which are difficult to see at first glance.
+
 # Poll: Which sequence looks more random?
 
 # The spectral test for randomness
