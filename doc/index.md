@@ -267,28 +267,21 @@ $$
   - Smooth
   - Shortest arc
 
-- However when we attempt to implement this in code,
-  we find that there is a bit more involved.
-
-### Representing 3D rotations
-
-- There are many ways to represent 3D rotations.
-- The "unit quaternion" representation has many advantages
-  including being able to use Slerp
-  for interpolation.
-- Quaternion mathematics is a very interesting topic
-  but there are a couple of basic things that we need to know
-  when using them to represent rotations.
-- A quaternion is like a 4-dimensional vector,
-  and a "unit quaternion" is a quaternion with a length
-  equal to one.
-- If we represent a 3D rotation
-  using unit quaternion $\mathbf{q}$,
-  it turns out that both $$
-and $$
+- However to implement this in code,
+  we need to know a few things...
+- The endpoints $\mathbf{q_1}$
+  and $\mathbf{q_2}$
+  represent rotations
+  and are called "unit quaternions".
+- There are many ways to represent 3D rotations
+  but using the unit quaternions has many advantages
+  (including being able to use Slerp).
+- A quaternion is like a four dimensional vector.
+- A **unit** quaternion is a quaternion
+  with a length of $1$.
+- Both $\mathbf{q}$
+  and $-\mathbf{q}$
   represent the same rotation.
-- For any given rotation, there are exactly two
-  unit quateriuons
 
 - The Slerp formula for unit quaternions
   requires careful implementation.
