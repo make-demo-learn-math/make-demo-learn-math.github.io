@@ -311,13 +311,12 @@
 - Programmers call it "interpolation".
 - Let's define the desirable properties
   of a realistic transition:
-  - **Smooth**: The rotation should be continuous
-    and at a constant rate, more or less.
+  - **Smooth**: The rotation should be continuous,
+    and at a constant rate (more or less).
   - **Shortest arc**: The rotation should follow
     the shorter way around.
-- Basically we want a single rotation
-  around a single axis
-  to simulate what you might expect
+- Basically we want a single, minimal rotation
+  to simulate what anyone would expect
   from a physical object like a satellite.
 
 # Interpolation
@@ -338,7 +337,10 @@ $$
 \end{aligned}
 $$
 
-- When $t=0$, the function returns the first value $f_1$:
+- When $t=0$,
+  the function returns the first value $f_1$.
+  We can see this by writing $0$
+  for $t$ in the equation for Lerp:
 
 $$
 \begin{aligned}
@@ -356,7 +358,10 @@ $$
 \end{aligned}
 $$
 
-- When $t=1$, the function returns the second value $f_2$:
+- When $t=1$,
+  the function returns the second value $f_2$.
+  We can see this by writing $1$
+  for $t$ in the equation for Lerp:
 
 $$
 \begin{aligned}
@@ -418,19 +423,17 @@ $$
 $$
 
 - When applied to 3D rotations,
-  Slerp meets all of our requirements
-  for realistic transitions:
-
-  - Smooth
-  - Shortest arc
-
+  Slerp produces a smooth transition
+  that meets all of our requirements
+  including constant velocity
+  and shortest arc.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
-  represent rotations
-  and are "unit quaternions".
+  are "unit quaternions"
+  and represent the rotations
+  to be interpolated.
 - There are various ways to represent 3D rotations
-  but using unit quaternions has many advantages
-  (including being able to use Slerp).
+  but using unit quaternions has many advantages.
 - A quaternion is like a four dimensional vector.
 - A **unit** quaternion is a quaternion
   whose length is equal to $1$.
@@ -461,7 +464,7 @@ $$
   and $\mathbf{q_2}$.
 - As you can imagine,
   a proper implementation of Slerp
-  is actually very involved.
+  is actually quite involved.
 - Is there an easier way
   that still meets our requirements?
 
@@ -472,13 +475,16 @@ $$
   approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
-- We just need to negate one of the endpoints
-  if their dot product is negative
-  to ensure we get the shorter arc,
-  and then normalize the result of the Lerp
-  to ensure that we return a unit quaternion.
-- To avoid confusion, let's call this **Nlerp**
-  for normalized linear interpolation:
+- We just need to do a couple of things:
+  1. Negate one of the endpoints
+     if their dot product is negative
+     to ensure that the path taken is the shorter arc
+  1. Normalize the result of the Lerp
+     to ensure that quaternion returned
+     is a unit quaternion.
+- To avoid confusion, let's call this
+  normalized linear interpolation
+  or **Nlerp**:
 
 $$
 \begin{aligned}
