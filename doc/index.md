@@ -470,11 +470,11 @@ $$
   approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
-- We just need to normalize the Lerp
-  because the output needs to be a unit quaternion.
-- We also need to negate one of the endpoints
+- We just need to negate one of the endpoints
   if their dot product is negative
-  to ensure we get the shorter arc.
+  to ensure we get the shorter arc,
+  and then normalize the result of the Lerp
+  to ensure that we return a unit quaternion.
 - To avoid confusion, let's call this **Nlerp**
   for normalized linear interpolation:
 
