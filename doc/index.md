@@ -125,7 +125,7 @@
   we need a way to test the output for "randomness"
 - let's see why that is important
 
-# Poll: Can you see the pattern?
+# Poll: Which sequence looks more random?
 
 # The spectral test for randomness
 
@@ -239,8 +239,40 @@ $$
   in a similar manner.
 - Unfortunately we encounter some complexity
   due to how 3D rotations are represented.
+- If we choose the unit quaternion representation
+  then we can use something called
+  spherical linear interpolation or "Slerp".
+- ... if we try to blindly apply Lerp to unit quaterions
+  we encounter 2 problems, the first is double cover
+  and the second is length constraint...
 
 # Quaternion Slerp
+
+- The Slerp formula for unit quaternions
+  requires careful implementation.
+- Given unit quaternions $\mathbf{q_1}$
+  and $\mathbf{q_2}$
+  representing the rotations
+  that we want to interpolate,
+  we start by calculating the angle $\theta$
+  between them.
+- If the cosine of $\theta$ is negative,
+  we need to negate one of the endpoints
+  before we can use the following equation:
+
+$$
+\begin{aligned}
+  \operatorname{Slerp}(\mathbf{q_1}, \mathbf{q_2}, t)
+  &=
+  \frac{\sin\left[(1-t)\theta\right]}{\sin\theta}
+  \mathbf{q_1}
+  +
+  \frac{\sin\left[t\theta\right]}{\sin\theta}
+  \mathbf{q_2} \\
+\end{aligned}
+$$
+
+TODO: That ^^^ isn't quite done yet...
 
 - (finding a solution and showing how it solves the problem)
 - properties of quaternion Slerp, and how that matches our requirements
@@ -264,6 +296,8 @@ $$
 - how close is it?
 
 # Poll: Can you tell which one is Slerp?
+
+- (maybe just omit this poll altogether)
 
 # Did we learn anything?
 
