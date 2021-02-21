@@ -151,7 +151,34 @@
 
 # Poll: Which sequence looks more random?
 
+- Below are two sets of output
+  from a very simple LCG formula.
+- A different multiplier constant was used
+  to generate each sequence.
+- ...show number sequences A and B...
+- Which do you think looks more "random"?
+- Possible responses:
+  1. Sequence A looks more random
+  1. Sequence B looks more random
+  1. Both sequences look equally random
+- It turns out that one of the sequences
+  actually contains a very noticeable pattern
+  if you try to plot points with it.
+
 # The spectral test for randomness
+
+- The spectral test is a simple test
+  for detecting hidden patterns
+  in a sequence of pseudorandom numbers.
+- Here are the test plots
+  for the two random-looking sequences
+  from our poll:
+- ...reveal plots for each...
+- It's interesting to see how two pseudorandom sequences
+  which appear equally random
+  can actually have very different properties
+  when displayed like this.
+- ...Marsaglia's tests, values in use, RANDU...
 
 # Implementation in JavaScript
 
