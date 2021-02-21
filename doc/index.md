@@ -260,26 +260,26 @@ $$
 \end{aligned}
 $$
 
-- When applied to 3D rotations,
+- When applied properly to 3D rotations,
   it meets all of our requirements
   for realistic transitions:
 
   - Smooth
   - Shortest arc
 
-- However to implement this in code,
-  we need to know a few things...
+- To implement this in code,
+  we need to know a few things first.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
   represent rotations
   and are called "unit quaternions".
 - There are many ways to represent 3D rotations
-  but using the unit quaternions has many advantages
+  but using unit quaternions has many advantages
   (including being able to use Slerp).
 - A quaternion is like a four dimensional vector.
 - A **unit** quaternion is a quaternion
-  with a length of $1$.
-- Both $\mathbf{q}$
+  whose length is equal to $1$.
+- Both $+\mathbf{q}$
   and $-\mathbf{q}$
   represent the same rotation.
 
