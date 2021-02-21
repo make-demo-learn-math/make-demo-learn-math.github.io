@@ -292,8 +292,7 @@
   });
   ```
 
-- ...spectral test for that code...
-- ...unit tests...
+- ...spectral test for that, compared side-by-side with spectral test for `Math.random()`...
 
 # Sphere point picking
 
