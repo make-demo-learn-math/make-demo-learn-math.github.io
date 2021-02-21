@@ -270,12 +270,12 @@ $$
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
   represent rotations
-  and are called "unit quaternions".
+  and are "unit quaternions".
 - There are various ways to represent 3D rotations
   but using unit quaternions has many advantages
   (including being able to use Slerp).
 - A quaternion is like a four dimensional vector.
-- A **unit** quaternion $\mathbf{q}$ is a quaternion
+- A **unit** quaternion is a quaternion
   whose length is equal to $1$.
 - Both $+\mathbf{q}$
   and $-\mathbf{q}$
@@ -302,51 +302,48 @@ $$
   using the inverse cosine
   of the dot product of $\mathbf{q_1}$
   and $\mathbf{q_2}$.
-- We begin to see that a proper
-  implementation of Slerp
+- As you can see,
+  a proper implementation of Slerp
   is actually very involved.
 - Is there an easier way
   that still meets our requirements?
 
-## Implementation
-
-- We can now implement Slerp
-  for our view transitions.
-- However
-- To calculate $\theta$
-  we can use the inverse cosine
-  of the dot product...
-
-- (finding a solution and showing how it solves the problem)
-- properties of quaternion Slerp, and how that matches our requirements
-- (implementation)
-- difficulties of finding the angle (inverse cosine)
-  - clamp to avoid NaN (e.g., `Math.min()` but still
-    want sign to we can negate one endpoint...)
-- singularity when the angle vanishes (division by zero)
-  - use Lerp below a certain threshold but how do we know
-    what value to use? Not just continuity but also we
-    must ensure the result is unit length!
-- so yes there are ways to deal with that, but our solution is starting to get cumbersome
-- (show a reference implementation as an example)
-- is there a better way?
-
 # An approximation
 
-- (simplify)
-- ...I have seen this called **Nlerp**...
-- ...the core if it is simply Lerp
-  but we want to distinguish it from Lerp
-  because of the folding and the normalization step...
-- no need to find the angle, and no singularity
-- takes the same path, but not constant velocity
-- how close is it?
+- If we simply Lerp the quaternions
+  we actaully get an approximation of Slerp
+  without the need to calculate $\theta$
+  and without the division-by-zero problem.
+- We just need to normalize the Lerp
+  because the output needs to be a unit quaternion.
+- We also need to negate one of the endpoints
+  if their dot product is negative
+  to ensure we get the shorter arc.
+- Let's call it **Nlerp**
+  (for normalized linear interpolation):
 
-# Poll: Can you tell which one is Slerp?
+$$
+\begin{aligned}
+  \operatorname{Nlerp}(\mathbf{q_1}, \mathbf{q_2}, t)
+  &=
+  \operatorname{normalize}
+  \left\{
+  (1-t)\mathbf{q_1}
+  +
+  t\mathbf{q_2}
+  \right\} \\
+\end{aligned}
+$$
 
-- (or maybe just omit this poll altogether
-  and replace it with just the resulting plots,
-  i.e., combine with previous slide)
+- The fact that this is a surpringly good
+  approximation of Slerp
+  is due to the remarkable mathematics
+  of unit quaternions
+  and how we use them to represent of 3D rotations.
+
+# Implementation in JavaScript
+
+- ...Nlerp in JavaScript and comparison to Slerp...
 
 # Did we learn anything?
 
@@ -359,7 +356,6 @@ $$
 - whether we are using an existing generator or writing or own,
   there is a simple test for randomness
 - a generator in JS with Park Miller constants
-- what we are calling "Nlerp"
-  (linear interpolation for rotations)
+- normalized linear interpolation, or "Nlerp",
   is a good approximation of Slerp
   and is easier to implement
