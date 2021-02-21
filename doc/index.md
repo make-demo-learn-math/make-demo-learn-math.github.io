@@ -131,9 +131,6 @@
 
 # Implementation in JavaScript
 
-<br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/>
-
 # Sphere point picking
 
 - problems you might encounter
