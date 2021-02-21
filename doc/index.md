@@ -154,11 +154,14 @@
 - Programmers call it "interpolation".
 - Let's define the desirable properties
   of a realistic transition:
-  - **Smooth**: The motion should be continuous.
-  - **Shortest arc**: The rotation should follow the shorter way around.
-  - **Minimal energy**: We want a single rotation about a single axis.
-  - **Nearly constant velocity**: We want the rotation rate
-    to be more or less constant.
+  - **Smooth**: The rotation should be continuous
+    and at a constant rate, more or less.
+  - **Shortest arc**: The rotation should follow
+    the shorter way around.
+- Basically we want a single rotation
+  around a single axis
+  to simulate what you might expect
+  from a physical object like a satellite.
 
 # Interpolation
 
@@ -234,19 +237,58 @@ $$
 \end{aligned}
 $$
 
-- For the view transitions in our game,
-  we would like to interpolate the rotations
-  in a similar manner.
-- Unfortunately we encounter some complexity
-  due to how 3D rotations are represented.
-- If we choose the unit quaternion representation
-  then we can use something called
-  spherical linear interpolation or "Slerp".
-- ... if we try to blindly apply Lerp to unit quaterions
-  we encounter 2 problems, the first is double cover
-  and the second is length constraint...
+- In our game, we would like
+  to interpolate between rotations.
+- For that we need something called
+  spherical linear interpolation,
+  or **"Slerp"**.
 
-# Quaternion Slerp
+# Slerp
+
+- The spherical equivalent of Lerp
+  is a function called Slerp:
+
+$$
+\begin{aligned}
+  \operatorname{Slerp}(\mathbf{q_1}, \mathbf{q_2}, t)
+  &=
+  \frac{\sin\left[(1-t)\theta\right]}{\sin\theta}
+  \mathbf{q_1}
+  +
+  \frac{\sin\left[t\theta\right]}{\sin\theta}
+  \mathbf{q_2} \\
+\end{aligned}
+$$
+
+- When applied to 3D rotations,
+  it meets all of our requirements
+  for realistic transitions:
+
+  - Smooth
+  - Shortest arc
+
+- However when we attempt to implement this in code,
+  we find that there is a bit more involved.
+
+### Representing 3D rotations
+
+- There are many ways to represent 3D rotations.
+- The "unit quaternion" representation has many advantages
+  including being able to use Slerp
+  for interpolation.
+- Quaternion mathematics is a very interesting topic
+  but there are a couple of basic things that we need to know
+  when using them to represent rotations.
+- A quaternion is like a 4-dimensional vector,
+  and a "unit quaternion" is a quaternion with a length
+  equal to one.
+- If we represent a 3D rotation
+  using unit quaternion $\mathbf{q}$,
+  it turns out that both $$
+and $$
+  represent the same rotation.
+- For any given rotation, there are exactly two
+  unit quateriuons
 
 - The Slerp formula for unit quaternions
   requires careful implementation.
@@ -291,13 +333,19 @@ TODO: That ^^^ isn't quite done yet...
 # An approximation
 
 - (simplify)
+- ...I have seen this called **Nlerp**...
+- ...the core if it is simply Lerp
+  but we want to distinguish it from Lerp
+  because of the folding and the normalization step...
 - no need to find the angle, and no singularity
 - takes the same path, but not constant velocity
 - how close is it?
 
 # Poll: Can you tell which one is Slerp?
 
-- (maybe just omit this poll altogether)
+- (or maybe just omit this poll altogether
+  and replace it with just the resulting plots,
+  i.e., combine with previous slide)
 
 # Did we learn anything?
 
@@ -310,5 +358,7 @@ TODO: That ^^^ isn't quite done yet...
 - whether we are using an existing generator or writing or own,
   there is a simple test for randomness
 - a generator in JS with Park Miller constants
-- Lerp is a good approximation of Slerp
+- what we are calling "Nlerp"
+  (linear interpolation for rotations)
+  is a good approximation of Slerp
   and is easier to implement
