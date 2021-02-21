@@ -268,7 +268,7 @@ $$
   - Shortest arc
 
 - To implement this in code,
-  we need to know a few things first.
+  we need to know a some things first.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
   represent rotations
@@ -288,32 +288,12 @@ $$
   can be calculated
   similar to how we would calculate it
   for a pair of vectors.
-
-- The Slerp formula for unit quaternions
-  requires careful implementation.
-- Given unit quaternions $\mathbf{q_1}$
-  and $\mathbf{q_2}$
-  representing the rotations
-  that we want to interpolate,
-  we start by calculating the angle $\theta$
-  between them.
-- If the cosine of $\theta$ is negative,
+- If $\theta$
+  is greater than $+90\degree$
+  or less then $-90\degree$,
   we need to negate one of the endpoints
-  before we can use the following equation:
-
-$$
-\begin{aligned}
-  \operatorname{Slerp}(\mathbf{q_1}, \mathbf{q_2}, t)
-  &=
-  \frac{\sin\left[(1-t)\theta\right]}{\sin\theta}
-  \mathbf{q_1}
-  +
-  \frac{\sin\left[t\theta\right]}{\sin\theta}
-  \mathbf{q_2} \\
-\end{aligned}
-$$
-
-TODO: That ^^^ isn't quite done yet...
+  to prevent Slerp
+  from taking the long way around.
 
 - (finding a solution and showing how it solves the problem)
 - properties of quaternion Slerp, and how that matches our requirements
