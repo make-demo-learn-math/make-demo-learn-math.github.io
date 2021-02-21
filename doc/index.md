@@ -33,7 +33,7 @@
   I have chosen a theme
   of planetary exploration.
 
-### [A multi-player web game](./rover.png)
+## [A multi-player web game](./rover.png)
 
 - Suppose that we want to write a multi-player web game
   about exploring a Mars-like planet.
@@ -260,15 +260,13 @@ $$
 \end{aligned}
 $$
 
-- When applied properly to 3D rotations,
-  it meets all of our requirements
+- When applied to 3D rotations,
+  Slerp meets all of our requirements
   for realistic transitions:
 
   - Smooth
   - Shortest arc
 
-- To implement this in code,
-  we need to know a some things first.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
   represent rotations
@@ -294,6 +292,30 @@ $$
   we need to negate one of the endpoints
   to prevent Slerp
   from taking the long way around.
+- If $\theta$ is equal to $0$,
+  we need to avoid the division-by-zero
+  that would result
+  in the Slerp equation above.
+- We also need to be careful
+  about floating-point errors
+  when calculating $\theta$
+  using the inverse cosine
+  of the dot product of $\mathbf{q_1}$
+  and $\mathbf{q_2}$.
+- We begin to see that a proper
+  implementation of Slerp
+  is actually very involved.
+- Is there an easier way
+  that still meets our requirements?
+
+## Implementation
+
+- We can now implement Slerp
+  for our view transitions.
+- However
+- To calculate $\theta$
+  we can use the inverse cosine
+  of the dot product...
 
 - (finding a solution and showing how it solves the problem)
 - properties of quaternion Slerp, and how that matches our requirements
