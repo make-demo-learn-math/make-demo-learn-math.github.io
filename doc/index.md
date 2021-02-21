@@ -15,7 +15,7 @@
   that are available.
 - Rather than writing a complete game,
   let's consider writing just a small demo
-  or individual features within a game.
+  or an individual feature within the game.
 - If we break the task down into smaller pieces like this,
   we can focus more on the interesting things
   that we might learn along the way.
@@ -31,7 +31,7 @@
 - With all of the exciting news recently
   about the successful landing on Mars,
   I have chosen a theme
-  of planetary exploration.
+  of **planetary exploration**.
 
 ## [A multi-player web game](./rover.png)
 
@@ -62,9 +62,9 @@
 - As a game developer,
   we need to generate the terrain itself
   and we need to simulate the view from the satellite.
-- Feature #1 is about generating
-  random-looking terrain on the planet.
-- Feature #2 is about simulating realistic transitions
+- So, feature #1 is about generating
+  random-looking terrain on the planet,
+  and feature #2 is about simulating realistic transitions
   between views of the planet from the satellite.
 
 # Feature #1: Generating random terrain
@@ -76,11 +76,10 @@
   where each different world
   is generated from a unique seed.
 - Since our game is multi-player,
-  it is important that every player
-  is viewing the exact same world.
+  it is important that the terrain among players
+  is the same in every detail.
 - We also want the terrain to look "random",
-  which means that there should be no visible patterns
-  and the distribution should be more or less uniform.
+  meaning there should be no visible patterns.
 - We call this "pseudorandom":
   random-looking but perfectly reproducible
   based on the initial seed.
@@ -89,24 +88,25 @@
 
 - There are many techniques
   for generating realistic terrain in a game.
-- Indeed that is a whole topic onto itself
+- In fact that is a whole topic onto itself
   and deserves its own presentation.
 - Typically the goal is to generate terrain information
   like height, slope, and colour for each location
   on the planet that we are interested in.
 - Perlin noise is one popular approach for this.
-- In order to keep this presentation well-focused,
-  we are going to make a sweeping assumption.
+- In order to keep this presentation within scope,
+  we are going to make a sweeping assumption...
 - We are going to assume that we already know
   how to generate terrain information
-  given a set of points located randomly
-  over the surface of the planet.
+  given a set of random points
+  on the surface of the planet.
 - We won't worry about how those points are used
-  to generate the height and colour of the terrain,
+  to generate the height or colour of the terrain,
   and it is sufficient to say that a suitable
   technique exists (for example, using Voronoi diagrams).
-- Now we can focus on simply generating
-  points at random-looking locations.
+- Now we can focus on just generating
+  points distributed evenly over the planet
+  at pseudorandom locations.
 - The first step is to generate a sequence of
   pseudorandom numbers,
   and the second step is to map those numbers
@@ -346,15 +346,20 @@ $$
 
 # Did we learn anything?
 
-- developing a game is a huge undertaking
-  but provides the intrinsic motivation and positive reinforcement
-  that drive us to learn new things
-- breaking that down and focusing just on a couple of small features
-  still provides a similar motivation
-  but is much more manageable and attainable
-- whether we are using an existing generator or writing or own,
-  there is a simple test for randomness
-- a generator in JS with Park Miller constants
-- normalized linear interpolation, or "Nlerp",
-  is a good approximation of Slerp
-  and is easier to implement
+- Video games can provide the motivation needed
+  to learn new things,
+  but developing a complete game is a huge effort.
+- Focusing on just a small feature
+  is more attainable
+  and still provides motivation.
+- In any case we've seen some examples
+  of very interesting things
+  that we might learn along the way:
+  - The output of a pseudorandom number generator
+    with poorly-chosen constants
+    can contain undesirable patterns
+    that are not obvious at first glance.
+  - Tests exist to detect these patterns.
+  - Normalized linear interpolation
+    is a good approximation to Slerp
+    and is easier to implement.
