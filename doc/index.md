@@ -273,15 +273,21 @@ $$
   and $\mathbf{q_2}$
   represent rotations
   and are called "unit quaternions".
-- There are many ways to represent 3D rotations
+- There are various ways to represent 3D rotations
   but using unit quaternions has many advantages
   (including being able to use Slerp).
 - A quaternion is like a four dimensional vector.
-- A **unit** quaternion is a quaternion
+- A **unit** quaternion $\mathbf{q}$ is a quaternion
   whose length is equal to $1$.
 - Both $+\mathbf{q}$
   and $-\mathbf{q}$
   represent the same rotation.
+- The angle $\theta$
+  between unit quaternions $\mathbf{q_1}$
+  and $\mathbf{q_2}$
+  can be calculated
+  similar to how we would calculate it
+  for a pair of vectors.
 
 - The Slerp formula for unit quaternions
   requires careful implementation.
