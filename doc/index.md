@@ -311,7 +311,8 @@ $$
 # An approximation
 
 - If we simply Lerp the quaternions
-  we actaully get an approximation of Slerp
+  we actaully get a descent
+  approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
 - We just need to normalize the Lerp
@@ -319,8 +320,8 @@ $$
 - We also need to negate one of the endpoints
   if their dot product is negative
   to ensure we get the shorter arc.
-- Let's call it **Nlerp**
-  (for normalized linear interpolation):
+- To avoid confusion, let's call this **Nlerp**
+  for normalized linear interpolation:
 
 $$
 \begin{aligned}
@@ -335,11 +336,9 @@ $$
 \end{aligned}
 $$
 
-- The fact that this is a surpringly good
-  approximation of Slerp
-  is due to the remarkable mathematics
-  of unit quaternions
-  and how we use them to represent of 3D rotations.
+- This is a surprizingly good approximation of Slerp
+  and a testament to the remarkable mathematics of quaternions
+  and how we use them to represent 3D rotations.
 
 # Implementation in JavaScript
 
