@@ -15,10 +15,9 @@
   that are available.
 - Rather than writing a complete game,
   let's consider writing just a small demo
-  or an individual feature within the game.
-- If we break the task down into smaller pieces like this,
-  we can focus more on the interesting things
-  that we might learn along the way.
+  or an individual feature within the game,
+  and we will see some of the interesting things
+  that we can learn along the way.
 
 # Game premise
 
@@ -46,8 +45,8 @@
   with the community.
 - Players get credit when they contribute to discoveries.
 - It all sounds like fun,
-  but for now we are just going to focus
-  on two small "features" of the game
+  but for now we are just going to consider
+  two small "features" of the game
   which relate to how players
   can view the surface of the planet from space.
 - To plan their simulated expeditions,
