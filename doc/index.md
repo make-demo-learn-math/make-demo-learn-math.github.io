@@ -182,44 +182,118 @@
 
 # Implementation in JavaScript
 
-```javascript
-const MODULUS = 2147483647; // 0x7FFFFFFF
-const MULTIPLIER = 48271;
+- Here is a simple implementation in JavaScript:
 
-/**
- * Park-Miller PRNG with the multiplier value that was suggested more recently.
- */
-export default class Pseudorandom {
-  constructor() {
-    this.seed = 1;
-  }
+  ```javascript
+  const MODULUS = 2147483647; // 0x7FFFFFFF
+  const MULTIPLIER = 48271;
 
   /**
-   * Sets the seed for the PRNG. Throws an error for invalid input.
-   *
-   * @param {Number} seed an integer greater than 0 and less than 2147483647
+   * Park-Miller PRNG with the multiplier value that was suggested more recently.
    */
-  setSeed(seed) {
-    const isValidSeed = Number.isInteger(seed) && seed > 0 && seed < MODULUS;
-    if (!isValidSeed) {
-      throw new Error(
-        `Seed must be an integer greater than 0 and less than ${MODULUS}.`
-      );
+  export default class Pseudorandom {
+    constructor() {
+      this.seed = 1;
     }
 
-    this.seed = seed;
-  }
+    /**
+     * Sets the seed for the PRNG. Throws an error for invalid input.
+     *
+     * @param {Number} seed an integer greater than 0 and less than 2147483647
+     */
+    setSeed(seed) {
+      const isValidSeed = Number.isInteger(seed) && seed > 0 && seed < MODULUS;
+      if (!isValidSeed) {
+        throw new Error(
+          `Seed must be an integer greater than 0 and less than ${MODULUS}.`
+        );
+      }
 
-  /**
-   * Returns the next pseudorandom integer greater than 0 and less than 2147483647
-   * assuming a valid seed to begin with.
-   */
-  next() {
-    this.seed = (MULTIPLIER * this.seed) % MODULUS;
-    return this.seed;
+      this.seed = seed;
+    }
+
+    /**
+     * Returns the next pseudorandom integer greater than 0 and less than 2147483647
+     * assuming a valid seed to begin with.
+     */
+    next() {
+      this.seed = (MULTIPLIER * this.seed) % MODULUS;
+      return this.seed;
+    }
   }
-}
-```
+  ```
+
+- Here are unit tests to go with it:
+
+  ```javascript
+  describe("Pseudorandom", () => {
+    let pseudorandom1;
+    let pseudorandom2;
+
+    beforeEach(() => {
+      pseudorandom1 = new Pseudorandom();
+      pseudorandom2 = new Pseudorandom();
+    });
+
+    describe("constructor", () => {
+      it("should set a valid initial seed", () => {
+        expect(() =>
+          pseudorandom1.setSeed(pseudorandom1.seed)
+        ).not.toThrowSomething();
+      });
+
+      it("should set the same initial seed every time", () => {
+        expect(pseudorandom1.seed).toBe(pseudorandom2.seed);
+      });
+    });
+
+    describe("setSeed", () => {
+      it("should throw for a non-integer input", () => {
+        expect(() => pseudorandom1.setSeed(3.14)).toThrowSomething();
+      });
+
+      it("should throw for an integer input less than 1", () => {
+        expect(() => pseudorandom1.setSeed(0)).toThrowSomething();
+      });
+
+      it("should not throw for an input of 1", () => {
+        expect(() => pseudorandom1.setSeed(1)).not.toThrowSomething();
+      });
+
+      it("should throw for an integer input greater than 2147483646", () => {
+        expect(() => pseudorandom1.setSeed(2147483647)).toThrowSomething();
+      });
+
+      it("should not throw for an input of 2147483646", () => {
+        expect(() => pseudorandom1.setSeed(2147483646)).not.toThrowSomething();
+      });
+    });
+
+    describe("next", () => {
+      it("should always return an integer greater than 0 and less than 2147483647", () => {
+        const NUM_ITERATIONS = 1000; // chosen small to be fast rather than rigorous
+        for (let i = 0; i < NUM_ITERATIONS; i++) {
+          const underTest = pseudorandom1.next();
+          expect(() => pseudorandom1.setSeed(underTest)).not.toThrowSomething();
+        }
+      });
+
+      it("should return the same sequence given the same initial seed", () => {
+        const initialSeed = 1234;
+        pseudorandom1.setSeed(initialSeed);
+        pseudorandom2.setSeed(initialSeed);
+
+        const NUM_ITERATIONS = 1000; // chosen small to be fast rather than rigorous
+        for (let i = 0; i < NUM_ITERATIONS; i++) {
+          expect(pseudorandom1.next()).toBe(pseudorandom2.next());
+        }
+      });
+    });
+  });
+  ```
+
+- ...spectral test for that code...
+- ...unit tests...
 
 # Sphere point picking
 
