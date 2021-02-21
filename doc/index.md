@@ -283,7 +283,7 @@ $$
   and $-\mathbf{q}$
   represent the same rotation.
 - The angle $\theta$
-  between unit quaternions $\mathbf{q_1}$
+  between $\mathbf{q_1}$
   and $\mathbf{q_2}$
   can be calculated
   similar to how we would calculate it
