@@ -457,7 +457,7 @@ $$
   using the inverse cosine
   of the dot product of $\mathbf{q_1}$
   and $\mathbf{q_2}$.
-- As you can see,
+- As you can imagine,
   a proper implementation of Slerp
   is actually very involved.
 - Is there an easier way
