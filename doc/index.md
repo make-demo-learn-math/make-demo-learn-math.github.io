@@ -65,7 +65,7 @@
 - Feature #1 is about generating
   random-looking terrain on the planet.
 - Feature #2 is about simulating realistic transitions
-  between views of the planet from an orbiting satellite.
+  between views of the planet from the satellite.
 
 # Feature #1: Generating random terrain
 
@@ -77,7 +77,7 @@
   is generated from a unique seed.
 - Since our game is multi-player,
   it is important that every player
-  sees the exact same world.
+  is viewing the exact same world.
 - We also want the terrain to look "random",
   which means that there should be no visible patterns
   and the distribution should be more or less uniform.
@@ -85,7 +85,7 @@
   random-looking but perfectly reproducible
   based on the initial seed.
 
-# A big assumption
+# Keeping it simple
 
 - There are many techniques
   for generating realistic terrain in a game.
@@ -105,15 +105,15 @@
   to generate the height and colour of the terrain,
   and it is sufficient to say that a suitable
   technique exists (for example, using Voronoi diagrams).
-- With this assumption, we can focus on simply generating
-  points at random (or pseudorandom) locations.
+- Now we can focus on simply generating
+  points at random-looking locations.
 - The first step is to generate a sequence of
   pseudorandom numbers,
   and the second step is to map those numbers
   to locations on the planet.
-- Roughly speaking, the planet is just a large sphere.
-- We will look at how to generate pseudorandom numbers,
-  and how to map them to points on a sphere.
+- Since the planet in our game is just a large sphere,
+  we can use something called "sphere point picking"
+  to map the pseudorandom numbers to points on the planet.
 
 # Pseudorandom number generators
 
@@ -131,7 +131,7 @@
 
 # Implementation in JavaScript
 
-# Mapping to points on a sphere
+# Sphere point picking
 
 - problems you might encounter
 - possible solutions
@@ -140,21 +140,110 @@
 
 # Feature #2: Realistic transitions between views
 
-- (defing the problem and the acceptance criteria)
-- desirable properties of a "realistic rotation"
-  - minimum energy/torque: a single rotation
-    about a single axis
-  - shortest arc
-  - roughly constant velocity (only as far
-    as player can perceive)
+- In our game, the satellite is revolving around the planet
+  according to a prescribed orbit.
+- The satellite is equipped with a virtual camera
+  which is capable of viewing a portion of the planet's surface.
+- The player can view different regions of the planet
+  by adjusting the orientation of the satellite,
+  thereby rotating the view from the camera.
+- As game designers, we want the motion of the camera
+  to be realistic
+  as it transitions between views.
+- Animators call this "tweening".
+- Programmers call it "interpolation".
+- Let's define the desirable properties
+  of a realistic transition:
+  - **Smooth**: The motion should be continuous.
+  - **Shortest arc**: The rotation should follow the shorter way around.
+  - **Minimal energy**: We want a single rotation about a single axis.
+  - **Nearly constant velocity**: We want the rotation rate
+    to be more or less constant.
 
-# Smooth interpolation of 3D rotations
+# Interpolation
 
-- (finding a solution and showing how it solves the problem)
-- properties of quaternion Slerp, and how that matches our requirements
+- One of the simplest examples of interpolation
+  is called linear interpolation or **"Lerp"**.
+- Lerp is a function that interpolates between two values $f_1$
+  and $f_2$
+  according to a given number $t$:
+
+$$
+\begin{aligned}
+  \operatorname{Lerp}(f_1, f_2, t)
+  &=
+  (1-t)f_1
+  +
+  tf_2 \\
+\end{aligned}
+$$
+
+- When $t=0$, the function returns the first value $f_1$:
+
+$$
+\begin{aligned}
+  \operatorname{Lerp}(f_1, f_2, 0)
+  &=
+  (1-0)f_1
+  +
+  0f_2 \\
+  &=
+  f_1
+  +
+  0 \\
+  &=
+  f_1 \\
+\end{aligned}
+$$
+
+- When $t=1$, the function returns the second value $f_2$:
+
+$$
+\begin{aligned}
+  \operatorname{Lerp}(f_1, f_2, 1)
+  &=
+  (1-1)f_1
+  +
+  1f_2 \\
+  &=
+  0
+  +
+  f_2 \\
+  &=
+  f_2 \\
+\end{aligned}
+$$
+
+- Lerp is very easy to implement in code:
+
+  ```javascript
+  function lerp(f1, f2, t) {
+    return (1 - t) * f1 + t * f2;
+  }
+  ```
+
+- Lerp also works nicely with vectors:
+
+$$
+\begin{aligned}
+  \operatorname{Lerp}(\mathbf{v_1}, \mathbf{v_2}, t)
+  &=
+  (1-t)\mathbf{v_1}
+  +
+  t\mathbf{v_2} \\
+\end{aligned}
+$$
+
+- For the view transitions in our game,
+  we would like to interpolate the rotations
+  in a similar manner.
+- Unfortunately we encounter some complexity
+  due to how 3D rotations are represented.
 
 # Quaternion Slerp
 
+- (finding a solution and showing how it solves the problem)
+- properties of quaternion Slerp, and how that matches our requirements
 - (implementation)
 - difficulties of finding the angle (inverse cosine)
   - clamp to avoid NaN (e.g., `Math.min()` but still
@@ -167,14 +256,14 @@
 - (show a reference implementation as an example)
 - is there a better way?
 
-# Lerp
+# An approximation
 
 - (simplify)
 - no need to find the angle, and no singularity
 - takes the same path, but not constant velocity
 - how close is it?
 
-# Poll: Can you tell Lerp from Slerp?
+# Poll: Can you tell which one is Slerp?
 
 # Did we learn anything?
 
