@@ -110,9 +110,6 @@
   pseudorandom numbers,
   and the second step is to map those numbers
   to locations on the planet.
-- Since the planet in our game is just a large sphere,
-  we can use something called "sphere point picking"
-  to map the pseudorandom numbers to points on the planet.
 
 # Pseudorandom number generators
 
@@ -121,20 +118,20 @@
 - The built-in generators
   provided by most programming languages
   should be sufficient.
-- Unfortunately the generator that JavaScript provides
+- Unfortunately the generator that JavaScript
   (called `Math.random()`)
-  has no way to set the seed.
+  provides no way to set the seed.
 - If we try to use it
   for generating the points on our planet
   we cannot guarantee
   that every player will see the same world.
-- We need to a seedable generator.
+- We need a seedable generator.
 - The equation often used for this
   is called a linear congruential generator (LCG).
 - The equation itself is very simple
   but involves several constants
-  which must be chosen very carefully.
-- Selecting the constants to ensure sufficient randomness
+  which must be chosen carefully.
+- In fact, selecting the constants to ensure sufficient randomness
   is non-trivial and has been a topic of research.
 - Let's see how the output of a generator
   with poorly-chosen constants
@@ -143,12 +140,11 @@
 
 # Poll: Which sequence looks more random?
 
-- Below are two sets of output
-  from a very simple LCG formula.
-- A different multiplier constant was used
+- Below are two LCG sequences.
+- A different multiplier was used
   to generate each sequence.
-- ...show number sequences A and B...
-- Which do you think looks more "random"?
+- ...show sequences A and B...
+- Which do you think looks more random?
 - Possible responses:
   1. Sequence A looks more random
   1. Sequence B looks more random
@@ -162,11 +158,10 @@
 - The spectral test is a simple test
   for detecting hidden patterns
   in a sequence of pseudorandom numbers.
-- Here are the test plots
-  for the two random-looking sequences
-  from our poll:
+- Here are the results of the spectral test
+  for the sequences A and B:
 - ...reveal plots for each...
-- It's interesting to see how two pseudorandom sequences
+- It's interesting to see how two sequences
   which appear equally random
   can actually have very different properties
   when displayed like this.
@@ -288,6 +283,13 @@
 
 # Sphere point picking
 
+- Now that we can generate
+  a sequence of pseudorandom numbers,
+  the next step is to map those numbers
+  to locations on the planet.
+- Since the planet in our game is just a large sphere,
+  we can use something called "sphere point picking"
+  to map the pseudorandom numbers to points on the planet.
 - problems you might encounter
 - possible solutions
 - Marsaglia's method and its advantages (speed, no rejection / deterministic ingress requirements)
