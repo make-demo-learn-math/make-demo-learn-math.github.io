@@ -116,14 +116,6 @@
 
 # Pseudorandom number generators
 
-- just a game, not cryptography
-- LCG and Lehmer
-- simple formulas but with carefully chosen constants
-- JavaScript provides no way to set the seed!
-- whether we use a third party lib or write our own
-  we need a way to test the output for "randomness"
-- let's see why that is important
-
 - This is just a game, not cryptography,
   so we don't need a cryptographically-strong generator.
 - The built-in generators
