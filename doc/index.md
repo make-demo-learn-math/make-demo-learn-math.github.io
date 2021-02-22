@@ -391,6 +391,7 @@ $$
   and **shortest arc**:
   - Continuous = with a steady rotation rate
   - Shortest arc = the short way around.
+- ..._insert clock-face diagram to explain shortest arc_...
 
 # Interpolation
 
