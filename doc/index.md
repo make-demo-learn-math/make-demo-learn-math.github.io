@@ -25,14 +25,10 @@
   to provide some motivation.
 - This is just an example
   of a hypothetical, simulation-type game.
-- Feel free to come up with a better one!
-- The important thing is that it captures your imagination.
-- With all of the exciting news recently
-  about the successful landing on Mars,
-  I have chosen a theme
-  of **planetary exploration**.
+- It is inspired by the Mars missions
+  which have been in the news recently.
 
-## [A multi-player web game](./rover.png)
+## Planetary Exploration
 
 - Suppose that we want to write a multi-player web game
   about exploring a Mars-like planet.
@@ -46,7 +42,7 @@
 - Players get credit when they contribute to discoveries.
 - It all sounds like fun,
   but for now we are just going to consider
-  two small "features" of the game
+  two small features of the game
   which relate to how players
   can view the surface of the planet from space.
 - To plan their simulated expeditions,
@@ -70,16 +66,16 @@
 
 - Rather than using a detailed image of a real planet,
   we want to generate the planet's terrain procedurally
-  based on a "seed" value.
+  based on a **seed** value.
 - This is similar to the game of Minecraft
   where each different world
   is generated from a unique seed.
 - Since our game is multi-player,
   it is important that the terrain among players
   is the same in every detail.
-- We also want the terrain to look "random",
+- We also want the terrain to look random,
   meaning there should be no visible patterns.
-- We call this "pseudorandom":
+- We call this **pseudorandom**:
   random-looking but perfectly reproducible
   based on the initial seed.
 
@@ -127,7 +123,7 @@
   that every player will see the same world.
 - We need a seedable generator.
 - The equation often used for this
-  is called a linear congruential generator (LCG).
+  is called a **linear congruential generator (LCG)**.
 - The equation itself is very simple
   but involves several constants
   which must be chosen carefully.
@@ -319,7 +315,7 @@
   the next step is to map those numbers
   to locations on the planet.
 - Since the planet in our game is just a large sphere,
-  we can use something called "sphere point picking".
+  we can use something called **sphere point picking**.
 - ...explain how mapping to a sphere uniformly/evenly
   is harder than just plotting X-Y coordinates...
 - ..we can't just use spherical coordinates because
@@ -379,13 +375,13 @@ $$
   - **Shortest arc**: The rotation should follow
     the shorter way around.
 - Basically we want a single, minimal rotation
-  to simulate what anyone would expect
-  from a physical object like a satellite.
+  to simulate the motion of
+  a physical object like a satellite.
 
 # Interpolation
 
 - One of the simplest examples of interpolation
-  is called linear interpolation or **"Lerp"**.
+  is called linear interpolation or **Lerp**.
 - Lerp is a function that interpolates between two values $f_1$
   and $f_2$
   according to a given number $t$:
@@ -465,13 +461,13 @@ $$
 - In our game, we would like
   to interpolate between rotations.
 - For that we need something called
-  spherical linear interpolation,
-  or **"Slerp"**.
+  spherical linear interpolation
+  or **Slerp**.
 
 # Slerp
 
-- The spherical equivalent of Lerp
-  is a function called Slerp:
+- Slerp is like the spherical equivalent
+  of Lerp:
 
 $$
 \begin{aligned}
@@ -492,18 +488,22 @@ $$
   and shortest arc.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
-  are "unit quaternions"
-  and represent the rotations
+  represent the rotations
   to be interpolated.
-- There are various ways to represent 3D rotations
-  but using unit quaternions has many advantages.
-- A quaternion is like a four dimensional vector.
-- A **unit** quaternion is a quaternion
+- There are various ways to represent 3D rotations.
+- Here we are using **unit quaternions**.
+- A quaternion is like a four dimensional vector,
+  and a unit quaternion is a quaternion
   whose length is equal to $1$.
-- Both $+\mathbf{q}$
+- There are many advantages of this representation
+  compared with represenations like Euler angles
+  which have a singularity.
+- There are also some things to remember.
+- For example, both $+\mathbf{q}$
   and $-\mathbf{q}$
   represent the same rotation.
-- The angle $\theta$
+- In the Slerp equation,
+  the angle $\theta$
   between $\mathbf{q_1}$
   and $\mathbf{q_2}$
   can be calculated
@@ -515,16 +515,13 @@ $$
   we need to negate one of the endpoints
   to prevent Slerp
   from taking the long way around.
-- If $\theta$ is equal to $0$,
-  we need to avoid the division-by-zero
-  that would result
-  in the Slerp equation above.
-- We also need to be careful
-  about floating-point errors
-  when calculating $\theta$
-  using the inverse cosine
-  of the dot product of $\mathbf{q_1}$
-  and $\mathbf{q_2}$.
+- Note that the Slerp equations have $\sin\theta$
+  in the denominator
+  and therefore care must be taken
+  to avoid division-by-zero.
+- Also, we need protect against domain errors
+  due to floating-point round-off
+  if we use the inverse cosine to calculate $\theta$.
 - As you can imagine,
   a proper implementation of Slerp
   is actually quite involved.
@@ -545,7 +542,7 @@ $$
   1. Normalize the result of the Lerp
      to ensure that quaternion returned
      is a unit quaternion.
-- To avoid confusion, let's call this
+- Let's call this
   normalized linear interpolation
   or **Nlerp**:
 
@@ -562,9 +559,9 @@ $$
 \end{aligned}
 $$
 
-- This is a surprizingly good approximation of Slerp
+- ...This is a surprizingly good approximation of Slerp
   and a testament to the remarkable mathematics of quaternions
-  and how we use them to represent 3D rotations.
+  and how we use them to represent 3D rotations....
 
 # Implementation in JavaScript
 
