@@ -75,7 +75,7 @@
   is the same in every detail.
 - We also want the terrain to look random,
   meaning there should be no visible patterns.
-- We call this **pseudorandom**:
+- We call this **pseudorandom**: The terrain is
   random-looking but perfectly reproducible
   based on the initial seed.
 
@@ -85,7 +85,7 @@
   for generating realistic terrain in a game.
 - In fact that is a whole topic onto itself
   and deserves its own presentation.
-- Typically the goal is to generate terrain information
+- Typically it involves generating terrain information
   like height, slope, and colour for each location
   on the planet that we are interested in.
 - Perlin noise is one popular approach for this.
@@ -95,10 +95,9 @@
   how to generate terrain information
   given a set of random points
   on the surface of the planet.
-- We won't worry about how those points are used
-  to generate the height or colour of the terrain,
-  and it is sufficient to say that a suitable
-  technique exists (for example, using Voronoi diagrams).
+- We won't worry about **how** those points are used.
+- We'll just say that a suitable technique exists
+  (Voronoi diagrams for example).
 - Now we can focus on just generating
   points distributed evenly over the planet
   at pseudorandom locations.
@@ -106,6 +105,7 @@
   pseudorandom numbers,
   and the second step is to map those numbers
   to locations on the planet.
+- Both of these involve some very interesting math.
 
 # Pseudorandom number generators
 
@@ -140,9 +140,9 @@
 - Below are two LCG sequences.
 - A different multiplier was used
   to generate each sequence.
-- ...show sequences A and B...
 - Which do you think looks more random?
-- Possible responses:
+- ..._show sequences A and B_...
+- The possible responses are:
   1. Sequence A looks more random
   1. Sequence B looks more random
   1. Both sequences look equally random
@@ -157,31 +157,31 @@
   in a sequence of pseudorandom numbers.
 - Here are the results of the spectral test
   for the sequences A and B:
-- ...reveal plots for each...
+- ..._reveal plots for each_...
 - It's interesting to see how two sequences
   which appear equally random
   can actually have very different properties
   when displayed like this.
-- ...the spectral test is NOT comprehensive...
-- ...its just one of many tests for randomness...
-- In 1995, George Marsaglia published a CD ROM
-  that included an entire suite of tests like this
-  called "The Diehard Battery of Tests of Randomness".
-- ...Marsaglia's tests, values in use, RANDU...
+- The spectral test is NOT comprehensive.
+- It is just one of many known tests for randomness,
+  and in 1995 George Marsaglia published a CD ROM
+  which included an entire suite of tests.
+- He called it "The Diehard Battery of Tests of Randomness".
 
 # Implementation in JavaScript
 
-- If you look at a list of the LCG constants in use,
-  many of them require support for 64-bit integers.
+- Many of the LCG constants in common use
+  require support for 64-bit integers.
 - In JavaScript, the built-in number type
   only gives us 53 bits of precision:
-  `Number.MAX_SAFE_INTEGER` = $2^{53}-1$.
+
+  > `Number.MAX_SAFE_INTEGER` = $2^{53}-1$
+
 - Fortunately there is something called
   the Park-Miller random number generator.
 - The constants suggest by Park and Miller in 1988
   (and revised slightly in 1993)
-  just happen to be suitable for JavaScript.
-- Here is a simple implementation in JavaScript:
+  just happen to be suitable for JavaScript:
 
   ```javascript
   const MODULUS = 2147483647; // 0x7FFFFFFF
@@ -322,7 +322,7 @@
   });
   ```
 
-- ...spectral test for that, compared side-by-side with spectral test for `Math.random()`...
+- ..._insert spectral test for my code compared side-by-side with `Math.random()`_...
 
 # Sphere point picking
 
@@ -335,9 +335,9 @@
 - ...explain how mapping to a sphere uniformly/evenly
   is harder than just plotting X-Y coordinates...
 - ...map maker's dilemma... global maps are always distorted...
-- ..we can't just use spherical coordinates because
+- ...we can't just use spherical coordinates because
   we will get bunching near the poles...
-- ...Marsaglia 1972, paper discussing the pros and cons of various methods
+- ...Marsaglia 1972 (23 years before the Diehard tests), paper discussing the pros and cons of various methods
   including a couple of new ones...
 - Our class `Pseudorandom` has a function called `nextScalar()`
   which generates the next pseudorandom number
@@ -381,7 +381,7 @@ $$
   which is capable of viewing a portion of the planet's surface.
 - The player can view different regions of the planet
   by adjusting the orientation of the satellite,
-  thereby rotating the view from the camera.
+  thereby rotating the camera.
 - As game designers, we want the motion of the camera
   to be realistic
   as it transitions between views.
@@ -580,7 +580,7 @@ $$
 
 - ...This is a surprizingly good approximation of Slerp
   and a testament to the remarkable mathematics of quaternions
-  and how we use them to represent 3D rotations....
+  and how we use them to represent 3D rotations...
 
 # Implementation in JavaScript
 
