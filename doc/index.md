@@ -162,10 +162,25 @@
   which appear equally random
   can actually have very different properties
   when displayed like this.
+- ...the spectral test is NOT comprehensive...
+- ...its just one of many tests for randomness...
+- In 1995, George Marsaglia published a CD ROM
+  that included an entire suite of tests like this
+  called "The Diehard Battery of Tests of Randomness".
 - ...Marsaglia's tests, values in use, RANDU...
 
 # Implementation in JavaScript
 
+- If you look at a list of the LCG constants in use,
+  many of them require support for 64-bit integers.
+- In JavaScript, the built-in number type
+  only gives us 53 bits of precision:
+  `Number.MAX_SAFE_INTEGER` = $2^{53}-1$.
+- Fortunately there is something called
+  the Park-Miller random number generator.
+- The constants suggest by Park and Miller in 1988
+  (and revised slightly in 1993)
+  just happen to be suitable for JavaScript.
 - Here is a simple implementation in JavaScript:
 
   ```javascript
@@ -319,6 +334,7 @@
   we can use something called **sphere point picking**.
 - ...explain how mapping to a sphere uniformly/evenly
   is harder than just plotting X-Y coordinates...
+- ...map maker's dilemma... global maps are always distorted...
 - ..we can't just use spherical coordinates because
   we will get bunching near the poles...
 - Our class `Pseudorandom` has a function called `nextScalar()`
