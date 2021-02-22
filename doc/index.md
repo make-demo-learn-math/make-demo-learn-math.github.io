@@ -335,6 +335,7 @@
 - ...explain how mapping to a sphere uniformly/evenly
   is harder than just plotting X-Y coordinates...
 - ...map maker's dilemma... global maps are always distorted...
+- ..._insert global map with distortion at poles_...
 - ...we can't just use spherical coordinates because
   we will get bunching near the poles...
 - ...Marsaglia 1972 (23 years before the Diehard tests), paper discussing the pros and cons of various methods
@@ -506,37 +507,41 @@ $$
   represent the rotations
   to be interpolated.
 - There are various ways to represent 3D rotations.
-- Here we are using **unit quaternions**.
-- A quaternion is like a four dimensional vector,
-  and a unit quaternion is a quaternion
-  whose length is equal to $1$.
-- There are many advantages of this representation
-  compared with represenations like Euler angles
-  which have a singularity.
-- There are also some things to remember.
-- For example, both $+\mathbf{q}$
-  and $-\mathbf{q}$
-  represent the same rotation.
-- In the Slerp equation,
-  the angle $\theta$
-  between $\mathbf{q_1}$
-  and $\mathbf{q_2}$
-  can be calculated
-  similar to how we would calculate it
-  for a pair of vectors.
-- If $\theta$
-  is greater than $+90\degree$
-  or less then $-90\degree$,
-  we need to negate one of the endpoints
-  to prevent Slerp
-  from taking the long way around.
-- Note that the Slerp equations have $\sin\theta$
-  in the denominator
-  and therefore care must be taken
-  to avoid division-by-zero.
-- Also, we need protect against domain errors
-  due to floating-point round-off
-  if we use the inverse cosine to calculate $\theta$.
+- Here we are using **unit quaternions**:
+  - A quaternion is like a four dimensional vector,
+    and a unit quaternion is a quaternion
+    whose length is equal to $1$.
+  - There are many advantages of this representation
+    compared with others like Euler angles
+    which have a troublesome singularity.
+  - Both $+\mathbf{q}$
+    and $-\mathbf{q}$
+    represent the same rotation,
+    and we call this a **double cover**.
+- We need to be aware of about four things
+  before we even attempt to implement Slerp:
+  1. To ensure a "shortest arc" rotation,
+     we need to negate one of the endpoints
+     if their dot product is negative.
+  1. The angle $\theta$
+     between $\mathbf{q_1}$
+     and $\mathbf{q_2}$
+     can be calculated
+     similar to how we would calculate it
+     for a pair of unit vectors,
+     typically via the inverse cosine
+     of their dot product.
+  1. We need to protect against
+     a possible `NaN`
+     that might occur
+     in the inverse cosine function
+     if the endpoints are not perfectly normalized.
+  1. The Slerp equation has $\sin\theta$
+     in the denominator,
+     so we need an alternative form
+     when $\theta$
+     is equal to zero
+     (or even close to it).
 - As you can imagine,
   a proper implementation of Slerp
   is actually quite involved.
@@ -550,13 +555,12 @@ $$
   approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
-- We just need to do a couple of things:
-  1. Negate one of the endpoints
-     if their dot product is negative
-     to ensure that the path taken is the shorter arc
-  1. Normalize the result of the Lerp
-     to ensure that quaternion returned
-     is a unit quaternion.
+- Now we only have two things to be aware of:
+  1. To ensure a "shortest arc" rotation,
+     we need to negate one of the endpoints
+     if their dot product is negative.
+  1. To ensure that we return a **unit** quaternion,
+     we must normalize the result of the Lerp.
 - Let's call this
   normalized linear interpolation
   or **Nlerp**:
