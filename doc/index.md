@@ -387,15 +387,10 @@ $$
   as it transitions between views.
 - Animators call this "tweening".
 - Programmers call it "interpolation".
-- Let's define the desirable properties
-  of a realistic transition:
-  - **Smooth**: The rotation should be continuous,
-    and at a constant rate (more or less).
-  - **Shortest arc**: The rotation should follow
-    the shorter way around.
-- Basically we want a single, minimal rotation
-  to simulate the motion of
-  a physical object like a satellite.
+- We want a rotation which is **continuous**
+  and **shortest arc**:
+  - Continuous = with a steady rotation rate
+  - Shortest arc = the short way around.
 
 # Interpolation
 
@@ -503,7 +498,7 @@ $$
 - When applied to 3D rotations,
   Slerp produces a smooth transition
   that meets all of our requirements
-  including constant velocity
+  including constant rate
   and shortest arc.
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
