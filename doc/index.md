@@ -123,7 +123,8 @@
   that every player will see the same world.
 - We need a seedable generator.
 - The equation often used for this
-  is called a **linear congruential generator (LCG)**.
+  is called a linear congruential generator
+  or **LCG**.
 - The equation itself is very simple
   but involves several constants
   which must be chosen carefully.
