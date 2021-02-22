@@ -207,6 +207,14 @@
       this.seed = (MULTIPLIER * this.seed) % MODULUS;
       return this.seed;
     }
+
+    /**
+     * Returns a scalar value greater than or equal to 0 and less than 1
+     * assuming a valid seed to begin with.
+     */
+    nextScalar() {
+      return (this.next() - 1) / (MODULUS - 1);
+    }
   }
   ```
 
@@ -276,6 +284,29 @@
         }
       });
     });
+
+    describe("nextScalar", () => {
+      it("should always return a scalar value greater than or equal to 0 and less than 1", () => {
+        const NUM_ITERATIONS = 1000; // chosen small to be fast rather than rigorous
+        for (let i = 0; i < NUM_ITERATIONS; i++) {
+          const underTest = pseudorandom1.nextScalar();
+          expect(Number.isFinite(underTest)).toBe(true);
+          expect(underTest >= 0).toBe(true);
+          expect(underTest < 1).toBe(true);
+        }
+      });
+
+      it("should return the same sequence given the same initial seed", () => {
+        const initialSeed = 4321;
+        pseudorandom1.setSeed(initialSeed);
+        pseudorandom2.setSeed(initialSeed);
+
+        const NUM_ITERATIONS = 1000; // chosen small to be fast rather than rigorous
+        for (let i = 0; i < NUM_ITERATIONS; i++) {
+          expect(pseudorandom1.nextScalar()).toBe(pseudorandom2.nextScalar());
+        }
+      });
+    });
   });
   ```
 
@@ -288,8 +319,36 @@
   the next step is to map those numbers
   to locations on the planet.
 - Since the planet in our game is just a large sphere,
-  we can use something called "sphere point picking"
-  to map the pseudorandom numbers to points on the planet.
+  we can use something called "sphere point picking".
+- Our class `Pseudorandom` has a function called `nextScalar()`
+  which generates the next pseudorandom number
+  and scales it so that the result is between $0$
+  and $1$.
+- For each pair of scalars $s_1,s_2$
+  that we generate,
+  we map them to a 3D point $(x,y,z)$
+  on the surface of our planet
+  using sphere point picking:
+
+$$
+\begin{aligned}
+  x
+  &=
+  \sqrt{R^2-u^2}\cos\theta \\
+  y
+  &=
+  \sqrt{R^2-u^2}\sin\theta \\
+  z
+  &=
+  u \\
+\end{aligned}
+$$
+
+> where $u=2s_1-1$,
+> $\theta=2\pi s_2$,
+> and $R$
+> is the radius of the planet.
+
 - problems you might encounter
 - possible solutions
 - Marsaglia's method and its advantages (speed, no rejection / deterministic ingress requirements)
