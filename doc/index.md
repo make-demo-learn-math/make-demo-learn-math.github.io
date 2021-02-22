@@ -320,6 +320,10 @@
   to locations on the planet.
 - Since the planet in our game is just a large sphere,
   we can use something called "sphere point picking".
+- ...explain how mapping to a sphere uniformly/evenly
+  is harder than just plotting X-Y coordinates...
+- ..we can't just use spherical coordinates because
+  we will get bunching near the poles...
 - Our class `Pseudorandom` has a function called `nextScalar()`
   which generates the next pseudorandom number
   and scales it so that the result is between $0$
