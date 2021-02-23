@@ -370,9 +370,9 @@
     and $1$.
   - Let $R$
     be the radius of the sphere.
-  - Let $u=2Rs_1-R$.
+  - Let $u=(2s_1-1)R$.
   - Let $\theta=2\pi s_2$.
-  - The resulting point is:
+  - Calculate the coordinates of the point using:
 
 $$
 \begin{aligned}
@@ -390,15 +390,13 @@ $$
 
 - The reason this trick works
   is due to a rather surprizing result
-  for the surface area of a spherical segment:
+  for the surface area of a spherical segment.
   - If you cut a sphere with two parallel planes,
     the area of the strip between the planes
     depends only on the distance between the planes
     and not on where they cut the sphere.
+  - ...diagram...
 - ...show resulting plots...
-- ...**TODO**: consider a modified Marsaglia's
-  method instead, using max(s1,s2) trick for
-  the disk radius!...
 
 # Feature #2: Realistic transitions between views
 
@@ -545,7 +543,8 @@ $$
   - It means that $+\mathbf{q}$
     and $-\mathbf{q}$
     both represent the same rotation.
-  - I like to think of unit quaternions
+  - Sometimes I find it helpful
+    to think of unit quaternions
     as the **square roots** of a rotation.
   - For example, the number $9$
     has two square roots: $+3$
