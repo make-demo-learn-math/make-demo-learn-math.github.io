@@ -396,6 +396,9 @@ $$
     depends only on the distance between the planes
     and not on where they cut the sphere.
 - ...show resulting plots...
+- ...**TODO**: consider a modified Marsaglia's
+  method instead, using max(s1,s2) trick for
+  the disk radius!...
 
 # Feature #2: Realistic transitions between views
 
