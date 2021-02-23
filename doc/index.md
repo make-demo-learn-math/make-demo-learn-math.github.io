@@ -70,9 +70,9 @@
 - This is similar to the game of Minecraft
   where each different world
   is generated from a unique seed.
-- Since our game is multi-player,
-  it is important that the terrain among players
-  is the same in every detail.
+- Our game is multi-player,
+  so the experience is shared among players
+  and the terrain must be the same in every detail.
 - We also want the terrain to look random,
   meaning there should be no visible patterns.
 - We call this **pseudorandom**: The terrain is
@@ -109,13 +109,13 @@
 
 # Pseudorandom number generators
 
-- This is just a game, not cryptography,
+- This is not cryptography,
   so we don't need a cryptographically-strong generator.
 - The built-in generators
   provided by most programming languages
   should be sufficient.
-- Unfortunately the generator that JavaScript
-  (called `Math.random()`)
+- In JavaScript, it's called `Math.random()`.
+- Unfortunately `Math.random()`
   provides no way to set the seed.
 - If we try to use it
   for generating the points on our planet
@@ -179,9 +179,10 @@
 
 - Fortunately there is something called
   the Park-Miller random number generator.
-- The constants suggest by Park and Miller in 1988
-  (and revised slightly in 1993)
-  just happen to be suitable for JavaScript:
+- The constants suggested by Park and Miller
+  most recently in 1993
+  just happen to be suitable for JavaScript,
+  and should be sufficient for the purposes of our game:
 
   ```javascript
   const MODULUS = 2147483647; // 0x7FFFFFFF
@@ -332,23 +333,33 @@
   to locations on the planet.
 - Since the planet in our game is just a large sphere,
   we can use something called **sphere point picking**.
-- ...explain how mapping to a sphere uniformly/evenly
-  is harder than just plotting X-Y coordinates...
-- ...map maker's dilemma... global maps are always distorted...
-- ..._insert global map with distortion at poles_...
-- ...we can't just use spherical coordinates because
-  we will get bunching near the poles...
-- ...Marsaglia 1972 (23 years before the Diehard tests), paper discussing the pros and cons of various methods
-  including a couple of new ones...
-- Our class `Pseudorandom` has a function called `nextScalar()`
-  which generates the next pseudorandom number
-  and scales it so that the result is between $0$
-  and $1$.
-- For each pair of scalars $s_1,s_2$
-  that we generate,
-  we map them to a 3D point $(x,y,z)$
-  on the surface of our planet
-  using sphere point picking:
+- This is one of those things
+  that is easy to get wrong
+  so we need to be careful
+  if want a uniform distribution over the sphere.
+- It's a bit like
+  trying to draw a map of the world
+  on a flat piece of paper:
+  - You can tear it, and you'll get something like
+    [Buckminster Fuller's 1943 Dymaxion map](./fuller.html).
+  - You can stretch it based on something like
+    the [Mercator projection](./mercator.html).
+  - Either way, it will never be perfect.
+- In 1972, approximately 23 years
+  before he published the Diehard tests,
+  Marsaglia wrote an interesting article discussing
+  various methods for sphere point picking.
+- The following method
+  maps a pair of numbers
+  to a point on the sphere:
+  - Generate a pair of pseudorandom numbers $s_1,s_2$
+    between $0$
+    and $1$.
+  - Let $R$
+    be the radius of the sphere.
+  - Let $u=2Rs_1-R$.
+  - Let $\theta=2\pi s_2$.
+  - The resulting point is:
 
 $$
 \begin{aligned}
@@ -364,15 +375,14 @@ $$
 \end{aligned}
 $$
 
-> where $u=2s_1-1$,
-> $\theta=2\pi s_2$,
-> and $R$
-> is the radius of the planet.
-
-- problems you might encounter
-- possible solutions
-- Marsaglia's method and its advantages (speed, no rejection / deterministic ingress requirements)
-- show result (positive reinforcement)
+- The reason this trick works
+  is due to a rather surprizing result
+  for the surface area of a spherical segment:
+  - If you cut a sphere with two parallel planes,
+    the area of the strip between the planes
+    depends only on the distance between the planes
+    and not on where they cut the sphere.
+- ...show resulting plots...
 
 # Feature #2: Realistic transitions between views
 
@@ -390,8 +400,8 @@ $$
 - Programmers call it "interpolation".
 - We want a rotation which is **continuous**
   and **shortest arc**:
-  - Continuous = with a steady rotation rate
-  - Shortest arc = the short way around.
+  - "Continuous" here means with a steady rotation rate
+  - "Shortest arc" means the short way around...
 - ..._insert clock-face diagram to explain shortest arc_...
 
 # Interpolation
@@ -415,7 +425,7 @@ $$
 - When $t=0$,
   the function returns the first value $f_1$.
   We can see this by writing $0$
-  for $t$ in the equation for Lerp:
+  for $t$ in the equation:
 
 $$
 \begin{aligned}
@@ -436,7 +446,7 @@ $$
 - When $t=1$,
   the function returns the second value $f_2$.
   We can see this by writing $1$
-  for $t$ in the equation for Lerp:
+  for $t$ in the equation:
 
 $$
 \begin{aligned}
@@ -505,20 +515,33 @@ $$
 - The endpoints $\mathbf{q_1}$
   and $\mathbf{q_2}$
   represent the rotations
-  to be interpolated.
-- There are various ways to represent 3D rotations.
-- Here we are using **unit quaternions**:
+  to be interpolated:
+  - There are various ways to represent 3D rotations.
+  - Here we are using **unit quaternions**.
   - A quaternion is like a four dimensional vector,
-    and a unit quaternion is a quaternion
+    and a **unit** quaternion is a quaternion
     whose length is equal to $1$.
   - There are many advantages of this representation
-    compared with others like Euler angles
+    compared to others like Euler angles
     which have a troublesome singularity.
-  - Both $+\mathbf{q}$
+  - One interesting property of this representation
+    is called **double cover**.
+  - It means that $+\mathbf{q}$
     and $-\mathbf{q}$
-    represent the same rotation,
-    and we call this a **double cover**.
-- We need to be aware of about four things
+    both represent the same rotation.
+  - I like to think of unit quaternions
+    as the **square roots** of a rotation.
+  - For example, the number $9$
+    has two square roots: $+3$
+    and $-3$,
+    since $(+3)^2$
+    and $(-3)^2$
+    are both equal to $9$.
+  - So the rotation is like the $9$,
+    and the roots $+3$
+    and $-3$
+    are like the quaternions that represent it.
+- We need to be aware of some things
   before we even attempt to implement Slerp:
   1. To ensure a "shortest arc" rotation,
      we need to negate one of the endpoints
@@ -551,14 +574,15 @@ $$
 # An approximation
 
 - If we simply Lerp the quaternions
-  we actaully get a descent
+  we actually get a descent
   approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
-- Now we only have two things to be aware of:
+- Now we only have two minor things to be aware of:
   1. To ensure a "shortest arc" rotation,
      we need to negate one of the endpoints
-     if their dot product is negative.
+     if their dot product is negative
+     (just as we did for Slerp).
   1. To ensure that we return a **unit** quaternion,
      we must normalize the result of the Lerp.
 - Let's call this
@@ -594,8 +618,8 @@ $$
 - Focusing on just a small feature
   is more attainable
   and still provides motivation.
-- In any case we've seen some examples
-  of very interesting things
+- Hopefully we've seen some examples
+  of the very interesting things
   that we might learn along the way:
   - The output of a pseudorandom number generator
     with poorly-chosen constants
@@ -605,3 +629,21 @@ $$
   - Normalized linear interpolation
     is a good approximation to Slerp
     and is easier to implement.
+
+# References
+
+1. Blow, Jonathan (February 26, 2004). ["Understanding Slerp, Then Not Using It"](http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It).
+1. Evans, Barry (August 7, 2014). ["The Mapmaker's Dilemma."](https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622) From the [_North Coast Journal of Politics, People & Art_](https://www.northcoastjournal.com/).
+1. Marsaglia, G. "Choosing a Point from the Surface of a Sphere." _Ann. Math. Stat._ **43**, 645-646, 1972.
+1. [MDN Web Docs](https://developer.mozilla.org/en-US/)
+1. Park, Stephen K.; Miller, Keith W. (October 1988). ["Random Number Generators: Good Ones Are Hard To Find"](http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf) (PDF). _Communications of the ACM_. **31** (10): 1192–1201.
+1. Weisstein, Eric W. "Sphere Point Picking." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SpherePointPicking.html
+1. Weisstein, Eric W. "Spherical Segment." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SphericalSegment.html
+1. Weisstein, Eric W. "Zone." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/Zone.html
+1. Wikipedia contributors. "Diehard tests." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.
+1. Wikipedia contributors. "George Marsaglia." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.
+1. Wikipedia contributors. "Lehmer random number generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.
+1. Wikipedia contributors. "Linear congruential generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.
+1. Wikipedia contributors. "Linear interpolation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.
+1. Wikipedia contributors. "Quaternions and spatial rotation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.
+1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
