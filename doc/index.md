@@ -19,6 +19,19 @@
   and we will see some of the interesting things
   that we can learn along the way.
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 # Game premise
 
 - We need a premise for a game
@@ -537,12 +550,12 @@ $$
     since $(+3)^2$
     and $(-3)^2$
     are both equal to $9$.
-  - So the rotation is like the $9$,
+  - So the $9$ is like the rotation,
     and the roots $+3$
     and $-3$
     are like the quaternions that represent it.
 - We need to be aware of some things
-  before we even attempt to implement Slerp:
+  before we can implement Slerp:
   1. To ensure a "shortest arc" rotation,
      we need to negate one of the endpoints
      if their dot product is negative.
