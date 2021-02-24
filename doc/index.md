@@ -6,8 +6,7 @@
   and intrinsic motivation.
 - For someone with a passion for video games,
   writing a game can be a great way
-  to learn problem solving skills
-  and mathematics.
+  to learn mathematics and problem solving skills.
 - However writing a complete game
   is a huge undertaking,
   even with all of the development tools
@@ -36,7 +35,7 @@
 
 - We need a premise for a game
   to provide some motivation.
-- This is just an example
+- The following is just an example
   of a hypothetical, simulation-type game.
 - It is inspired by the Mars missions
   which have been in the news recently.
@@ -110,7 +109,7 @@
   on the surface of the planet.
 - We won't worry about **how** those points are used.
 - We'll just say that a suitable technique exists
-  (Voronoi diagrams for example).
+  (for example, Voronoi diagrams).
 - Now we can focus on just generating
   points distributed evenly over the planet
   at pseudorandom locations.
@@ -150,16 +149,22 @@
 
 # Poll: Which sequence looks more random?
 
-- Below are two LCG sequences.
-- A different multiplier was used
-  to generate each sequence.
+- Below are two LCG sequences
+  starting from the same seed value
+  and using the same modulus.
+- The only thing different is the multiplier.
 - Which do you think looks more random?
-- ..._show sequences A and B_...
+
+| Sequence | First 12 values                                      |
+| -------- | ---------------------------------------------------- |
+| A        | `27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10, ...` |
+| B        | `27, 10, 6, 16, 22, 7, 29, 5, 3, 8, 11, 19, ...`     |
+
 - The possible responses are:
   1. Sequence A looks more random
   1. Sequence B looks more random
   1. Both sequences look equally random
-- It turns out that one of the sequences
+- As we will see next, one of the sequences
   actually contains a very noticeable pattern
   if you try to plot points with it.
 
@@ -170,16 +175,23 @@
   in a sequence of pseudorandom numbers.
 - Here are the results of the spectral test
   for the sequences A and B:
-- ..._reveal plots for each_...
+
+| Sequence | Click below for spectral plot                                     |
+| -------- | ----------------------------------------------------------------- |
+| A        | [27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10](./spectral-a.png) |
+| B        | [27, 10, 6, 16, 22, 7, 29, 5, 3, 8, 11, 19](./spectral-b.png)     |
+
 - It's interesting to see how two sequences
   which appear equally random
   can actually have very different properties
   when displayed like this.
-- The spectral test is NOT comprehensive.
-- It is just one of many known tests for randomness,
-  and in 1995 George Marsaglia published a CD ROM
-  which included an entire suite of tests.
-- He called it "The Diehard Battery of Tests of Randomness".
+- That being said, the spectral test
+  is just one of many known tests for randomness.
+- It is neither comprehensive
+  nor suitable in all cases.
+- In 1995, George Marsaglia published a CD ROM
+  which included an entire suite of tests
+  called "The Diehard Battery of Tests of Randomness".
 
 # Implementation in JavaScript
 
@@ -244,7 +256,7 @@
   }
   ```
 
-- Here are unit tests to go with it:
+- Here are some unit tests to go with it:
 
   ```javascript
   describe("Pseudorandom", () => {
@@ -336,43 +348,45 @@
   });
   ```
 
+- Just for good measure, here is the corresponding spectral test.
 - ..._insert spectral test for my code compared side-by-side with `Math.random()`_...
 
 # Sphere point picking
 
 - Now that we can generate
   a sequence of pseudorandom numbers,
-  the next step is to map those numbers
+  the next step is to map them
   to locations on the planet.
 - Since the planet in our game is just a large sphere,
   we can use something called **sphere point picking**.
-- This is one of those things
-  that is easy to get wrong
-  so we need to be careful
-  if want a uniform distribution over the sphere.
+- We need to be careful
+  to ensure that the points are distributed
+  evenly over the sphere.
+- If the mapping is incorrect,
+  we might see "bunching" at the poles
+  similar to how the lines of longitude
+  on a globe get closer together near the poles.
 - It's a bit like
   trying to draw a map of the world
   on a flat piece of paper:
-  - You can tear it, and you'll get something like
-    [Buckminster Fuller's 1943 Dymaxion map](./fuller.html).
-  - You can stretch it based on something like
-    the [Mercator projection](./mercator.html).
-  - Either way, it will never be perfect.
-- In 1972, approximately 23 years
-  before he published the Diehard tests,
-  Marsaglia wrote an interesting article discussing
-  various methods for sphere point picking.
-- The following method
-  maps a pair of numbers
-  to a point on the sphere:
+  - We can stretch it, like the
+    [Mercator projection](./mercator.html).
+  - Or we can tear it, like the
+    [Dymaxion map](./fuller.html).
+  - But that's a whole other topic!
+- In 1972, George Marsaglia wrote an article
+  about sphere point picking.
+- The method shown here
+  uses just two pseudorandom numbers
+  for each point on the sphere:
   - Generate a pair of pseudorandom numbers $s_1,s_2$
     between $0$
-    and $1$.
+    and $1$
   - Let $R$
-    be the radius of the sphere.
-  - Let $u=(2s_1-1)R$.
-  - Let $\theta=2\pi s_2$.
-  - Calculate the coordinates of the point using:
+    be the radius of the sphere
+  - Let $u=(2s_1-1)R$
+  - Let $\theta=2\pi s_2$
+  - Calculate the point in XYZ coordinates using:
 
 $$
 \begin{aligned}
@@ -388,15 +402,15 @@ $$
 \end{aligned}
 $$
 
+- Here are are some typical results.
+- ..._plots of N random points on a sphere, various seeds, various N_...
 - The reason this trick works
   is due to a rather surprizing result
-  for the surface area of a spherical segment.
+  for the surface area of a [spherical segment](./spherical-segment.html):
   - If you cut a sphere with two parallel planes,
     the area of the strip between the planes
     depends only on the distance between the planes
     and not on where they cut the sphere.
-  - ...diagram...
-- ...show resulting plots...
 
 # Feature #2: Realistic transitions between views
 
@@ -415,8 +429,9 @@ $$
 - We want a rotation which is **continuous**
   and **shortest arc**:
   - "Continuous" here means with a steady rotation rate
-  - "Shortest arc" means the short way around...
-- ..._insert clock-face diagram to explain shortest arc_...
+  - "Shortest arc" means the short way around,
+    like how there are two paths
+    around [the face of a clock](./clock-face.html)
 
 # Interpolation
 
@@ -548,13 +563,10 @@ $$
     as the **square roots** of a rotation.
   - For example, the number $9$
     has two square roots: $+3$
-    and $-3$,
-    since $(+3)^2$
-    and $(-3)^2$
-    are both equal to $9$.
-  - So the $9$ is like the rotation,
-    and the roots $+3$
     and $-3$
+    (since they equal $9$ when squared).
+  - The $9$ is like the rotation,
+    and the square roots
     are like the quaternions that represent it.
 - We need to be aware of some things
   before we can implement Slerp:
@@ -570,21 +582,22 @@ $$
      typically via the inverse cosine
      of their dot product.
   1. We need to protect against
-     a possible `NaN`
+     a possible domain error
      that might occur
      in the inverse cosine function
      if the endpoints are not perfectly normalized.
   1. The Slerp equation has $\sin\theta$
      in the denominator,
-     so we need an alternative form
+     and to avoid division-by-zero
+     we need an alternative form
      when $\theta$
-     is equal to zero
-     (or even close to it).
+     is zero
+     or very small.
 - As you can imagine,
   a proper implementation of Slerp
   is actually quite involved.
-- Is there an easier way
-  that still meets our requirements?
+- **Is there an easier way
+  that still meets our requirements?**
 
 # An approximation
 
@@ -593,16 +606,15 @@ $$
   approximation of Slerp
   without the need to calculate $\theta$
   and without the division-by-zero problem.
-- Now we only have two minor things to be aware of:
-  1. To ensure a "shortest arc" rotation,
+- Just two things here:
+  1. As with Slerp,
      we need to negate one of the endpoints
      if their dot product is negative
-     (just as we did for Slerp).
-  1. To ensure that we return a **unit** quaternion,
-     we must normalize the result of the Lerp.
-- Let's call this
-  normalized linear interpolation
-  or **Nlerp**:
+     to ensure a "shortest arc" rotation.
+  1. We must normalize the result of the Lerp
+     to ensure that we return a **unit** quaternion.
+- Let's call it
+  "normalized linear interpolation":
 
 $$
 \begin{aligned}
@@ -617,13 +629,10 @@ $$
 \end{aligned}
 $$
 
-- ...This is a surprizingly good approximation of Slerp
-  and a testament to the remarkable mathematics of quaternions
-  and how we use them to represent 3D rotations...
-
-# Implementation in JavaScript
-
-- ...Nlerp in JavaScript and comparison to Slerp...
+- Nlerp is a surprizingly good approximation
+  to Slerp: [compare](./nlerp-versus-slerp.gif)
+- Quaternions are quite remarkable
+  when we use them to represent 3D rotations.
 
 # Did we learn anything?
 
@@ -631,8 +640,7 @@ $$
   to learn new things,
   but developing a complete game is a huge effort.
 - Focusing on just a small feature
-  is more attainable
-  and still provides motivation.
+  is more attainable.
 - Hopefully we've seen some examples
   of the very interesting things
   that we might learn along the way:
@@ -647,6 +655,7 @@ $$
 
 # References
 
+1. Blow, Jonathan (January 17, 2004). ["Hacking Quaternions"](http://number-none.com/product/Hacking%20Quaternions/).
 1. Blow, Jonathan (February 26, 2004). ["Understanding Slerp, Then Not Using It"](http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It).
 1. Evans, Barry (August 7, 2014). ["The Mapmaker's Dilemma."](https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622) From the [_North Coast Journal of Politics, People & Art_](https://www.northcoastjournal.com/).
 1. Marsaglia, G. "Choosing a Point from the Surface of a Sphere." _Ann. Math. Stat._ **43**, 645-646, 1972.
@@ -662,3 +671,4 @@ $$
 1. Wikipedia contributors. "Linear interpolation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.
 1. Wikipedia contributors. "Quaternions and spatial rotation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.
 1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
+1. Wikipedia contributors. "Spherical segment." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.
