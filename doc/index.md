@@ -176,10 +176,10 @@
 - Here are the results of the spectral test
   for the sequences A and B:
 
-| Sequence | Click below for spectral plot                                     |
-| -------- | ----------------------------------------------------------------- |
-| A        | [27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10](./spectral-a.png) |
-| B        | [27, 10, 6, 16, 22, 7, 29, 5, 3, 8, 11, 19](./spectral-b.png)     |
+| Sequence | Click below for spectral plot                                    |
+| -------- | ---------------------------------------------------------------- |
+| A        | [27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10](./spectral.html) |
+| B        | [27, 10, 6, 16, 22, 7, 29, 5, 3, 8, 11, 19](./spectral.html)     |
 
 - It's interesting to see how two sequences
   which appear equally random
