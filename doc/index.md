@@ -100,6 +100,7 @@
 - Typically it involves generating terrain information
   like height, slope, and colour for each location
   on the planet that we are interested in.
+- ..._insert image of Perlin noise terrain_...
 - In order to keep this presentation within scope,
   we are going to make a sweeping assumption...
 - We are going to assume that we already know
@@ -108,12 +109,13 @@
   on the surface of the planet.
 - We won't worry about **how** those points are used.
 - We'll just say that a suitable technique exists.
+- ..._insert Voronoi diagram_...
 - Now we can focus on just generating
   points distributed evenly over the planet
   at pseudorandom locations.
-- We will see how easy it is to generate a sequence of
-  pseudorandom numbers,
-  and how to test our code.
+- We will see how to generate a sequence of
+  pseudorandom numbers
+  using a very simple formula.
 - Then we will look at a clever trick to map those numbers
   to locations on the planet.
 
@@ -132,7 +134,7 @@
   we cannot guarantee
   that every player will see the same world.
 - We need a seedable generator.
-- The equation often used for this
+- The equation used for this
   is called a linear congruential generator
   or **LCG**.
 - The equation itself is very simple
@@ -548,9 +550,11 @@ $$
   - A quaternion is like a four dimensional vector,
     and a **unit** quaternion is a quaternion
     whose length is equal to $1$.
+  - ..._unit n-spheres_...
   - There are many advantages of this representation
     compared to others like Euler angles
     which have a troublesome singularity.
+  - ..._Euler angles and gimbal lock_...
   - One interesting property of this representation
     is called **double cover**.
   - It means that $+\mathbf{q}$
@@ -562,10 +566,11 @@ $$
   - For example, the number $9$
     has two square roots: $+3$
     and $-3$
-    (since they equal $9$ when squared).
+    (since they both equal $9$ when squared).
   - The $9$ is like the rotation,
     and the square roots
-    are like the quaternions that represent it.
+    are like the unit quaternions
+    that represent it.
 - We need to be aware of some things
   before we can implement Slerp:
   1. To ensure a "shortest arc" rotation,
