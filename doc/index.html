@@ -714,52 +714,53 @@ to ensure that we return a <strong>unit</strong> quaternion.</li>
   \right\} \\
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5000000000000002em;vertical-align:-0.5000000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">N</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">p</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mord mathrm">n</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">m</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span><span class="mord mathrm">i</span><span class="mord mathrm">z</span><span class="mord mathrm">e</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">}</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
-<li data-line="631" class="code-line">Nlerp is a surprizingly good approximation
-to Slerp: <a href="./nlerp-versus-slerp.gif" data-href="./nlerp-versus-slerp.gif">compare</a></li>
-<li data-line="633" class="code-line">Quaternions are quite remarkable
-when we use them to represent 3D rotations.</li>
+<li data-line="631" class="code-line">The approximation is surprizingly good
+(<a href="./nlerp-versus-slerp.gif" data-href="./nlerp-versus-slerp.gif">compare</a>)
+which is a testament to
+how quaternions are remarkably well-suited
+for representing 3D rotations.</li>
 </ul>
-<h1 id="did-we-learn-anything" data-line="636" class="code-line">Did we learn anything?</h1>
+<h1 id="did-we-learn-anything" data-line="637" class="code-line">Did we learn anything?</h1>
 <ul>
-<li data-line="638" class="code-line">Video games can provide the motivation needed
+<li data-line="639" class="code-line">Video games can provide the motivation needed
 to learn new things,
 but developing a complete game is a huge effort.</li>
-<li data-line="641" class="code-line">Focusing on just a small feature
+<li data-line="642" class="code-line">Focusing on just a small feature
 is more attainable.</li>
-<li data-line="643" class="code-line">Hopefully we've seen some examples
+<li data-line="644" class="code-line">Hopefully we've seen some examples
 of the very interesting things
 that we might learn along the way:
 <ul>
-<li data-line="646" class="code-line">The output of a pseudorandom number generator
+<li data-line="647" class="code-line">The output of a pseudorandom number generator
 with poorly-chosen constants
 can contain undesirable patterns
 that are not obvious at first glance.</li>
-<li data-line="650" class="code-line">Tests exist to detect these patterns.</li>
-<li data-line="651" class="code-line">Normalized linear interpolation
+<li data-line="651" class="code-line">Tests exist to detect these patterns.</li>
+<li data-line="652" class="code-line">Normalized linear interpolation
 is a good approximation to Slerp
 and is easier to implement.</li>
 </ul>
 </li>
 </ul>
-<h1 id="references" data-line="655" class="code-line">References</h1>
+<h1 id="references" data-line="656" class="code-line">References</h1>
 <ol>
-<li data-line="657" class="code-line">Blow, Jonathan (January 17, 2004). <a href="http://number-none.com/product/Hacking%20Quaternions/" data-href="http://number-none.com/product/Hacking%20Quaternions/">&quot;Hacking Quaternions&quot;</a>.</li>
-<li data-line="658" class="code-line">Blow, Jonathan (February 26, 2004). <a href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It" data-href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It">&quot;Understanding Slerp, Then Not Using It&quot;</a>.</li>
-<li data-line="659" class="code-line">Evans, Barry (August 7, 2014). <a href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622" data-href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622">&quot;The Mapmaker's Dilemma.&quot;</a> From the <a href="https://www.northcoastjournal.com/" data-href="https://www.northcoastjournal.com/"><em>North Coast Journal of Politics, People &amp; Art</em></a>.</li>
-<li data-line="660" class="code-line">Marsaglia, G. &quot;Choosing a Point from the Surface of a Sphere.&quot; <em>Ann. Math. Stat.</em> <strong>43</strong>, 645-646, 1972.</li>
-<li data-line="661" class="code-line"><a href="https://developer.mozilla.org/en-US/" data-href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
-<li data-line="662" class="code-line">Park, Stephen K.; Miller, Keith W. (October 1988). <a href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf" data-href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf">&quot;Random Number Generators: Good Ones Are Hard To Find&quot;</a> (PDF). <em>Communications of the ACM</em>. <strong>31</strong> (10): 1192–1201.</li>
-<li data-line="663" class="code-line">Weisstein, Eric W. &quot;Sphere Point Picking.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SpherePointPicking.html" data-href="https://mathworld.wolfram.com/SpherePointPicking.html">https://mathworld.wolfram.com/SpherePointPicking.html</a></li>
-<li data-line="664" class="code-line">Weisstein, Eric W. &quot;Spherical Segment.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SphericalSegment.html" data-href="https://mathworld.wolfram.com/SphericalSegment.html">https://mathworld.wolfram.com/SphericalSegment.html</a></li>
-<li data-line="665" class="code-line">Weisstein, Eric W. &quot;Zone.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/Zone.html" data-href="https://mathworld.wolfram.com/Zone.html">https://mathworld.wolfram.com/Zone.html</a></li>
-<li data-line="666" class="code-line">Wikipedia contributors. &quot;Diehard tests.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.</li>
-<li data-line="667" class="code-line">Wikipedia contributors. &quot;George Marsaglia.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.</li>
-<li data-line="668" class="code-line">Wikipedia contributors. &quot;Lehmer random number generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.</li>
-<li data-line="669" class="code-line">Wikipedia contributors. &quot;Linear congruential generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.</li>
-<li data-line="670" class="code-line">Wikipedia contributors. &quot;Linear interpolation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.</li>
-<li data-line="671" class="code-line">Wikipedia contributors. &quot;Quaternions and spatial rotation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.</li>
-<li data-line="672" class="code-line">Wikipedia contributors. &quot;Slerp.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.</li>
-<li data-line="673" class="code-line">Wikipedia contributors. &quot;Spherical segment.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.</li>
+<li data-line="658" class="code-line">Blow, Jonathan (January 17, 2004). <a href="http://number-none.com/product/Hacking%20Quaternions/" data-href="http://number-none.com/product/Hacking%20Quaternions/">&quot;Hacking Quaternions&quot;</a>.</li>
+<li data-line="659" class="code-line">Blow, Jonathan (February 26, 2004). <a href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It" data-href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It">&quot;Understanding Slerp, Then Not Using It&quot;</a>.</li>
+<li data-line="660" class="code-line">Evans, Barry (August 7, 2014). <a href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622" data-href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622">&quot;The Mapmaker's Dilemma.&quot;</a> From the <a href="https://www.northcoastjournal.com/" data-href="https://www.northcoastjournal.com/"><em>North Coast Journal of Politics, People &amp; Art</em></a>.</li>
+<li data-line="661" class="code-line">Marsaglia, G. &quot;Choosing a Point from the Surface of a Sphere.&quot; <em>Ann. Math. Stat.</em> <strong>43</strong>, 645-646, 1972.</li>
+<li data-line="662" class="code-line"><a href="https://developer.mozilla.org/en-US/" data-href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+<li data-line="663" class="code-line">Park, Stephen K.; Miller, Keith W. (October 1988). <a href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf" data-href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf">&quot;Random Number Generators: Good Ones Are Hard To Find&quot;</a> (PDF). <em>Communications of the ACM</em>. <strong>31</strong> (10): 1192–1201.</li>
+<li data-line="664" class="code-line">Weisstein, Eric W. &quot;Sphere Point Picking.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SpherePointPicking.html" data-href="https://mathworld.wolfram.com/SpherePointPicking.html">https://mathworld.wolfram.com/SpherePointPicking.html</a></li>
+<li data-line="665" class="code-line">Weisstein, Eric W. &quot;Spherical Segment.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SphericalSegment.html" data-href="https://mathworld.wolfram.com/SphericalSegment.html">https://mathworld.wolfram.com/SphericalSegment.html</a></li>
+<li data-line="666" class="code-line">Weisstein, Eric W. &quot;Zone.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/Zone.html" data-href="https://mathworld.wolfram.com/Zone.html">https://mathworld.wolfram.com/Zone.html</a></li>
+<li data-line="667" class="code-line">Wikipedia contributors. &quot;Diehard tests.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.</li>
+<li data-line="668" class="code-line">Wikipedia contributors. &quot;George Marsaglia.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.</li>
+<li data-line="669" class="code-line">Wikipedia contributors. &quot;Lehmer random number generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.</li>
+<li data-line="670" class="code-line">Wikipedia contributors. &quot;Linear congruential generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.</li>
+<li data-line="671" class="code-line">Wikipedia contributors. &quot;Linear interpolation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.</li>
+<li data-line="672" class="code-line">Wikipedia contributors. &quot;Quaternions and spatial rotation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.</li>
+<li data-line="673" class="code-line">Wikipedia contributors. &quot;Slerp.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.</li>
+<li data-line="674" class="code-line">Wikipedia contributors. &quot;Spherical segment.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.</li>
 </ol>
 
 </body></html>

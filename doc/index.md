@@ -629,10 +629,11 @@ $$
 \end{aligned}
 $$
 
-- Nlerp is a surprizingly good approximation
-  to Slerp: [compare](./nlerp-versus-slerp.gif)
-- Quaternions are quite remarkable
-  when we use them to represent 3D rotations.
+- The approximation is surprizingly good
+  ([compare](./nlerp-versus-slerp.gif))
+  which is a testament to
+  how quaternions are remarkably well-suited
+  for representing 3D rotations.
 
 # Did we learn anything?
 
