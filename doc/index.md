@@ -100,7 +100,6 @@
 - Typically it involves generating terrain information
   like height, slope, and colour for each location
   on the planet that we are interested in.
-- Perlin noise is one popular approach for this.
 - In order to keep this presentation within scope,
   we are going to make a sweeping assumption...
 - We are going to assume that we already know
@@ -108,16 +107,15 @@
   given a set of random points
   on the surface of the planet.
 - We won't worry about **how** those points are used.
-- We'll just say that a suitable technique exists
-  (for example, Voronoi diagrams).
+- We'll just say that a suitable technique exists.
 - Now we can focus on just generating
   points distributed evenly over the planet
   at pseudorandom locations.
-- The first step is to generate a sequence of
+- We will see how easy it is to generate a sequence of
   pseudorandom numbers,
-  and the second step is to map those numbers
+  and how to test our code.
+- Then we will look at a clever trick to map those numbers
   to locations on the planet.
-- Both of these involve some very interesting math.
 
 # Pseudorandom number generators
 
