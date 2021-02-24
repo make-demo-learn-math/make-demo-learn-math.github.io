@@ -1,9 +1,9 @@
-### Spectral test for sequence A:
+Sequence A:
 
 ![Spectral test for sequence A](./spectral-a.png)
 
 ---
 
-### Spectral test for sequence B:
+Sequence B:
 
 ![Spectral test for sequence B](./spectral-b.png)
