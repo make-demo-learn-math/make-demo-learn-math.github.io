@@ -97,10 +97,9 @@
   for generating realistic terrain in a game.
 - In fact that is a whole topic onto itself
   and deserves its own presentation.
-- Typically it involves generating terrain information
+- Typically it involves generating [terrain information](./perlin.html)
   like height, slope, and colour for each location
   on the planet that we are interested in.
-- ..._insert image of Perlin noise terrain_...
 - In order to keep this presentation within scope,
   we are going to make a sweeping assumption...
 - We are going to assume that we already know
@@ -550,11 +549,9 @@ $$
   - A quaternion is like a four dimensional vector,
     and a **unit** quaternion is a quaternion
     whose length is equal to $1$.
-  - ..._unit n-spheres_...
   - There are many advantages of this representation
-    compared to others like Euler angles
+    compared to others like [Euler angles](./euler.html)
     which have a troublesome singularity.
-  - ..._Euler angles and gimbal lock_...
   - One interesting property of this representation
     is called **double cover**.
   - It means that $+\mathbf{q}$
@@ -676,3 +673,29 @@ $$
 1. Wikipedia contributors. "Quaternions and spatial rotation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.
 1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
 1. Wikipedia contributors. "Spherical segment." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.
+
+---
+
+# TO DO
+
+Add attribution for lerp versus slerp plot.
+
+Add wikipedia links for:
+
+- Perlin
+- Shoemake
+- Euler angles
+- Voronoi: https://www.ronja-tutorials.com/post/028-voronoi-noise/ and in particular https://www.ronja-tutorials.com/assets/images/posts/028/3dVoronoi.png
+
+```
+Fewer slides, more diagrams, keep full script to yourself and for tech people afterwards.
+You need to tell them "what's in it for me?", at the beginning. (E.g., all those things and takeaways we talked about). Both if you are a tech and if you are a non-tech.
+More diagrams of the game ("breadcrumbs"), ideally before we dive into each slide.
+Be sure to explain things up front, otherwise you will block them paying attention.
+Does anybody know what a ____ is?
+-modulus operator
+-vector
+-quaternion
+and ask them to enter their responses in chat.
+Make them try to figure out the Lerp results for t=0 and t=1 themselves! (answer in chat)
+```
