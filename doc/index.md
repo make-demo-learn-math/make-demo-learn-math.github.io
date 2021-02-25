@@ -616,7 +616,7 @@ $$
 $$
 
 - The approximation is surprizingly good
-  ([compare](./nlerp-versus-slerp.gif))
+  ([compare](./nlerp-versus-slerp.html))
   which is a testament to
   how quaternions are remarkably well-suited
   for representing 3D rotations.
