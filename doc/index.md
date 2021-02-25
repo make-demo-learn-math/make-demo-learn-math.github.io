@@ -107,8 +107,7 @@
   given a set of random points
   on the surface of the planet.
 - We won't worry about **how** those points are used.
-- We'll just say that a suitable technique exists.
-- ..._insert Voronoi diagram_...
+- We'll just say that a [suitable technique](./voronoi.html) exists.
 - Now we can focus on just generating
   points distributed evenly over the planet
   at pseudorandom locations.
@@ -662,30 +661,25 @@ $$
 1. Marsaglia, G. "Choosing a Point from the Surface of a Sphere." _Ann. Math. Stat._ **43**, 645-646, 1972.
 1. [MDN Web Docs](https://developer.mozilla.org/en-US/)
 1. Park, Stephen K.; Miller, Keith W. (October 1988). ["Random Number Generators: Good Ones Are Hard To Find"](http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf) (PDF). _Communications of the ACM_. **31** (10): 1192–1201.
+1. Shoemake, Ken. ["Animating Rotation with Quaternion Curves"](https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf) (PDF). [SIGGRAPH](https://en.wikipedia.org/wiki/SIGGRAPH) 1985.
 1. Weisstein, Eric W. "Sphere Point Picking." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SpherePointPicking.html
 1. Weisstein, Eric W. "Spherical Segment." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SphericalSegment.html
 1. Weisstein, Eric W. "Zone." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/Zone.html
 1. Wikipedia contributors. "Diehard tests." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.
+1. Wikipedia contributors. "Euler angles." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 18 Feb. 2021.
 1. Wikipedia contributors. "George Marsaglia." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.
 1. Wikipedia contributors. "Lehmer random number generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.
 1. Wikipedia contributors. "Linear congruential generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.
 1. Wikipedia contributors. "Linear interpolation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.
+1. Wikipedia contributors. "Perlin noise." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 7 Feb. 2021.
 1. Wikipedia contributors. "Quaternions and spatial rotation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.
 1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
 1. Wikipedia contributors. "Spherical segment." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.
+1. Wikipedia contributors. "Voronoi diagram." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 23 Feb. 2021.
 
 ---
 
 # TO DO
-
-Add attribution for lerp versus slerp plot.
-
-Add wikipedia links for:
-
-- Perlin
-- Shoemake
-- Euler angles
-- Voronoi: https://www.ronja-tutorials.com/post/028-voronoi-noise/ and in particular https://www.ronja-tutorials.com/assets/images/posts/028/3dVoronoi.png
 
 ```
 Fewer slides, more diagrams, keep full script to yourself and for tech people afterwards.
