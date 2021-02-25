@@ -18,19 +18,6 @@
   and we will see some of the interesting things
   that we can learn along the way.
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
 # Game premise
 
 - We need a premise for a game
