@@ -20,15 +20,16 @@
   and we will see some of the interesting things
   that we can learn along the way.
 
-# Takeaways
+# Learning objective
 
-> [Takeaways](./takeaway-all.html)
+> [Learning objective](./takeaway-all.html)
 
-- What do we hope to get from this presentation?
+- What do we hope to learn from this presentation?
 - Our learning objective is
   to gain an appreciation
   for some of the interesting mathematics
-  involved in video game development:
+  involved in video game development,
+  such as:
   - Modular arithmetic
     - for generating random numbers
   - Spherical geometry
@@ -36,27 +37,11 @@
   - Quaternion algebra
     - for rotating a 3D view of the planet
       from an orbiting satellite
-- Also, we will look at a random number generator
+- Also, one of the takeaways
+  is a random number generator
   in JavaScript
-  that anyone can use freely
+  that you are welcome to use freely
   in your own work.
-
-## About me
-
-> [TRS-80](./trs-80.html)
-
-- Why do I enjoy talking about this stuff?
-  - In high school, rather than having an Atari
-    like all of my friends,
-    I had a TRS-80.
-  - If I wanted to play a video game,
-    I had to write one myself.
-  - Eventually I wrote one.
-  - It took me all summer,
-    but it gave me an appreciation
-    for mathematics
-    which is what helped me get through courses
-    at school like math and science.
 
 # Game premise
 
@@ -107,17 +92,17 @@
 > [Random number](./random-number.html)
 
 - This comic is from XKCD.
-- I think it shows how the defintion of "random"
-  can be different in each situation.
-- Has anyone here played Minecraft?
+- It makes me think about
+  how the defintion of "random"
+  can be different in different situations.
+- Has anyone here played the game Minecraft?
 - In Minecraft, each world is generated uniquely
   from a **seed** value
-  that you can share with your friends.
-- If all players use the same seed,
-  then they all play in the exact same world.
-- For our multi-player game, we want something similar.
-- Rather than using a detailed image of a real planet,
-  we want to generate the planet's terrain procedurally
+  that you can share with other players.
+- If you use the same seed as another player,
+  then you both play in the same world.
+- For our game, we want something similar.
+- We want to generate the planet's terrain procedurally
   based on a seed value.
 - Given a seed, the terrain that we generate
   must be the same in every detail.
@@ -139,32 +124,32 @@
   like height, slope, and colour for each location
   on the planet that we are interested in.
 - In order to keep this presentation within scope,
-  we are going to make a sweeping assumption...
-- We are going to assume that we already know
-  how to generate that information
-  given a set of random points
-  on the surface of the planet.
-- We won't worry about **how** those points are used.
-- We'll just say that a suitable technique exists.
-- One such technique is called the
-  [Voronoi diagram](./voronoi.html)
-  which assigns the colour of each pixel
-  according to the nearest generator point.
-- Now we only need to focus on generating
+  we are going to make a sweeping assumption:
+  - We are going to assume that we already know
+    how to generate that information
+    given a set of random points
+    on the surface of the planet.
+  - We won't worry about **how** those points are used.
+  - We'll just say that a suitable technique exists.
+  - One such technique is called the
+    [Voronoi diagram](./voronoi.html)
+    which assigns the colour of each pixel
+    according to the nearest generator point.
+- With this assumption,
+  we can focus on just generating
   points at pseudorandom locations
   distributed evenly over the planet.
 - First, we need a sequence of pseudorandom numbers.
-  - We will see how to do this using a very simple equation
+  - To do this, we will use using a very simple equation
     based on modular arithmetic.
 - Second, we need to map those numbers
   to locations on the planet.
-  - We will use a clever trick
-    in spherical geometry
-    to do this.
+  - To do this, we will use a clever trick
+    in spherical geometry.
 
 # Pseudorandom number generators
 
-> [Takeaway 1](./takeaway-1.html)
+> [Learning objective 1](./takeaway-1.html)
 
 - The problem of generating a random number
   appears in many different contexts.
@@ -196,7 +181,7 @@
     - That's how the modulo operation works.
     - It calculates the remainder part.
     - For example:
-      - Using that long division, $31$
+      - Using long division, $31$
         divided by $10$
         is $3$
         with a remainder of $1$.
@@ -251,7 +236,7 @@
     less than the modulus ($10$).
   - Also, we should avoid $0$
     because it just loops forever.
-- The values that we use in our game
+- The LCG constants that we use in our game
   will be much larger than the ones shown here.
 - We want to generate a sequence
   that looks random
@@ -629,6 +614,8 @@ $$
 - Lerp also works nicely with [vectors](./vector.html):
   - Vectors can represent the coordinates
     of a position or a velocity.
+  - A vector has a length and a direction.
+  - To negate a vector, you just negate its coordinates.
   - To add two vectors, you just add the components.
   - Multiplication by a number
     also is applied component-wise,

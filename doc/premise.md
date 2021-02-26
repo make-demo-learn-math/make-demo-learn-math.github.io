@@ -1,6 +1,6 @@
 ![Planet](./planet.png)
 
-| Icon                           | Feature           |
+| Icon                           | Action            |
 | ------------------------------ | ----------------- |
 | ![Satellite](./satellite.png)  | Control satellite |
 | ![Rover](./rover.png)          | Collect samples   |
