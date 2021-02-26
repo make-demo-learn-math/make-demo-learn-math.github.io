@@ -25,17 +25,16 @@
 > [Takeaways](./takeaway-all.html)
 
 - What will you get from this presentation?
-  - You will gain an appreciation
-    for some of the interesting mathematics
-    involved in video game development:
-    - We will touch upon three specific areas of math:
-      - Modulo arithmetic (for generating our random numbers)
-      - Spherical geometry (for mapping numbers to points on our planet)
-      - Quaternion algebra (for rotating our 3D view)
-  - Also,
-    for any programmers who need a seedable pseudorandom number generator,
-    you will be able re-use the JavaScript code here
-    for your own work.
+- Our learning objective is
+  to gain an appreciation
+  for some of the interesting mathematics
+  involved in video game development:
+  - Modular arithmetic (for generating our random numbers)
+  - Spherical geometry (for mapping numbers to points on our planet)
+  - Quaternion algebra (for rotating our 3D view)
+- Also, we will look at a seedable pseudorandom number generator
+  in JavaScript
+  that you can use for your own work.
 
 ## About me
 
@@ -167,7 +166,7 @@
 - The equation used for this
   is called a linear congruential generator
   or **LCG**.
-- It uses [modulo arithmetic](./modulo.html).
+- It uses [modular arithmetic](./modulo.html).
 - The equation itself is very simple
   but involves several constants
   which must be chosen carefully.
@@ -397,7 +396,7 @@
   to ensure that the points are distributed
   evenly over the sphere.
 - If the mapping is incorrect,
-  we might see "[bunching](./sphere-bunching.html)" at the poles
+  we might see "[bunching](./sphere-bunched.html)" at the poles
   similar to how the lines of longitude
   on a globe get closer together near the poles.
 - It's a bit like
@@ -436,6 +435,7 @@ $$
 \end{aligned}
 $$
 
+- The result looks something like [this](./sphere-uniform.html).
 - The reason this trick works
   is due to a rather surprizing result
   for the surface area of a [spherical segment](./spherical-segment.html):
@@ -443,7 +443,6 @@ $$
     the area of the strip between the planes
     depends only on the distance between the planes
     and not on where they cut the sphere.
-- The result looks something like [this](./sphere-uniform.html).
 
 # Feature #2: Realistic transitions between views
 
@@ -735,37 +734,3 @@ $$
 1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
 1. Wikipedia contributors. "Spherical segment." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.
 1. Wikipedia contributors. "Voronoi diagram." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 23 Feb. 2021.
-
----
-
-# TO DO
-
-- Takeaways: recurring 3-column of: 1. (Modulo) arithmetic 2. (Spherical) geometry 3. (Quaternion) algebra, plus source code with tests
-- Game premise: hand-drawn planet with annotations for each feature (satellite, collect samples, signs of life?, share results)
-- Feature #1: picture of voxel terrain (http://www.nullpointer.co.uk/content/how-to-make-an-infinite-world/)
-- Keep it simple: existing wireframe terrain and voronoi on sphere
-- PRNG: recurring diagram with first column encircled,
-  then ask if anyone has heard of the modulo operator,
-  then show the simple example of x = (7x) % 10 starting from x=1 and 2, showing period of 4, bad choices of 0 and 5, range of 1-9
-- Implementation in JavaScript: IEEE representation for double precision
-- spectral test for my code compared side-by-side with Math.random()
-- Sphere point picking: recurring diagram with second column encircled, plot of N random points on a sphere (http://corysimon.github.io/articles/uniformdistn-on-sphere/)
-- Feature #2: recurring diagram with third column encircled
-- Interpolation: ask what is Lerp at t=0, t=1, t=0.5,
-  then ask if anyone knows what a vector is (then explain it, components, componentwise addition, scalar product)
-- Slerp: ask if anyone knows what a quaternion is,
-  then show double cover diagram with "rotation" represented by +q and -q
-  just like how the number 9 has two square roots +3 and -3
-
-```
-Fewer slides, more diagrams, keep full script to yourself and for tech people afterwards.
-You need to tell them "what's in it for me?", at the beginning. (E.g., all those things and takeaways we talked about). Both if you are a tech and if you are a non-tech.
-More diagrams of the game ("breadcrumbs"), ideally before we dive into each slide.
-Be sure to explain things up front, otherwise you will block them paying attention.
-Does anybody know what a ____ is?
--modulus operator
--vector
--quaternion
-and ask them to enter their responses in chat.
-Make them try to figure out the Lerp results for t=0 and t=1 themselves! (answer in chat)
-```

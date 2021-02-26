@@ -1,12 +1,12 @@
-# Modulo arithmetic
+# Modular arithmetic
 
 The modulo operator returns the remainder
 of a division.
-For example, the expression "$21\mod 10$"
+For example, the expression "$31\mod 10$"
 would evaluate to $1$,
-because $21$
+because $31$
 divided by $10$
-is $2$
+is $3$
 with a remainder of $1$.
 
 The LCG formula uses the modulo operator
