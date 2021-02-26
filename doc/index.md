@@ -1,5 +1,7 @@
 # Is writing a game a good way to learn math?
 
+> [Intro](./intro.html)
+
 - Video games can provide many key ingredients
   for effective learning
   such as positive reinforcement
@@ -18,7 +20,43 @@
   and we will see some of the interesting things
   that we can learn along the way.
 
+# Takeaways
+
+> [Takeaways](./takeaway-all.html)
+
+- What will you get from this presentation?
+  - You will gain an appreciation
+    for some of the interesting mathematics
+    involved in video game development:
+    - We will touch upon three specific areas of math:
+      - Modulo arithmetic (for generating our random numbers)
+      - Spherical geometry (for mapping numbers to points on our planet)
+      - Quaternion algebra (for rotating our 3D view)
+  - Also,
+    for any programmers who need a seedable pseudorandom number generator,
+    you will be able re-use the JavaScript code here
+    for your own work.
+
+## About me
+
+> [TRS-80](./trs-80.html)
+
+- Why do I enjoy talking about this stuff?
+  - In high school, rather than having an Atari
+    like all of my friends,
+    I had a TRS-80.
+  - If I wanted to play a video game,
+    I had to write one myself.
+  - It took me a whole summer,
+    but eventually I wrote one.
+  - I gained a much better appreciation
+    for mathematics
+    and that's what helped me through courses
+    like math and science.
+
 # Game premise
+
+> [Premise](./premise.html)
 
 - We need a premise for a game
   to provide some motivation.
@@ -26,42 +64,43 @@
   of a hypothetical, simulation-type game.
 - It is inspired by the Mars missions
   which have been in the news recently.
-
-## Planetary Exploration
-
-- Suppose that we want to write a multi-player web game
-  about exploring a Mars-like planet.
-- Players can remotely control satellites,
-  deploy rovers to the surface of the planet
-  for collecting samples,
-  run tests on those samples
-  to look for signs of life,
-  and then share their results
-  with the community.
-- Players get credit when they contribute to discoveries.
-- It all sounds like fun,
-  but for now we are just going to consider
-  two small features of the game
-  which relate to how players
-  can view the surface of the planet from space.
-- To plan their simulated expeditions,
-  players will use an orbiting satellite
-  equipped with a camera.
-- Players will be able to point the camera
-  at a particular region and zoom in
-  to see the terrain in detail.
-- Maybe the player is looking for a particular
-  outcropping of rocks
-  or evidence of an ancient lake bed.
-- As a game developer,
-  we need to generate the terrain itself
-  and we need to simulate the view from the satellite.
-- So, feature #1 is about generating
-  random-looking terrain on the planet,
-  and feature #2 is about simulating realistic transitions
-  between views of the planet from the satellite.
+- _I don't have a name for the game yet,
+  so please feel free to contribute your ideas!_
+  - Suppose that we want to write a multi-player web game
+    about exploring a Mars-like planet.
+  - Players can remotely control satellites,
+    deploy rovers to the surface of the planet
+    for collecting samples,
+    run tests on those samples
+    to look for signs of life,
+    and then share their results
+    with the community.
+  - Players get credit when they contribute to discoveries.
+  - It all sounds like fun,
+    but for now we are just going to consider
+    two small features of the game
+    which relate to how players
+    can view the surface of the planet from space.
+  - To plan their simulated expeditions,
+    players will use an orbiting satellite
+    equipped with a camera.
+  - Players will be able to point the camera
+    at a particular region and zoom in
+    to see the terrain in detail.
+  - Maybe the player is looking for a particular
+    outcropping of rocks
+    or evidence of an ancient lake bed.
+  - As a game developer,
+    we need to generate the terrain itself
+    and we need to simulate the view from the satellite.
+  - So, feature #1 is about generating
+    random-looking terrain on the planet,
+    and feature #2 is about simulating realistic transitions
+    between views of the planet from the satellite.
 
 # Feature #1: Generating random terrain
+
+> [Random number](./random-number.html)
 
 - Rather than using a detailed image of a real planet,
   we want to generate the planet's terrain procedurally
@@ -80,11 +119,13 @@
 
 # Keeping it simple
 
+> [Terrain height](./perlin.html)
+
 - There are many techniques
   for generating realistic terrain in a game.
 - In fact that is a whole topic onto itself
   and deserves its own presentation.
-- Typically it involves generating [terrain information](./perlin.html)
+- Typically it involves generating terrain information
   like height, slope, and colour for each location
   on the planet that we are interested in.
 - In order to keep this presentation within scope,
@@ -106,6 +147,10 @@
 
 # Pseudorandom number generators
 
+> [Takeaway 1](./takeaway-1.html)
+
+- The problem of generating a random number
+  appears in many different contexts.
 - This is not cryptography,
   so we don't need a cryptographically-strong generator.
 - The built-in generators
@@ -122,6 +167,7 @@
 - The equation used for this
   is called a linear congruential generator
   or **LCG**.
+- It uses [modulo arithmetic](./modulo.html).
 - The equation itself is very simple
   but involves several constants
   which must be chosen carefully.
@@ -182,7 +228,7 @@
 
 - Many of the LCG constants in common use
   require support for 64-bit integers.
-- In JavaScript, the built-in number type
+- In JavaScript, the [built-in number type](./floating-point.html)
   only gives us 53 bits of precision:
 
   > `Number.MAX_SAFE_INTEGER` = $2^{53}-1$
@@ -333,10 +379,13 @@
   });
   ```
 
-- Just for good measure, here is the corresponding spectral test.
-- ..._insert spectral test for my code compared side-by-side with `Math.random()`_...
+- Then, for good measure, the next thing
+  would be to run the various tests for randomness
+  that we mentioned earlier.
 
 # Sphere point picking
+
+> [Takeaway 2](./takeaway-2.html)
 
 - Now that we can generate
   a sequence of pseudorandom numbers,
@@ -348,7 +397,7 @@
   to ensure that the points are distributed
   evenly over the sphere.
 - If the mapping is incorrect,
-  we might see "bunching" at the poles
+  we might see "[bunching](./sphere-bunching.html)" at the poles
   similar to how the lines of longitude
   on a globe get closer together near the poles.
 - It's a bit like
@@ -387,8 +436,6 @@ $$
 \end{aligned}
 $$
 
-- Here are are some typical results.
-- ..._plots of N random points on a sphere, various seeds, various N_...
 - The reason this trick works
   is due to a rather surprizing result
   for the surface area of a [spherical segment](./spherical-segment.html):
@@ -396,8 +443,11 @@ $$
     the area of the strip between the planes
     depends only on the distance between the planes
     and not on where they cut the sphere.
+- The result looks something like [this](./sphere-uniform.html).
 
 # Feature #2: Realistic transitions between views
+
+> [Orbiting satellite](./orbiting-satellite.html)
 
 - In our game, the satellite is revolving around the planet
   according to a prescribed orbit.
@@ -436,10 +486,11 @@ $$
 \end{aligned}
 $$
 
-- When $t=0$,
-  the function returns the first value $f_1$.
-  We can see this by writing $0$
-  for $t$ in the equation:
+- What does the function return
+  when $t=0$?
+  - It returns the first value $f_1$.
+  - We can see this by writing $0$
+    for $t$ in the equation:
 
 $$
 \begin{aligned}
@@ -457,10 +508,11 @@ $$
 \end{aligned}
 $$
 
-- When $t=1$,
-  the function returns the second value $f_2$.
-  We can see this by writing $1$
-  for $t$ in the equation:
+- What does the function return
+  when $t=1$?
+  - It returns the second value $f_2$.
+  - We can see this by writing $1$
+    for $t$ in the equation:
 
 $$
 \begin{aligned}
@@ -478,6 +530,10 @@ $$
 \end{aligned}
 $$
 
+> - What does the function return
+>   when $t=\frac{1}{2}$?
+>   - The average of the endpoints.
+
 - Lerp is very easy to implement in code:
 
   ```javascript
@@ -486,7 +542,13 @@ $$
   }
   ```
 
-- Lerp also works nicely with vectors:
+- Lerp also works nicely with [vectors](./vector.html):
+  - The addition is done component-wise.
+  - The multiplication acts like scaling the vector,
+    for example,
+    the product $t\mathbf{v}$
+    scales the vector $\mathbf{v}$
+    by a factor of $t$:
 
 $$
 \begin{aligned}
@@ -505,6 +567,8 @@ $$
   or **Slerp**.
 
 # Slerp
+
+> [Takeaway 3](./takeaway-3.html)
 
 - Slerp is like the spherical equivalent
   of Lerp:
@@ -532,7 +596,7 @@ $$
   to be interpolated:
   - There are various ways to represent 3D rotations.
   - Here we are using **unit quaternions**.
-  - A quaternion is like a four dimensional vector,
+  - A quaternion is like a 4D vector,
     and a **unit** quaternion is a quaternion
     whose length is equal to $1$.
   - There are many advantages of this representation
@@ -545,7 +609,7 @@ $$
     both represent the same rotation.
   - Sometimes I find it helpful
     to think of unit quaternions
-    as the **square roots** of a rotation.
+    as the [**square roots** of a rotation](./double-cover.html).
   - For example, the number $9$
     has two square roots: $+3$
     and $-3$
@@ -586,6 +650,8 @@ $$
   that still meets our requirements?**
 
 # An approximation
+
+> [Easy button!](./easy.html)
 
 - If we simply Lerp the quaternions
   we actually get a descent
@@ -650,15 +716,20 @@ $$
 1. Park, Stephen K.; Miller, Keith W. (October 1988). ["Random Number Generators: Good Ones Are Hard To Find"](http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf) (PDF). _Communications of the ACM_. **31** (10): 1192–1201.
 1. Ronja (September 29, 2018). ["Voronoi Noise"](https://www.ronja-tutorials.com/post/028-voronoi-noise/).
 1. Shoemake, Ken. ["Animating Rotation with Quaternion Curves"](https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf) (PDF). [SIGGRAPH](https://en.wikipedia.org/wiki/SIGGRAPH) 1985.
+1. Simon, Cory (February 27, 2015). ["Generating uniformly distributed numbers on a sphere"](http://corysimon.github.io/articles/uniformdistn-on-sphere/).
 1. Weisstein, Eric W. "Sphere Point Picking." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SpherePointPicking.html
 1. Weisstein, Eric W. "Spherical Segment." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/SphericalSegment.html
 1. Weisstein, Eric W. "Zone." From [_MathWorld_](https://mathworld.wolfram.com/)--A Wolfram Web Resource. https://mathworld.wolfram.com/Zone.html
 1. Wikipedia contributors. "Diehard tests." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.
+1. Wikipedia contributors. "Double-precision floating-point format." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.
+1. Wikipedia contributors. "Euclidean vector." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.
 1. Wikipedia contributors. "Euler angles." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 18 Feb. 2021.
 1. Wikipedia contributors. "George Marsaglia." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.
+1. Wikipedia contributors. "IEEE 754." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 15 Feb. 2021.
 1. Wikipedia contributors. "Lehmer random number generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.
 1. Wikipedia contributors. "Linear congruential generator." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.
 1. Wikipedia contributors. "Linear interpolation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.
+1. Wikipedia contributors. "Modulo operation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 25 Feb. 2021.
 1. Wikipedia contributors. "Perlin noise." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 7 Feb. 2021.
 1. Wikipedia contributors. "Quaternions and spatial rotation." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.
 1. Wikipedia contributors. "Slerp." _Wikipedia, The Free Encyclopedia_. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.
@@ -668,6 +739,23 @@ $$
 ---
 
 # TO DO
+
+- Takeaways: recurring 3-column of: 1. (Modulo) arithmetic 2. (Spherical) geometry 3. (Quaternion) algebra, plus source code with tests
+- Game premise: hand-drawn planet with annotations for each feature (satellite, collect samples, signs of life?, share results)
+- Feature #1: picture of voxel terrain (http://www.nullpointer.co.uk/content/how-to-make-an-infinite-world/)
+- Keep it simple: existing wireframe terrain and voronoi on sphere
+- PRNG: recurring diagram with first column encircled,
+  then ask if anyone has heard of the modulo operator,
+  then show the simple example of x = (7x) % 10 starting from x=1 and 2, showing period of 4, bad choices of 0 and 5, range of 1-9
+- Implementation in JavaScript: IEEE representation for double precision
+- spectral test for my code compared side-by-side with Math.random()
+- Sphere point picking: recurring diagram with second column encircled, plot of N random points on a sphere (http://corysimon.github.io/articles/uniformdistn-on-sphere/)
+- Feature #2: recurring diagram with third column encircled
+- Interpolation: ask what is Lerp at t=0, t=1, t=0.5,
+  then ask if anyone knows what a vector is (then explain it, components, componentwise addition, scalar product)
+- Slerp: ask if anyone knows what a quaternion is,
+  then show double cover diagram with "rotation" represented by +q and -q
+  just like how the number 9 has two square roots +3 and -3
 
 ```
 Fewer slides, more diagrams, keep full script to yourself and for tech people afterwards.
