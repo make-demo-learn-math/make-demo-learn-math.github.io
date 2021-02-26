@@ -190,13 +190,13 @@
   - The modulo operation returns the remainder
     of a division:
     - Remember back when you first learned division,
-      before you knew anything about fractions and decimals?
+      before you knew anything about fractions or decimals?
     - You would write the answer
-      as a whole number and a remainder.
+      as a whole number plus a remainder.
     - That's how the modulo operation works.
     - It calculates the remainder part.
-    - Let take an example:
-      - Going back to that first way, $31$
+    - For example:
+      - Using that long division, $31$
         divided by $10$
         is $3$
         with a remainder of $1$.
@@ -204,11 +204,64 @@
         just returns the remainder part,
         which is $1$
         in this case.
-- The equation itself is very simple
-  but involves several constants
-  which must be chosen carefully.
-- In fact, selecting the constants to ensure sufficient randomness
-  is non-trivial and has been a topic of research.
+- Now that we understand the modulo operation,
+  it is easy to see
+  how a [simple generator (or "LCG")](./lcg.html) works:
+  - The equation itself is very simple.
+  - It uses the modulo operator
+    to calculate the next random number $x_{n+1}$
+    using the previous one $x_n$.
+  - It involves two constants:
+    - The first constant ($7$)
+      is called the multiplier.
+    - The second constant ($10$)
+      is called the modulus.
+    - Selecting constants to ensure sufficient randomness
+      is non-trivial and has been a topic of research.
+    - The constants here were chosen
+      just to help illustrate how an LCG works.
+    - To make things easy here,
+      the modulus of $10$
+      means we can just extract
+      the last digit.
+  - Let's see what happens
+    if we start with a seed value of $1$.
+  - Seven times one is seven,
+    and seven mod ten is seven,
+    so the first call returns a value of $7$.
+    - We feed that back in.
+  - Seven times seven is forty-nine,
+    forty-nine mod ten is nine,
+    so the second call returns a value of $9$.
+    - And we feed that back in.
+  - The thrid call returns a value of $3$.
+    - And we feed that back in.
+  - The fourth call returns a value of $1$.
+    - We are back where we started.
+  - The sequence repeats after $4$
+    iterations.
+  - We say that it has a **period** of $4$.
+  - Let's see what happens
+    if we start with a seed value of $2$.
+  - This sequence also repeats after $4$
+    iterations.
+  - Can anyone tell me what happens
+    if we start with a value of $5$?
+  - Notice how the output is always
+    less than the modulus ($10$).
+  - Also, we should avoid $0$
+    because it just loops forever.
+- The values that we use in our game
+  will be much larger than the ones shown here.
+- We want to generate a sequence
+  that looks random
+  so we want the longest period possible.
+- There are actually a set of guidelines
+  for choosing the multipler and modulus
+  to ensure that the period is maximal.
+- But those rules alone
+  do not guarantee that there won't be any patterns
+  in the sequence.
 - Let's see how the output of a generator
   with poorly-chosen constants
   can contain undesirable patterns
@@ -436,16 +489,9 @@
   we might see "[bunching](./sphere-bunched.html)" at the poles
   similar to how the lines of longitude
   on a globe get closer together near the poles.
-- It's a bit like
-  trying to draw a map of the world
-  on a flat piece of paper:
-  - We can stretch it, like the
-    [Mercator projection](./mercator.html).
-  - Or we can tear it, like the
-    [Dymaxion map](./fuller.html).
-  - But that's a whole other topic!
 - In 1972, George Marsaglia wrote an article
-  about sphere point picking.
+  about sphere point picking
+  with uniform distribution.
 - The method shown here
   uses just two pseudorandom numbers
   for each point on the sphere:
@@ -581,11 +627,15 @@ $$
   ```
 
 - Lerp also works nicely with [vectors](./vector.html):
-  - The addition is done component-wise.
-  - The multiplication acts like scaling the vector,
-    for example,
+  - Vectors can represent the coordinates
+    of a position or a velocity.
+  - To add two vectors, you just add the components.
+  - Multiplication by a number
+    also is applied component-wise,
+    so it simply scales the vector.
+  - In the vector form of Lerp,
     the product $t\mathbf{v}$
-    scales the vector $\mathbf{v}$
+    simply scales the vector $\mathbf{v}$
     by a factor of $t$:
 
 $$
