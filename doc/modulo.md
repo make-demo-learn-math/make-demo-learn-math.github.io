@@ -1,13 +1,25 @@
-# Modular arithmetic
+Long division:
 
-The modulo operator returns the remainder
-of a division.
-For example, the expression "$31\mod 10$"
-would evaluate to $1$,
-because $31$
-divided by $10$
-is $3$
-with a remainder of $1$.
+$$
+\begin{aligned}
+  3&\text{ R }1 \\
+  10\ \overline{\smash{)}\ 31}& \\
+  \underline{30}& \\
+  1& \\
+\end{aligned}
+$$
+
+Modulo operation:
+
+$$
+\begin{aligned}
+  31\mod 10
+  &=
+  1 \\
+\end{aligned}
+$$
+
+_TO DO: move the following to an LCG slide_
 
 The LCG formula uses the modulo operator
 to calculate the next random number $x_{n+1}$

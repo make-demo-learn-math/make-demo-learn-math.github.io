@@ -24,17 +24,22 @@
 
 > [Takeaways](./takeaway-all.html)
 
-- What will you get from this presentation?
+- What do we hope to get from this presentation?
 - Our learning objective is
   to gain an appreciation
   for some of the interesting mathematics
   involved in video game development:
-  - Modular arithmetic (for generating our random numbers)
-  - Spherical geometry (for mapping numbers to points on our planet)
-  - Quaternion algebra (for rotating our 3D view)
-- Also, we will look at a seedable pseudorandom number generator
+  - Modular arithmetic
+    - for generating random numbers
+  - Spherical geometry
+    - for mapping those numbers to points on a planet
+  - Quaternion algebra
+    - for rotating a 3D view of the planet
+      from an orbiting satellite
+- Also, we will look at a random number generator
   in JavaScript
-  that you can use for your own work.
+  that anyone can use freely
+  in your own work.
 
 ## About me
 
@@ -46,12 +51,12 @@
     I had a TRS-80.
   - If I wanted to play a video game,
     I had to write one myself.
-  - It took me a whole summer,
-    but eventually I wrote one.
-  - I gained a much better appreciation
+  - Eventually I wrote one.
+  - It took me all summer,
+    but it gave me an appreciation
     for mathematics
-    and that's what helped me through courses
-    like math and science.
+    which is what helped me get through courses
+    at school like math and science.
 
 # Game premise
 
@@ -63,7 +68,7 @@
   of a hypothetical, simulation-type game.
 - It is inspired by the Mars missions
   which have been in the news recently.
-- _I don't have a name for the game yet,
+- _I don't have a name for it yet,
   so please feel free to contribute your ideas!_
   - Suppose that we want to write a multi-player web game
     about exploring a Mars-like planet.
@@ -101,15 +106,21 @@
 
 > [Random number](./random-number.html)
 
+- This comic is from XKCD.
+- I think it shows how the defintion of "random"
+  can be different in each situation.
+- Has anyone here played Minecraft?
+- In Minecraft, each world is generated uniquely
+  from a **seed** value
+  that you can share with your friends.
+- If all players use the same seed,
+  then they all play in the exact same world.
+- For our multi-player game, we want something similar.
 - Rather than using a detailed image of a real planet,
   we want to generate the planet's terrain procedurally
-  based on a **seed** value.
-- This is similar to the game of Minecraft
-  where each different world
-  is generated from a unique seed.
-- Our game is multi-player,
-  so the experience is shared among players
-  and the terrain must be the same in every detail.
+  based on a seed value.
+- Given a seed, the terrain that we generate
+  must be the same in every detail.
 - We also want the terrain to look random,
   meaning there should be no visible patterns.
 - We call this **pseudorandom**: The terrain is
@@ -130,19 +141,26 @@
 - In order to keep this presentation within scope,
   we are going to make a sweeping assumption...
 - We are going to assume that we already know
-  how to generate terrain information
+  how to generate that information
   given a set of random points
   on the surface of the planet.
 - We won't worry about **how** those points are used.
-- We'll just say that a [suitable technique](./voronoi.html) exists.
-- Now we can focus on just generating
-  points distributed evenly over the planet
-  at pseudorandom locations.
-- We will see how to generate a sequence of
-  pseudorandom numbers
-  using a very simple formula.
-- Then we will look at a clever trick to map those numbers
+- We'll just say that a suitable technique exists.
+- One such technique is called the
+  [Voronoi diagram](./voronoi.html)
+  which assigns the colour of each pixel
+  according to the nearest generator point.
+- Now we only need to focus on generating
+  points at pseudorandom locations
+  distributed evenly over the planet.
+- First, we need a sequence of pseudorandom numbers.
+  - We will see how to do this using a very simple equation
+    based on modular arithmetic.
+- Second, we need to map those numbers
   to locations on the planet.
+  - We will use a clever trick
+    in spherical geometry
+    to do this.
 
 # Pseudorandom number generators
 
@@ -166,7 +184,26 @@
 - The equation used for this
   is called a linear congruential generator
   or **LCG**.
-- It uses [modular arithmetic](./modulo.html).
+- It uses [modular arithmetic](./modulo.html):
+  - Is anyone here
+    familiar with the modulo operation?
+  - The modulo operation returns the remainder
+    of a division:
+    - Remember back when you first learned division,
+      before you knew anything about fractions and decimals?
+    - You would write the answer
+      as a whole number and a remainder.
+    - That's how the modulo operation works.
+    - It calculates the remainder part.
+    - Let take an example:
+      - Going back to that first way, $31$
+        divided by $10$
+        is $3$
+        with a remainder of $1$.
+      - The expression "$31\mod 10$"
+        just returns the remainder part,
+        which is $1$
+        in this case.
 - The equation itself is very simple
   but involves several constants
   which must be chosen carefully.
