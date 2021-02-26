@@ -446,6 +446,8 @@ $$
 
 # Feature #2: Realistic transitions between views
 
+> [Takeaway 3](./takeaway-3.html)
+
 > [Orbiting satellite](./orbiting-satellite.html)
 
 - In our game, the satellite is revolving around the planet
@@ -566,8 +568,6 @@ $$
   or **Slerp**.
 
 # Slerp
-
-> [Takeaway 3](./takeaway-3.html)
 
 - Slerp is like the spherical equivalent
   of Lerp:
