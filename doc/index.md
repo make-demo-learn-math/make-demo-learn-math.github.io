@@ -20,9 +20,9 @@
   and we will see some of the interesting things
   that we can learn along the way.
 
-# Learning objective
+# Learning objectives
 
-> [Learning objective](./takeaway-all.html)
+> [Learning objectives](./takeaway-all.html)
 
 - What do we hope to learn from this presentation?
 - Our learning objective is
@@ -459,7 +459,7 @@
 
 # Sphere point picking
 
-> [Takeaway 2](./takeaway-2.html)
+> [Learning objective 2](./takeaway-2.html)
 
 - Now that we can generate
   a sequence of pseudorandom numbers,
@@ -514,7 +514,7 @@ $$
 
 # Feature #2: Realistic transitions between views
 
-> [Takeaway 3](./takeaway-3.html)
+> [Learning objective 3](./takeaway-3.html)
 
 > [Orbiting satellite](./orbiting-satellite.html)
 
