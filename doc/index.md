@@ -1530,6 +1530,52 @@ $$
     is a good approximation to Slerp
     and is easier to implement.
 
+# Image credits (still needs to be cleaned-up)
+
+> [Intro](./intro.html)
+
+> [Learning objectives](./takeaway-all.html)
+
+> [Premise](./premise.html)
+
+> [Random number](./random-number.html)
+
+> [Terrain height](./perlin.html)
+
+> [Voronoi diagram](./voronoi.html)
+
+> [Learning objective 1](./takeaway-1.html)
+
+> [modular arithmetic](./modulo.html)
+
+> [simple generator (or "LCG")](./lcg.html)
+
+> [built-in number type](./floating-point.html)
+
+> [Learning objective 2](./takeaway-2.html)
+
+> [bunching](./sphere-bunched.html)
+
+> [this](./sphere-uniform.html)
+
+> [spherical segment](./spherical-segment.html)
+
+> [Learning objective 3](./takeaway-3.html)
+
+> [Orbiting satellite](./orbiting-satellite.html)
+
+> [the face of a clock](./clock-face.html)
+
+> [vectors](./vector.html)
+
+> [Euler angles](./euler.html)
+
+> [**square roots** of a rotation](./double-cover.html)
+
+> [Easy button!](./easy.html)
+
+> [compare](./nlerp-versus-slerp.html)
+
 # References
 
 1. Blow, Jonathan (January 17, 2004). ["Hacking Quaternions"](http://number-none.com/product/Hacking%20Quaternions/).
