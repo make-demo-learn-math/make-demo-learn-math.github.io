@@ -38,6 +38,7 @@
     - for rotating a 3D view of the planet
       from an orbiting satellite
 - Also, one of the takeaways
+  from this presentation
   is a random number generator
   in JavaScript
   that you are welcome to use freely
@@ -541,6 +542,7 @@ $$
 
 - One of the simplest examples of interpolation
   is called linear interpolation or **Lerp**.
+- (Linear is just a fancy word for "straight line").
 - Lerp is a function that interpolates between two values $f_1$
   and $f_2$
   according to a given number $t$:
