@@ -127,7 +127,7 @@
   based on a seed value.
 - Given a seed, the terrain that we generate
   must be the same in every detail.
-- We also want the terrain to look random,
+- But we also want the terrain to look random,
   meaning there should be no visible patterns.
 - We call this **pseudorandom**: The terrain is
   random-looking but perfectly reproducible
@@ -159,7 +159,10 @@
 - It doesn't need to be colour.
 - For example, it could be terrain height
   as a function of the distance
-  to the nearest generator point.
+  to the nearest generator location.
+- In any case, the point here is
+  that given a set of random points,
+  there are ways to generate the terrain.
 
 # Our first two learning objectives
 
@@ -197,24 +200,26 @@
 - So, we need a seedable generator.
 - The equation used for this
   is called a linear congruential generator
-  or **LCG**.
-  - The equation itself is very simple
+  or **LCG**:
+  - The LCG that we use is the **Lehmer** type.
+  - The equation for it is very simple
     and we will see how it works using
-    the arithmetic that you learned in elementary school.
+    the same arithmetic that you learned
+    in elementary school.
   - It involves two constants
     which need to be chosen very carefully
     to ensure that the output is sufficiently random.
-  - It our examples, we will use very small values
+  - For demonstration purposes, we will use very small values
     for the constants but the arithmetic is the same.
-- Let's talk about something that we learned in elementary school.
 
 # Modulo operation
 
 - The modulo operator returns the remainder of a division.
-- "31 mod 10" is just the remainder of dividing 10 into 31.
+- "31 mod 10" is just the remainder of dividing 31 by 10.
+- 31 divided by 10 is equal to 3 with a remainder of 1.
 - So, "31 mod 10" is equal to 1.
 - If you remember doing long division, at the end
-  there is a remainder.
+  we are left with a remainder.
 - That's exactly what the modulo operation returns.
 
 # Generator equation: s<sub>n+1</sub> = (7 \* s<sub>n</sub>) mod 10
@@ -258,7 +263,10 @@
   in the output.
 - Furthermore, those undesirable patterns
   might not be obvious at first glance.
-- Let's look at an example... which brings us to our poll!
+- Selecting constants to ensure sufficient randomness
+  is non-trivial and has been a topic of research.
+- Let's do a poll to see whether anyone can spot
+  the hidden pattern.
 
 # Now it's time for our POLL!
 
@@ -273,10 +281,13 @@
   contains a hidden pattern
   if you try to use it for plotting points.
 - There is a simple test called the **spectral test**
-  which simply plots an XY point
-  for each consecutive pair of numbers
-  in the sequence.
-- Here are the spectral plots for sequences A and B.
+  which plots a point for each number in the sequence
+  after the initial seed.
+- The x-coordinate of the point
+  is the current output $s_n$
+  and the y-coordinate
+  is the previous output $s_{n-1}$.
+- Here are the spectral plots for the sequences A and B.
 
 # Spectral plot for sequence A
 
@@ -291,11 +302,8 @@
 - The pattern revealled by the spectral test
   is something that we would like to avoid in our game
   since we plan to map those numbers to points on our planet.
-- So, we need to use carefully-chosen constants
-  in our generator.
-- Selecting constants to ensure sufficient randomness
-  is non-trivial and has been a topic of research.
-- Let's see if we can find some that are suitable for our game.
+- So, we need to seach for some suitable constants
+  to use in our generator.
 
 # Number format in JavaScript
 
@@ -316,7 +324,7 @@
 - Assuming we start from a valid seed,
   the output will always be less than the modulus.
 - Therefore the result of the multiplication
-  will always fit within 32 + 16 = 48 bits.
+  will always fit within 16 + 32 = 48 bits.
 - That gives us a few bits to spare,
   so we should be good.
 
@@ -355,7 +363,7 @@
 
 # Sphere point picking
 
-- There are several ways
+- There are several techniques
   that will produce a uniform distribution
   over the planet.
 - The method shown here
@@ -435,7 +443,7 @@ $$
   as it transitions between views.
 - Animators call this "tweening".
 - Programmers call it "interpolation".
-- Let's establish our requirements.
+- Let's define what we mean by "realistic".
 
 # Realistic transitions between views
 
@@ -465,7 +473,8 @@ $$
   which takes you down through 6 o'clock
   and back up through 3 o'clock.
 - Or, you can take the short way.
-- For our view transitions, we always want the short way
+- For the view transitions in our game,
+  we always want the short way
   because its what the player would expect.
 
 # Linear interpolation or "Lerp"
@@ -559,30 +568,36 @@ $$
   or it might represent its velocity.
 - In this diagram, the vector has an x-coordinate of 2
   and a y-coordinate of 3.
-- Will will denote a vector with an underline
+- We will denote a vector with an underline
   as shown here on the right.
 
 # Vector Lerp
 
 - The vector form of Lerp
-  resembles the simple form.
-- The arithmetic is applies "component-wise".
+  resembles the simple form
+  but has vector endpoints instead.
+- The arithmetic is applied "component-wise"
+  as you might expect.
 
 # Vector Lerp (component-wise)
 
-- As you can see here,
+- As you can see,
   the components of the result
   are just simple Lerps
   of the endpoint components.
-- In our game, we want to interpolate between rotations.
-- For this, we use something called **spherical linear interpolation**.
+- But in our case, the endpoints will be
+  some sort of representation of 3D rotations.
+- Does anyone know what kind of interpolation to use
+  when the endpoints are 3D rotations?
+- To start with, let's look
+  at something called **spherical linear interpolation**.
 
 # Spherical linear interpolation or "Slerp"
 
 - Slerp is the spherical equivalent of Lerp,
   but it's considerably more complicated.
-- Let's take a brief look at it
-  so we can gain an appreciation
+- Let's take a brief look at it...
+- Hopefully we can gain an appreciation
   for the underlying mathematics.
 - When applied to 3D rotations,
   Slerp produces a smooth transition
@@ -601,10 +616,11 @@ $$
 # Euler angles
 
 - Euler angles are a sequence of three separate rotations
-  which result in a 3D rotation.
-- This is relatively intuitive
-  especially in aviation where the Euler angles
-  correspond to the heading, pitch, and bank angles
+  which produce the desired rotation
+  when applied in succession.
+- Euler angles are fairly intuitive
+  especially in aviation where they correspond
+  to the heading, pitch, and bank angles
   of an aircraft.
 - Unfortunately, in certain configurations,
   the mapping is not unique
@@ -626,9 +642,10 @@ $$
 - It uses a single rotation
   around a single axis
   rather than a composition of rotations
-  around a sequence of axes.
+  around multiple axes.
 - As programmers,
-  we need to be aware of the unit length constraint:
+  we need to be aware of the unit length constraint
+  because many downstream operations rely on this:
 
 $$
 \begin{aligned}
