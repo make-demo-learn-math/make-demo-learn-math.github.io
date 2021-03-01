@@ -1,7 +1,7 @@
 # Writing a game
 
 > - _Do you know how hard it is
->   to make a pie chart in Google Slides
+>   to make a pie chart
 >   that looks like Pacman?_
 
 - What are the ingredients that we need for effective learning?
@@ -425,6 +425,10 @@
   - Generate a pair of pseudorandom numbers $s_1,s_2$
     between $0$
     and $1$
+  - (Our JavaScript class has a function for that)
+  - (Also, $s_1$
+    and $s_2$
+    will have uniform distributions)
   - Let $u=(2s_1-1)R$
   - Let $\theta=2\pi s_2$
   - Calculate the XYZ coordinates of the point
@@ -444,40 +448,53 @@ $$
 \end{aligned}
 $$
 
-> - Note how the first two equations are very different looking
->   than the third.
-
-- This technique produces a uniform distribution of points,
-  assuming $s_1,s_2$
-  have uniform distribution.
+- Why does that third equation
+  look so different
+  than the first two?
+- I remember being very puzzled by this.
 
 # Uniform distribution
 
-- Here is an example of what it looks like.
-
-# Spherical segment
-
-- It's interesting how
-  the result is so uniform
-  when you consider that third equation.
-- It seems to suggest that the $z$
-  coordinates are uniformly distributed.
-- The reason this trick works
+- As you can see,
+  we have a uniform distribution
+  over the sphere.
+- When you consider the third equation,
+  this would suggest that the $z$
+  coordinates of the points
+  are uniformly distributed.
+- (In fact this is true for the projection
+  onto **any** line passing through the centre).
+- The reason for this
   is due to a rather surprizing result
   for the surface area of a **spherical segment**:
   - If you cut a sphere with two parallel planes,
     the area of the strip between the planes
     depends only on the distance between the planes
     and not on where they cut the sphere.
-  - You can see here
-    that the equation for the surface area $S$
-    depends only on the radius of the sphere, capital $R$,
-    and the spacing $h$.
-  - It does not depend on small $r_1$
-    or small $r_2$.
+  - It might help to imagine the two planes
+    being perpendicular to the $z$
+    axis.
+  - Then imagine that you can move those planes
+    anywhere along the $z$
+    axis and get the same result.
+
+# Spherical segment
+
+- Here on the right is the equation
+  for the surface area $S$
+  of a spherical segment.
+- Note how it depends only
+  on the radius of the sphere, capital $R$,
+  and the spacing $h$
+  between the planes.
+- It does not depend on small $r_1$
+  or small $r_2$
+  which vary according to
+  where they cut the sphere.
 
 # Learning objective #3
 
+- _Finally, we get to talk about quaternions..._
 - Our third learning objective
   is about rotating the camera in 3D
   to get realistic transitions between views.
@@ -492,11 +509,13 @@ $$
   by adjusting the orientation of the satellite,
   thereby rotating the camera.
 - As game designers, we want the motion of the camera
-  to be realistic
-  as it transitions between views.
+  to be realistic.
+- We know the starting position
+  and we know the ending position.
+- We need to determine the motion _in between_.
 - Animators call this "tweening".
 - Programmers call it "interpolation".
-- Let's define what we mean by "realistic".
+- Let's define exactly what we mean.
 
 # Realistic transitions between views
 
@@ -517,18 +536,27 @@ $$
 # Shortest arc
 
 - In Niagara Falls Ontario, there is this beautiful clock garden.
-- Imagine that you enter the clock garden at the 9 o-clock position,
-  and you are trying to reach the 12 o'clock position at the top
-  without walking all over the flowers.
-- If you stay on the perimeter of the circle,
-  there are 2 ways to get there.
+- I used to go there all the time when I was a kid.
+- Let's imagine that you enter the clock garden
+  at the 3 o-clock position
+  over on the right.
+- This is sort of like the positive x-axis on a graph.
+- Now suppose that you want to walk to the 12 o'clock position
+  which is at the top,
+  sort of like the positive y-axis.
+- There are 2 ways to get there
+  (assuming of course
+  that you remain on the perimeter of the garden
+  to avoid disturbing the lovely flowers).
 - You can take the long way around
   which takes you down through 6 o'clock
-  and back up through 3 o'clock.
-- Or, you can take the short way.
-- For the view transitions in our game,
+  and back up through 9 o'clock.
+- That's 270 degrees of arc.
+- Or, you can take the short way
+  which is just 90 degrees of arc.
+- In our game,
   we always want the short way
-  because its what the player would expect.
+  because that's what the player would expect.
 
 # Linear interpolation or "Lerp"
 
@@ -537,7 +565,8 @@ $$
 - "Linear" is just a fancy word for "straight line".
 - Lerp is a function that interpolates between two values $f_1$
   and $f_2$
-  according to a given number $t$:
+  according to a given number $t$
+  between 0 and 1:
 
 $$
 \begin{aligned}
@@ -600,7 +629,9 @@ $$
 - What does the function return
   when $t=\frac{1}{2}$?
 
-  > - It returns the average of the endpoints.
+  - It returns the sum of the endpoints
+    divided by 2,
+    which is their average value.
 
 - Lerp is very easy to implement in code:
 
@@ -621,37 +652,52 @@ $$
   or it might represent its velocity.
 - In this diagram, the vector has an x-coordinate of 2
   and a y-coordinate of 3.
-- We will denote a vector with an underline
+- We will denote a vector
   as shown here on the right.
+- We use an underline to indicate
+  that the variable represents a vector,
+  and we write its components in a vertical column like this.
 
 # Vector Lerp
 
 - The vector form of Lerp
-  resembles the simple form
-  but has vector endpoints instead.
-- The arithmetic is applied "component-wise"
-  as you might expect.
+  resembles the simple form,
+  but instead of just numbers
+  for the endpoints
+  it has vectors.
+- It involves the same operations
+  as simple Lerp,
+  applied "component-wise".
 
 # Vector Lerp (component-wise)
 
 - As you can see,
   the components of the result
   are just simple Lerps
-  of the endpoint components.
-- But in our case, the endpoints will be
-  some sort of representation of 3D rotations.
-- Does anyone know what kind of interpolation to use
-  when the endpoints are 3D rotations?
-- To start with, let's look
-  at something called **spherical linear interpolation**.
+  of the corresponding endpoint components.
+- This might be fine for interpolating vectors,
+  but for the view transitions in our game
+  we need to interpolate **3D rotations**.
+- So we need an equation that works
+  when the endpoints are some sort of representation
+  of 3D rotations.
+- Does anyone know what we can use for this?
+- We need something called **spherical linear interpolation**.
 
 # Spherical linear interpolation or "Slerp"
 
 - Slerp is the spherical equivalent of Lerp,
   but it's considerably more complicated.
-- Let's take a brief look at it...
-- Hopefully we can gain an appreciation
-  for the underlying mathematics.
+- We've now got this angle $\theta$
+  that we need to worry about,
+  and when it is zero
+  we are going to run into
+  a possible division by zero
+  due to the $\sin\theta$
+  in the denominator.
+- Let's take a brief look at it though,
+  and maybe we can appreciate
+  some of the underlying mathematics.
 - When applied to 3D rotations,
   Slerp produces a smooth transition
   that meets all of our requirements
@@ -668,19 +714,19 @@ $$
 
 # Euler angles
 
-- Euler angles are a sequence of three separate rotations
-  which produce the desired rotation
-  when applied in succession.
-- Euler angles are fairly intuitive
-  especially in aviation where they correspond
-  to the heading, pitch, and bank angles
-  of an aircraft.
-- Unfortunately, in certain configurations,
-  the mapping is not unique
-  and there is a troublesome singularity.
-- Another problem with Euler angles
-  is that they are difficult to use for interpolation
-  when you want a smooth transition like we do.
+- Euler angles are a sequence of three separate rotations.
+- When you put them all together,
+  you get the desired rotation.
+- They are fairly intuitive
+  especially in aviation
+  where they correspond directly to the heading,
+  pitch, and bank angles of an aircraft.
+- Unfortunately there is a singularity in the equations
+  when 2 of the 3 axes become parallel.
+- The other problem with Euler angles
+  is that they are difficult to interpolate
+  when you need a smooth transition.
+- So they are not a good choice for us.
 
 # Unit quaternions
 
@@ -691,14 +737,12 @@ $$
 - Unlike Euler angles,
   the unit quaternion representation
   has no singularity
-  and interpolates well.
+  and interpolates very well.
 - It uses a single rotation
   around a single axis
-  rather than a composition of rotations
-  around multiple axes.
+  rather than a composition of mutliple rotations.
 - As programmers,
-  we need to be aware of the unit length constraint
-  because many downstream operations rely on this:
+  we need to be aware of the unit length constraint:
 
 $$
 \begin{aligned}
@@ -708,41 +752,64 @@ $$
 \end{aligned}
 $$
 
+- It's not really a big deal though,
+  because if we have a quaternion
+  whose length might not be equal to 1
+  then we just normalize it.
+
 # Normalizing a quaternion
 
-- If we are given a quaternion whose length is not equal to 1,
-  we can easily normalize it.
 - To normalize a quaternion,
-  divide each component by the length.
+  we just divide each component by the length.
 - The result will be a **unit** quaternion.
 
 # Quaternion double cover
 
+- This is where is starts to get really interesting.
 - The unit quaternions +q and -q
   represent the same rotation.
+- So, any given 3D rotation
+  corresponds to exactly 2 unit quaternions.
 - Sometimes it helps to think of them
   as the "square roots" of a rotation...
-- The number 9 has two square roots: +3 and -3.
-- And a rotation has two quaternions
-  that represent it: +q and -q.
-- Let's briefly take a closer look at this diagram...
+  - The number 9 has two square roots: +3 and -3.
+  - And a rotation has two quaternions
+    that represent it: +q and -q.
 
 # Half the rotation angle
 
 - Consider a counter-clockwise rotation
   in the XY plane
-  of angle $\phi$.
-- The unit quaternions $+q$
-  and $-q$
-  that represent it
-  form a bisector.
-- As you can see here,
-  the components are in terms
-  of **half** of the rotation angle.
-- In this diagram,
-  you can see how +q bisects the short path
-  from the x-axis to the point on the circle,
-  and -q bisects the long path.
+  of angle $\phi$
+  sort of like our little walk
+  around the clock garden
+  in Niagara Falls.
+  - In this diagram, the dot represents
+    where you are.
+  - You started at the positive x-axis
+    (3 o'clock)
+    and now you are moving counter-clockwise
+    toward the 12 o'clock position.
+  - So far, you have travelled an angle $\phi$.
+  - The unit quaternions $+q$
+    and $-q$
+    that represent your rotation
+    form a bisector.
+  - You can see how +q bisects the short arc,
+    and -q bisects the long arc.
+  - Both +q and -q represent the same rotation
+    and we can choose the one
+    that leads us to the target
+    via the shorter path.
+- I had been using quaternions for a long time
+  before I realized this.
+- Hopefully this helps you understand them too.
+- This also helped me to understand
+  why the components of a unit quaternion
+  are in terms of **half** the rotation angle.
+  - You can see the example here
+    where the w-component is equal to $\cos\frac{\phi}{2}$
+    and the z-component is equal to $\sin\frac{\phi}{2}$.
 
 # Implementing Slerp
 
@@ -775,6 +842,9 @@ $$
      to ensure a "shortest arc" rotation.
   1. We must normalize the result of the Lerp
      to ensure that we return a **unit** quaternion.
+- These are both straightforward
+  and relatively simple
+  compared to Slerp.
 - Let's call it
   "normalized linear interpolation":
 
@@ -792,14 +862,25 @@ $$
 $$
 
 - How good is the approximation?
+- Well, when I first saw how good it was
+  it really blew my mind.
+- I mean, we are basically drawing a straight line
+  between the two endpoints in 4-dimensional space,
+  and this somehow gives us a result
+  that is nearly as good as Slerp!
+- I think that this is a real testament
+  to how unit quaternions
+  are remarkably well-suited for representing 3D rotations.
 
 # Rotation comparison
 
-- Well, the approximation is surprizingly good.
-- The green line here is the Slerp result
+- Here we go.
+- The green line is the Slerp result
   and the red line is the Lerp result.
-- This is a testament to how unit quaternions
-  are remarkably well-suited for representing 3D rotations.
+- How crazy is that.
+- As far as I'm concerned,
+  unless there is a really good reason NOT to use it,
+  I would strongly recommend Nlerp over Slerp any day.
 
 # What have we learned?
 
@@ -816,19 +897,24 @@ $$
 - Video games can provide the motivation needed
   to learn new things,
   but developing a complete game is a huge effort.
-- Focusing on just a small feature
-  is more attainable.
-- Hopefully we've seen some examples
-  of the very interesting things
-  that we might learn along the way:
-  - The output of a pseudorandom number generator
-    with poorly-chosen constants
-    can contain undesirable patterns
-    that are not obvious at first glance.
-  - Tests exist to detect these patterns.
+- Focusing on just a small feature is more attainable
+  and you can still learn some very interesting things
+  along the way.
+  - Even if you use an existing pseudorandom number generator,
+    be aware that poorly-chosen constants
+    can cause undesirable patterns
+    which are not obvious at first glance.
+  - Tests exist for detecting this.
+  - Since the generator in JavaScript does not let you set the seed,
+    you may want to use the source code shown here
+    if you need a seedable generator.
+  - Unit quaternions are easier to understand
+    when you can visualize how +q and -q form a bisector
+    in the plane of rotation.
+  - (_remember the clock garden_)
   - Normalized linear interpolation
-    is a good approximation to Slerp
-    and is easier to implement.
+    is a good approximation to Slerp and is remarkably simple.
+  - This also makes Nlerp faster and easier to maintain.
 
 # Image credits (still needs to be cleaned-up)
 

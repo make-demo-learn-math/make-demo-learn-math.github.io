@@ -10,11 +10,11 @@
 
 </head>
 <body class="markdown-body">
-<h1 id="writing-a-game-2" data-line="0" class="code-line">Writing a game</h1>
+<h1 id="writing-a-game-3" data-line="0" class="code-line">Writing a game</h1>
 <blockquote data-line="2" class="code-line">
 <ul>
 <li data-line="2" class="code-line"><em>Do you know how hard it is
-to make a pie chart in Google Slides
+to make a pie chart
 that looks like Pacman?</em></li>
 </ul>
 </blockquote>
@@ -48,7 +48,7 @@ and show you some pretty amazing things that I've learned
 and which I think you will find interesting too,
 whether or not you are a programmer.</li>
 </ul>
-<h1 id="learning-objectives-2" data-line="26" class="code-line">Learning objectives</h1>
+<h1 id="learning-objectives-3" data-line="26" class="code-line">Learning objectives</h1>
 <ul>
 <li data-line="28" class="code-line">Let's talk briefly about some of the things that we are going to learn today.
 <ul>
@@ -118,7 +118,7 @@ compared to Slerp.</li>
 </ul>
 </li>
 </ul>
-<h1 id="premise-2" data-line="84" class="code-line">Premise</h1>
+<h1 id="premise-3" data-line="84" class="code-line">Premise</h1>
 <ul>
 <li data-line="86" class="code-line">Ok, this is the fun part...</li>
 <li data-line="87" class="code-line">We need a premise for our game
@@ -177,7 +177,7 @@ or evidence of an ancient lake bed.</li>
 </ul>
 </li>
 </ul>
-<h1 id="feature-list-2" data-line="128" class="code-line">Feature list</h1>
+<h1 id="feature-list-3" data-line="128" class="code-line">Feature list</h1>
 <ul>
 <li data-line="130" class="code-line">Feature #1 is about generating
 random-looking terrain on the planet.</li>
@@ -189,7 +189,7 @@ between views of the planet from the satellite.</li>
 in different situations.</li>
 <li data-line="138" class="code-line">In our situation, we want something called &quot;pseudorandom&quot;.</li>
 </ul>
-<h1 id="pseudorandom-2" data-line="140" class="code-line">Pseudorandom</h1>
+<h1 id="pseudorandom-3" data-line="140" class="code-line">Pseudorandom</h1>
 <blockquote data-line="142" class="code-line">
 <ul>
 <li data-line="142" class="code-line">This is probably my favourite comic:
@@ -222,7 +222,7 @@ based on the initial seed.</li>
 </ul>
 </li>
 </ul>
-<h1 id="generating-random-terrain-2" data-line="164" class="code-line">Generating random terrain</h1>
+<h1 id="generating-random-terrain-3" data-line="164" class="code-line">Generating random terrain</h1>
 <ul>
 <li data-line="166" class="code-line">There are many techniques
 for generating realistic terrain in a game.</li>
@@ -244,7 +244,7 @@ on the planet.</li>
 </ul>
 </li>
 </ul>
-<h1 id="voronoi-diagram-2" data-line="183" class="code-line">Voronoi diagram</h1>
+<h1 id="voronoi-diagram-3" data-line="183" class="code-line">Voronoi diagram</h1>
 <ul>
 <li data-line="185" class="code-line">A <strong>Voronoi diagram</strong> assigns the colour of each pixel
 according to the nearest generator point.</li>
@@ -262,7 +262,7 @@ and then we get a basic-looking landscape.</li>
 that given a set of random points,
 techniques do exist to generate terrain.</li>
 </ul>
-<h1 id="our-first-two-learning-objectives-2" data-line="198" class="code-line">Our first two learning objectives</h1>
+<h1 id="our-first-two-learning-objectives-3" data-line="198" class="code-line">Our first two learning objectives</h1>
 <ul>
 <li data-line="200" class="code-line">With our big assumption,
 we can focus just on generating
@@ -288,7 +288,7 @@ that little trick from spherical geometry.</li>
 </ul>
 </li>
 </ul>
-<h1 id="learning-objective-1-2" data-line="218" class="code-line">Learning objective #1</h1>
+<h1 id="learning-objective-1-3" data-line="218" class="code-line">Learning objective #1</h1>
 <ul>
 <li data-line="220" class="code-line">In our game, we don't need
 a cryptographically-strong generator.</li>
@@ -323,7 +323,7 @@ but the arithmetic is essentially the same.</li>
 </ul>
 </li>
 </ul>
-<h1 id="modulo-operation-2" data-line="250" class="code-line">Modulo operation</h1>
+<h1 id="modulo-operation-3" data-line="250" class="code-line">Modulo operation</h1>
 <ul>
 <li data-line="252" class="code-line">The modulo operator returns the remainder of a division.</li>
 <li data-line="253" class="code-line"><em>(This is true for positive numbers which is all we care about here).</em></li>
@@ -335,7 +335,7 @@ we are left with a remainder.</li>
 31 divided by 10 is equal to 3 with a remainder of 1.</li>
 <li data-line="260" class="code-line">That remainder part exactly what the modulo operation returns.</li>
 </ul>
-<h1 id="generator-equation-ssubn1sub--7--ssubnsub-mod-10-2" data-line="262" class="code-line">Generator equation: s<sub>n+1</sub> = (7 * s<sub>n</sub>) mod 10</h1>
+<h1 id="generator-equation-ssubn1sub--7--ssubnsub-mod-10-3" data-line="262" class="code-line">Generator equation: s<sub>n+1</sub> = (7 * s<sub>n</sub>) mod 10</h1>
 <ul>
 <li data-line="264" class="code-line">This is the LCG equation using small constants
 to illustrate how it works:
@@ -363,7 +363,7 @@ are always less than the modulus
 (which in this case is 10).</li>
 </ul>
 </blockquote>
-<h1 id="starting-from-a-different-seed-2" data-line="281" class="code-line">Starting from a different seed</h1>
+<h1 id="starting-from-a-different-seed-3" data-line="281" class="code-line">Starting from a different seed</h1>
 <ul>
 <li data-line="283" class="code-line">What happens if we start
 from a different value?
@@ -381,7 +381,7 @@ we haven't seen yet.</li>
 <li data-line="291" class="code-line">It's the number 5.</li>
 </ul>
 </blockquote>
-<h1 id="an-example-of-a-short-period-2" data-line="293" class="code-line">An example of a short period</h1>
+<h1 id="an-example-of-a-short-period-3" data-line="293" class="code-line">An example of a short period</h1>
 <ul>
 <li data-line="295" class="code-line">If we start with an initial seed of 5,
 we repeat forever on that value.</li>
@@ -405,7 +405,7 @@ might not be obvious at first glance.</li>
 is non-trivial and has been a topic of research.</li>
 <li data-line="315" class="code-line">Let's do a poll to show an example.</li>
 </ul>
-<h1 id="now-its-time-for-our-poll-2" data-line="317" class="code-line">Now it's time for our POLL!</h1>
+<h1 id="now-its-time-for-our-poll-3" data-line="317" class="code-line">Now it's time for our POLL!</h1>
 <ul>
 <li data-line="319" class="code-line"><em>The poll is anonymous and just for fun</em>.</li>
 <li data-line="320" class="code-line">Here are two LCG sequences
@@ -424,12 +424,12 @@ which helps us to see these patterns.</li>
 you plot it on the x-axis
 against the previous number on the y-axis.</li>
 </ul>
-<h1 id="spectral-plot-for-sequence-a-2" data-line="336" class="code-line">Spectral plot for sequence A</h1>
+<h1 id="spectral-plot-for-sequence-a-3" data-line="336" class="code-line">Spectral plot for sequence A</h1>
 <ul>
 <li data-line="338" class="code-line">You can start to see how the points
 tend to fall on one of three parallel lines.</li>
 </ul>
-<h1 id="spectral-plot-for-sequence-b-2" data-line="341" class="code-line">Spectral plot for sequence B</h1>
+<h1 id="spectral-plot-for-sequence-b-3" data-line="341" class="code-line">Spectral plot for sequence B</h1>
 <ul>
 <li data-line="343" class="code-line">These points seem more scattered.</li>
 <li data-line="344" class="code-line">Based on these plots,
@@ -444,7 +444,7 @@ we want to avoid any patterns.</li>
 that are well-known
 to produce good results.</li>
 </ul>
-<h1 id="number-format-in-javascript-2" data-line="356" class="code-line">Number format in JavaScript</h1>
+<h1 id="number-format-in-javascript-3" data-line="356" class="code-line">Number format in JavaScript</h1>
 <ul>
 <li data-line="358" class="code-line">Many of the recommended constants
 require support for 64-bit integers.</li>
@@ -473,7 +473,7 @@ a few bits to spare.</li>
 </ul>
 </li>
 </ul>
-<h1 id="park-miller-generator-in-javascript-2" data-line="382" class="code-line">Park-Miller generator in JavaScript</h1>
+<h1 id="park-miller-generator-in-javascript-3" data-line="382" class="code-line">Park-Miller generator in JavaScript</h1>
 <ul>
 <li data-line="384" class="code-line">The multiplier is 48,271
 and the modulus is 2,147,483,647.</li>
@@ -482,7 +482,7 @@ that we saw before
 just with these larger constants.</li>
 <li data-line="389" class="code-line">(<em>show source code and unit tests</em>)</li>
 </ul>
-<h1 id="learning-objective-2-2" data-line="391" class="code-line">Learning objective #2</h1>
+<h1 id="learning-objective-2-3" data-line="391" class="code-line">Learning objective #2</h1>
 <ul>
 <li data-line="393" class="code-line">Now that we can generate
 a sequence of pseudorandom numbers,
@@ -498,14 +498,14 @@ we might see <strong>bunching</strong> at the poles
 similar to how the lines of longitude
 on a globe get closer together near the poles.</li>
 </ul>
-<h1 id="22bunching22-at-the-north-and-south-poles-2" data-line="407" class="code-line">&quot;Bunching&quot; at the North and South poles</h1>
+<h1 id="22bunching22-at-the-north-and-south-poles-3" data-line="407" class="code-line">&quot;Bunching&quot; at the North and South poles</h1>
 <ul>
 <li data-line="409" class="code-line">Here is an example of what we get
 if we aren't careful.</li>
 <li data-line="411" class="code-line">There is a slightly higher density of points
 around the North and South poles.</li>
 </ul>
-<h1 id="sphere-point-picking-2" data-line="414" class="code-line">Sphere point picking</h1>
+<h1 id="sphere-point-picking-3" data-line="414" class="code-line">Sphere point picking</h1>
 <ul>
 <li data-line="416" class="code-line">There are several techniques
 that will produce a uniform distribution
@@ -519,9 +519,13 @@ for each point on the sphere.</li>
 <li data-line="424" class="code-line">Generate a pair of pseudorandom numbers <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_1,s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
 between <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></eq></li>
-<li data-line="427" class="code-line">Let <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mo stretchy="false">(</mo><mn>2</mn><msub><mi>s</mi><mn>1</mn></msub><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">u=(2s_1-1)R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span></eq></li>
-<li data-line="428" class="code-line">Let <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>2</mn><mi>π</mi><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\theta=2\pi s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></li>
-<li data-line="429" class="code-line">Calculate the XYZ coordinates of the point
+<li data-line="427" class="code-line">(Our JavaScript class has a function for that)</li>
+<li data-line="428" class="code-line">(Also, <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+will have uniform distributions)</li>
+<li data-line="431" class="code-line">Let <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mo stretchy="false">(</mo><mn>2</mn><msub><mi>s</mi><mn>1</mn></msub><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">u=(2s_1-1)R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span></eq></li>
+<li data-line="432" class="code-line">Let <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>2</mn><mi>π</mi><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\theta=2\pi s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></li>
+<li data-line="433" class="code-line">Calculate the XYZ coordinates of the point
 using these equations:</li>
 </ul>
 </li>
@@ -558,116 +562,138 @@ s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,
 c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
 s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
 c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.177736em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-1.5em;"><span class="pstrut" style="height:3.062264em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.222264em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><blockquote data-line="446" class="code-line">
-<ul>
-<li data-line="446" class="code-line">Note how the first two equations are very different looking
-than the third.</li>
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.177736em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-1.5em;"><span class="pstrut" style="height:3.062264em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.222264em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
+<li data-line="450" class="code-line">Why does that third equation
+look so different
+than the first two?</li>
+<li data-line="453" class="code-line">I remember being very puzzled by this.</li>
 </ul>
-</blockquote>
+<h1 id="uniform-distribution-3" data-line="455" class="code-line">Uniform distribution</h1>
 <ul>
-<li data-line="449" class="code-line">This technique produces a uniform distribution of points,
-assuming <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_1,s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
-have uniform distribution.</li>
-</ul>
-<h1 id="uniform-distribution-2" data-line="453" class="code-line">Uniform distribution</h1>
-<ul>
-<li data-line="455" class="code-line">Here is an example of what it looks like.</li>
-</ul>
-<h1 id="spherical-segment-2" data-line="457" class="code-line">Spherical segment</h1>
-<ul>
-<li data-line="459" class="code-line">It's interesting how
-the result is so uniform
-when you consider that third equation.</li>
-<li data-line="462" class="code-line">It seems to suggest that the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span></eq>
-coordinates are uniformly distributed.</li>
-<li data-line="464" class="code-line">The reason this trick works
+<li data-line="457" class="code-line">As you can see,
+we have a uniform distribution
+over the sphere.</li>
+<li data-line="460" class="code-line">When you consider the third equation,
+this would suggest that the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span></eq>
+coordinates of the points
+are uniformly distributed.</li>
+<li data-line="464" class="code-line">(In fact this is true for the projection
+onto <strong>any</strong> line passing through the centre).</li>
+<li data-line="466" class="code-line">The reason for this
 is due to a rather surprizing result
 for the surface area of a <strong>spherical segment</strong>:
 <ul>
-<li data-line="467" class="code-line">If you cut a sphere with two parallel planes,
+<li data-line="469" class="code-line">If you cut a sphere with two parallel planes,
 the area of the strip between the planes
 depends only on the distance between the planes
 and not on where they cut the sphere.</li>
-<li data-line="471" class="code-line">You can see here
-that the equation for the surface area <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></eq>
-depends only on the radius of the sphere, capital <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span></eq>,
-and the spacing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span></span></span></span></eq>.</li>
-<li data-line="475" class="code-line">It does not depend on small <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">r_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
-or small <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">r_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
+<li data-line="473" class="code-line">It might help to imagine the two planes
+being perpendicular to the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span></eq>
+axis.</li>
+<li data-line="476" class="code-line">Then imagine that you can move those planes
+anywhere along the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span></eq>
+axis and get the same result.</li>
 </ul>
 </li>
 </ul>
-<h1 id="learning-objective-3-2" data-line="478" class="code-line">Learning objective #3</h1>
+<h1 id="spherical-segment-3" data-line="480" class="code-line">Spherical segment</h1>
 <ul>
-<li data-line="480" class="code-line">Our third learning objective
+<li data-line="482" class="code-line">Here on the right is the equation
+for the surface area <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></eq>
+of a spherical segment.</li>
+<li data-line="485" class="code-line">Note how it depends only
+on the radius of the sphere, capital <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span></eq>,
+and the spacing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span></span></span></span></eq>
+between the planes.</li>
+<li data-line="489" class="code-line">It does not depend on small <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">r_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+or small <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">r_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+which vary according to
+where they cut the sphere.</li>
+</ul>
+<h1 id="learning-objective-3-3" data-line="494" class="code-line">Learning objective #3</h1>
+<ul>
+<li data-line="496" class="code-line"><em>Finally, we get to talk about quaternions...</em></li>
+<li data-line="497" class="code-line">Our third learning objective
 is about rotating the camera in 3D
 to get realistic transitions between views.</li>
 </ul>
-<h1 id="realistic-transitions-2" data-line="484" class="code-line">Realistic transitions</h1>
+<h1 id="realistic-transitions-3" data-line="501" class="code-line">Realistic transitions</h1>
 <ul>
-<li data-line="486" class="code-line">In our game, the satellite is revolving around the planet
+<li data-line="503" class="code-line">In our game, the satellite is revolving around the planet
 according to a prescribed orbit.</li>
-<li data-line="488" class="code-line">The satellite is equipped with a virtual camera
+<li data-line="505" class="code-line">The satellite is equipped with a virtual camera
 which is capable of viewing a portion of the planet's surface.</li>
-<li data-line="490" class="code-line">The player can view different regions of the planet
+<li data-line="507" class="code-line">The player can view different regions of the planet
 by adjusting the orientation of the satellite,
 thereby rotating the camera.</li>
-<li data-line="493" class="code-line">As game designers, we want the motion of the camera
-to be realistic
-as it transitions between views.</li>
-<li data-line="496" class="code-line">Animators call this &quot;tweening&quot;.</li>
-<li data-line="497" class="code-line">Programmers call it &quot;interpolation&quot;.</li>
-<li data-line="498" class="code-line">Let's define what we mean by &quot;realistic&quot;.</li>
+<li data-line="510" class="code-line">As game designers, we want the motion of the camera
+to be realistic.</li>
+<li data-line="512" class="code-line">We know the starting position
+and we know the ending position.</li>
+<li data-line="514" class="code-line">We need to determine the motion <em>in between</em>.</li>
+<li data-line="515" class="code-line">Animators call this &quot;tweening&quot;.</li>
+<li data-line="516" class="code-line">Programmers call it &quot;interpolation&quot;.</li>
+<li data-line="517" class="code-line">Let's define exactly what we mean.</li>
 </ul>
-<h1 id="realistic-transitions-between-views-2" data-line="500" class="code-line">Realistic transitions between views</h1>
+<h1 id="realistic-transitions-between-views-3" data-line="519" class="code-line">Realistic transitions between views</h1>
 <ul>
-<li data-line="502" class="code-line">We want a rotation which is <strong>continuous</strong>
+<li data-line="521" class="code-line">We want a rotation which is <strong>continuous</strong>
 and <strong>shortest arc</strong>:
 <ul>
-<li data-line="504" class="code-line">&quot;Continuous&quot; here means that the rate of rotation
+<li data-line="523" class="code-line">&quot;Continuous&quot; here means that the rate of rotation
 should be more or less constant.
 <ul>
-<li data-line="506" class="code-line">It doesn't need to be perfectly steady
+<li data-line="525" class="code-line">It doesn't need to be perfectly steady
 but it should not be jerky or discontinuous.</li>
-<li data-line="508" class="code-line">It should appear natural, like you would expect
+<li data-line="527" class="code-line">It should appear natural, like you would expect
 from a physical object like a satellite.</li>
 </ul>
 </li>
-<li data-line="510" class="code-line">&quot;Shortest arc&quot; here means that the path taken
+<li data-line="529" class="code-line">&quot;Shortest arc&quot; here means that the path taken
 should be the short way around.
 <ul>
-<li data-line="512" class="code-line">This is kind of like how there are two paths
+<li data-line="531" class="code-line">This is kind of like how there are two paths
 around the face of a clock.</li>
-<li data-line="514" class="code-line">We always want the shorter path.</li>
+<li data-line="533" class="code-line">We always want the shorter path.</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="shortest-arc-2" data-line="516" class="code-line">Shortest arc</h1>
+<h1 id="shortest-arc-3" data-line="535" class="code-line">Shortest arc</h1>
 <ul>
-<li data-line="518" class="code-line">In Niagara Falls Ontario, there is this beautiful clock garden.</li>
-<li data-line="519" class="code-line">Imagine that you enter the clock garden at the 9 o-clock position,
-and you are trying to reach the 12 o'clock position at the top
-without walking all over the flowers.</li>
-<li data-line="522" class="code-line">If you stay on the perimeter of the circle,
-there are 2 ways to get there.</li>
-<li data-line="524" class="code-line">You can take the long way around
+<li data-line="537" class="code-line">In Niagara Falls Ontario, there is this beautiful clock garden.</li>
+<li data-line="538" class="code-line">I used to go there all the time when I was a kid.</li>
+<li data-line="539" class="code-line">Let's imagine that you enter the clock garden
+at the 3 o-clock position
+over on the right.</li>
+<li data-line="542" class="code-line">This is sort of like the positive x-axis on a graph.</li>
+<li data-line="543" class="code-line">Now suppose that you want to walk to the 12 o'clock position
+which is at the top,
+sort of like the positive y-axis.</li>
+<li data-line="546" class="code-line">There are 2 ways to get there
+(assuming of course
+that you remain on the perimeter of the garden
+to avoid disturbing the lovely flowers).</li>
+<li data-line="550" class="code-line">You can take the long way around
 which takes you down through 6 o'clock
-and back up through 3 o'clock.</li>
-<li data-line="527" class="code-line">Or, you can take the short way.</li>
-<li data-line="528" class="code-line">For the view transitions in our game,
+and back up through 9 o'clock.</li>
+<li data-line="553" class="code-line">That's 270 degrees of arc.</li>
+<li data-line="554" class="code-line">Or, you can take the short way
+which is just 90 degrees of arc.</li>
+<li data-line="556" class="code-line">In our game,
 we always want the short way
-because its what the player would expect.</li>
+because that's what the player would expect.</li>
 </ul>
-<h1 id="linear-interpolation-or-22lerp22-2" data-line="532" class="code-line">Linear interpolation or &quot;Lerp&quot;</h1>
+<h1 id="linear-interpolation-or-22lerp22-3" data-line="560" class="code-line">Linear interpolation or &quot;Lerp&quot;</h1>
 <ul>
-<li data-line="534" class="code-line">One of the simplest examples of interpolation
+<li data-line="562" class="code-line">One of the simplest examples of interpolation
 is called linear interpolation or <strong>Lerp</strong>.</li>
-<li data-line="536" class="code-line">&quot;Linear&quot; is just a fancy word for &quot;straight line&quot;.</li>
-<li data-line="537" class="code-line">Lerp is a function that interpolates between two values <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+<li data-line="564" class="code-line">&quot;Linear&quot; is just a fancy word for &quot;straight line&quot;.</li>
+<li data-line="565" class="code-line">Lerp is a function that interpolates between two values <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
-according to a given number <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></eq>:</li>
+according to a given number <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></eq>
+between 0 and 1:</li>
 </ul>
 <section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">Lerp</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>f</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>f</mi><mn>2</mn></msub><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mi>f</mi><mn>1</mn></msub><mo>+</mo><mi>t</mi><msub><mi>f</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{aligned}
@@ -678,17 +704,17 @@ according to a given number <eq><span class="katex"><span class="katex-mathml"><
   tf_2 \\
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5000000000000002em;vertical-align:-0.5000000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">L</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">p</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
-<li data-line="551" class="code-line">
-<p data-line="551" class="code-line">We call<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
+<li data-line="580" class="code-line">
+<p data-line="580" class="code-line">We call<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
 the <strong>endpoints</strong>.</p>
 </li>
-<li data-line="555" class="code-line">
-<p data-line="555" class="code-line">What does the function return
+<li data-line="584" class="code-line">
+<p data-line="584" class="code-line">What does the function return
 when <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq>?</p>
 <ul>
-<li data-line="557" class="code-line">It returns the first value <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
-<li data-line="558" class="code-line">We can see this by writing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq>
+<li data-line="586" class="code-line">It returns the first value <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
+<li data-line="587" class="code-line">We can see this by writing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq>
 for <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></eq> in the equation:</li>
 </ul>
 </li>
@@ -708,11 +734,11 @@ for <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w
   f_1 \\
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">L</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">p</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
-<li data-line="577" class="code-line">What does the function return
+<li data-line="606" class="code-line">What does the function return
 when <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></eq>?
 <ul>
-<li data-line="579" class="code-line">It returns the second value <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
-<li data-line="580" class="code-line">We can see this by writing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></eq>
+<li data-line="608" class="code-line">It returns the second value <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
+<li data-line="609" class="code-line">We can see this by writing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></eq>
 for <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></eq> in the equation:</li>
 </ul>
 </li>
@@ -732,118 +758,131 @@ for <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w
   f_2 \\
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">L</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">p</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
-<li data-line="599" class="code-line">
-<p data-line="599" class="code-line">What does the function return
+<li data-line="628" class="code-line">
+<p data-line="628" class="code-line">What does the function return
 when <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">t=\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></eq>?</p>
-<blockquote data-line="602" class="code-line">
 <ul>
-<li data-line="602" class="code-line">It returns the average of the endpoints.</li>
+<li data-line="631" class="code-line">It returns the sum of the endpoints
+divided by 2,
+which is their average value.</li>
 </ul>
-</blockquote>
 </li>
-<li data-line="604" class="code-line">
-<p data-line="604" class="code-line">Lerp is very easy to implement in code:</p>
-<pre><code data-line="606" class="code-line language-javascript"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lerp</span>(<span class="hljs-params">f1, f2, t</span>) </span>{
+<li data-line="635" class="code-line">
+<p data-line="635" class="code-line">Lerp is very easy to implement in code:</p>
+<pre><code data-line="637" class="code-line language-javascript"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lerp</span>(<span class="hljs-params">f1, f2, t</span>) </span>{
   <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span> - t) * f1 + t * f2;
 }
 </div></code></pre>
 </li>
-<li data-line="612" class="code-line">
-<p data-line="612" class="code-line">Lerp also works well with vectors.</p>
+<li data-line="643" class="code-line">
+<p data-line="643" class="code-line">Lerp also works well with vectors.</p>
 </li>
-<li data-line="613" class="code-line">
-<p data-line="613" class="code-line">Can anyone tell me what a vector is?</p>
+<li data-line="644" class="code-line">
+<p data-line="644" class="code-line">Can anyone tell me what a vector is?</p>
 </li>
 </ul>
-<h1 id="vectors-2" data-line="615" class="code-line">Vectors</h1>
+<h1 id="vectors-3" data-line="646" class="code-line">Vectors</h1>
 <ul>
-<li data-line="617" class="code-line">For our purposes, a vector just holds the coordinates of a point.</li>
-<li data-line="618" class="code-line">The vector might represent the position of an object
+<li data-line="648" class="code-line">For our purposes, a vector just holds the coordinates of a point.</li>
+<li data-line="649" class="code-line">The vector might represent the position of an object
 in relation to some reference location,
 or it might represent its velocity.</li>
-<li data-line="621" class="code-line">In this diagram, the vector has an x-coordinate of 2
+<li data-line="652" class="code-line">In this diagram, the vector has an x-coordinate of 2
 and a y-coordinate of 3.</li>
-<li data-line="623" class="code-line">We will denote a vector with an underline
+<li data-line="654" class="code-line">We will denote a vector
 as shown here on the right.</li>
+<li data-line="656" class="code-line">We use an underline to indicate
+that the variable represents a vector,
+and we write its components in a vertical column like this.</li>
 </ul>
-<h1 id="vector-lerp-2" data-line="626" class="code-line">Vector Lerp</h1>
+<h1 id="vector-lerp-3" data-line="660" class="code-line">Vector Lerp</h1>
 <ul>
-<li data-line="628" class="code-line">The vector form of Lerp
-resembles the simple form
-but has vector endpoints instead.</li>
-<li data-line="631" class="code-line">The arithmetic is applied &quot;component-wise&quot;
-as you might expect.</li>
+<li data-line="662" class="code-line">The vector form of Lerp
+resembles the simple form,
+but instead of just numbers
+for the endpoints
+it has vectors.</li>
+<li data-line="667" class="code-line">It involves the same operations
+as simple Lerp,
+applied &quot;component-wise&quot;.</li>
 </ul>
-<h1 id="vector-lerp-component-wise-2" data-line="634" class="code-line">Vector Lerp (component-wise)</h1>
+<h1 id="vector-lerp-component-wise-3" data-line="671" class="code-line">Vector Lerp (component-wise)</h1>
 <ul>
-<li data-line="636" class="code-line">As you can see,
+<li data-line="673" class="code-line">As you can see,
 the components of the result
 are just simple Lerps
-of the endpoint components.</li>
-<li data-line="640" class="code-line">But in our case, the endpoints will be
-some sort of representation of 3D rotations.</li>
-<li data-line="642" class="code-line">Does anyone know what kind of interpolation to use
-when the endpoints are 3D rotations?</li>
-<li data-line="644" class="code-line">To start with, let's look
-at something called <strong>spherical linear interpolation</strong>.</li>
+of the corresponding endpoint components.</li>
+<li data-line="677" class="code-line">This might be fine for interpolating vectors,
+but for the view transitions in our game
+we need to interpolate <strong>3D rotations</strong>.</li>
+<li data-line="680" class="code-line">So we need an equation that works
+when the endpoints are some sort of representation
+of 3D rotations.</li>
+<li data-line="683" class="code-line">Does anyone know what we can use for this?</li>
+<li data-line="684" class="code-line">We need something called <strong>spherical linear interpolation</strong>.</li>
 </ul>
-<h1 id="spherical-linear-interpolation-or-22slerp22-2" data-line="647" class="code-line">Spherical linear interpolation or &quot;Slerp&quot;</h1>
+<h1 id="spherical-linear-interpolation-or-22slerp22-3" data-line="686" class="code-line">Spherical linear interpolation or &quot;Slerp&quot;</h1>
 <ul>
-<li data-line="649" class="code-line">Slerp is the spherical equivalent of Lerp,
+<li data-line="688" class="code-line">Slerp is the spherical equivalent of Lerp,
 but it's considerably more complicated.</li>
-<li data-line="651" class="code-line">Let's take a brief look at it...</li>
-<li data-line="652" class="code-line">Hopefully we can gain an appreciation
-for the underlying mathematics.</li>
-<li data-line="654" class="code-line">When applied to 3D rotations,
+<li data-line="690" class="code-line">We've now got this angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></eq>
+that we need to worry about,
+and when it is zero
+we are going to run into
+a possible division by zero
+due to the <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\sin\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></eq>
+in the denominator.</li>
+<li data-line="697" class="code-line">Let's take a brief look at it though,
+and maybe we can appreciate
+some of the underlying mathematics.</li>
+<li data-line="700" class="code-line">When applied to 3D rotations,
 Slerp produces a smooth transition
 that meets all of our requirements
 including constant rate
 and shortest arc.</li>
-<li data-line="659" class="code-line">The endpoints <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">1</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf{q_1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></eq>
+<li data-line="705" class="code-line">The endpoints <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">1</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf{q_1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">2</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf{q_2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></eq>
 represent the rotations
 to be interpolated:
 <ul>
-<li data-line="663" class="code-line">There are various ways to represent 3D rotations.</li>
-<li data-line="664" class="code-line">Here we are using <strong>unit quaternions</strong>
+<li data-line="709" class="code-line">There are various ways to represent 3D rotations.</li>
+<li data-line="710" class="code-line">Here we are using <strong>unit quaternions</strong>
 because they have several advantages
 over another popular representation called <strong>Euler angles</strong>.</li>
 </ul>
 </li>
 </ul>
-<h1 id="euler-angles-2" data-line="668" class="code-line">Euler angles</h1>
+<h1 id="euler-angles-3" data-line="714" class="code-line">Euler angles</h1>
 <ul>
-<li data-line="670" class="code-line">Euler angles are a sequence of three separate rotations
-which produce the desired rotation
-when applied in succession.</li>
-<li data-line="673" class="code-line">Euler angles are fairly intuitive
-especially in aviation where they correspond
-to the heading, pitch, and bank angles
-of an aircraft.</li>
-<li data-line="677" class="code-line">Unfortunately, in certain configurations,
-the mapping is not unique
-and there is a troublesome singularity.</li>
-<li data-line="680" class="code-line">Another problem with Euler angles
-is that they are difficult to use for interpolation
-when you want a smooth transition like we do.</li>
+<li data-line="716" class="code-line">Euler angles are a sequence of three separate rotations.</li>
+<li data-line="717" class="code-line">When you put them all together,
+you get the desired rotation.</li>
+<li data-line="719" class="code-line">They are fairly intuitive
+especially in aviation
+where they correspond directly to the heading,
+pitch, and bank angles of an aircraft.</li>
+<li data-line="723" class="code-line">Unfortunately there is a singularity in the equations
+when 2 of the 3 axes become parallel.</li>
+<li data-line="725" class="code-line">The other problem with Euler angles
+is that they are difficult to interpolate
+when you need a smooth transition.</li>
+<li data-line="728" class="code-line">So they are not a good choice for us.</li>
 </ul>
-<h1 id="unit-quaternions-2" data-line="684" class="code-line">Unit quaternions</h1>
+<h1 id="unit-quaternions-3" data-line="730" class="code-line">Unit quaternions</h1>
 <ul>
-<li data-line="686" class="code-line">A <strong>quaternion</strong> has four components (w, x, y, z)
+<li data-line="732" class="code-line">A <strong>quaternion</strong> has four components (w, x, y, z)
 like a 4D vector.</li>
-<li data-line="688" class="code-line">A <strong>unit</strong> quaternion is a quaternion
+<li data-line="734" class="code-line">A <strong>unit</strong> quaternion is a quaternion
 whose length equals 1.</li>
-<li data-line="690" class="code-line">Unlike Euler angles,
+<li data-line="736" class="code-line">Unlike Euler angles,
 the unit quaternion representation
 has no singularity
-and interpolates well.</li>
-<li data-line="694" class="code-line">It uses a single rotation
+and interpolates very well.</li>
+<li data-line="740" class="code-line">It uses a single rotation
 around a single axis
-rather than a composition of rotations
-around multiple axes.</li>
-<li data-line="698" class="code-line">As programmers,
-we need to be aware of the unit length constraint
-because many downstream operations rely on this:</li>
+rather than a composition of mutliple rotations.</li>
+<li data-line="743" class="code-line">As programmers,
+we need to be aware of the unit length constraint:</li>
 </ul>
 <section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi>w</mi><mn>2</mn></msup><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{aligned}
@@ -851,80 +890,116 @@ because many downstream operations rely on this:</li>
   &amp;=
   1 \\
 \end{aligned}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.524108em;vertical-align:-0.512054em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.012054em;"><span style="top:-3.147946em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.512054em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.012054em;"><span style="top:-3.147946em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.512054em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><h1 id="normalizing-a-quaternion-2" data-line="710" class="code-line">Normalizing a quaternion</h1>
-<ul>
-<li data-line="712" class="code-line">If we are given a quaternion whose length is not equal to 1,
-we can easily normalize it.</li>
-<li data-line="714" class="code-line">To normalize a quaternion,
-divide each component by the length.</li>
-<li data-line="716" class="code-line">The result will be a <strong>unit</strong> quaternion.</li>
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.524108em;vertical-align:-0.512054em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.012054em;"><span style="top:-3.147946em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.512054em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.012054em;"><span style="top:-3.147946em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.512054em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
+<li data-line="754" class="code-line">It's not really a big deal though,
+because if we have a quaternion
+whose length might not be equal to 1
+then we just normalize it.</li>
 </ul>
-<h1 id="quaternion-double-cover-2" data-line="718" class="code-line">Quaternion double cover</h1>
+<h1 id="normalizing-a-quaternion-3" data-line="759" class="code-line">Normalizing a quaternion</h1>
 <ul>
-<li data-line="720" class="code-line">The unit quaternions +q and -q
+<li data-line="761" class="code-line">To normalize a quaternion,
+we just divide each component by the length.</li>
+<li data-line="763" class="code-line">The result will be a <strong>unit</strong> quaternion.</li>
+</ul>
+<h1 id="quaternion-double-cover-3" data-line="765" class="code-line">Quaternion double cover</h1>
+<ul>
+<li data-line="767" class="code-line">This is where is starts to get really interesting.</li>
+<li data-line="768" class="code-line">The unit quaternions +q and -q
 represent the same rotation.</li>
-<li data-line="722" class="code-line">Sometimes it helps to think of them
-as the &quot;square roots&quot; of a rotation...</li>
-<li data-line="724" class="code-line">The number 9 has two square roots: +3 and -3.</li>
-<li data-line="725" class="code-line">And a rotation has two quaternions
+<li data-line="770" class="code-line">So, any given 3D rotation
+corresponds to exactly 2 unit quaternions.</li>
+<li data-line="772" class="code-line">Sometimes it helps to think of them
+as the &quot;square roots&quot; of a rotation...
+<ul>
+<li data-line="774" class="code-line">The number 9 has two square roots: +3 and -3.</li>
+<li data-line="775" class="code-line">And a rotation has two quaternions
 that represent it: +q and -q.</li>
-<li data-line="727" class="code-line">Let's briefly take a closer look at this diagram...</li>
 </ul>
-<h1 id="half-the-rotation-angle-2" data-line="729" class="code-line">Half the rotation angle</h1>
+</li>
+</ul>
+<h1 id="half-the-rotation-angle-3" data-line="778" class="code-line">Half the rotation angle</h1>
 <ul>
-<li data-line="731" class="code-line">Consider a counter-clockwise rotation
+<li data-line="780" class="code-line">Consider a counter-clockwise rotation
 in the XY plane
-of angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span></eq>.</li>
-<li data-line="734" class="code-line">The unit quaternions <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">+q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span></eq>
+of angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span></eq>
+sort of like our little walk
+around the clock garden
+in Niagara Falls.
+<ul>
+<li data-line="786" class="code-line">In this diagram, the dot represents
+where you are.</li>
+<li data-line="788" class="code-line">You started at the positive x-axis
+(3 o'clock)
+and now you are moving counter-clockwise
+toward the 12 o'clock position.</li>
+<li data-line="792" class="code-line">So far, you have travelled an angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span></eq>.</li>
+<li data-line="793" class="code-line">The unit quaternions <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">+q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">-q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span></eq>
-that represent it
+that represent your rotation
 form a bisector.</li>
-<li data-line="738" class="code-line">As you can see here,
-the components are in terms
-of <strong>half</strong> of the rotation angle.</li>
-<li data-line="741" class="code-line">In this diagram,
-you can see how +q bisects the short path
-from the x-axis to the point on the circle,
-and -q bisects the long path.</li>
+<li data-line="797" class="code-line">You can see how +q bisects the short arc,
+and -q bisects the long arc.</li>
+<li data-line="799" class="code-line">Both +q and -q represent the same rotation
+and we can choose the one
+that leads us to the target
+via the shorter path.</li>
 </ul>
-<h1 id="implementing-slerp-2" data-line="746" class="code-line">Implementing Slerp</h1>
+</li>
+<li data-line="803" class="code-line">I had been using quaternions for a long time
+before I realized this.</li>
+<li data-line="805" class="code-line">Hopefully this helps you understand them too.</li>
+<li data-line="806" class="code-line">This also helped me to understand
+why the components of a unit quaternion
+are in terms of <strong>half</strong> the rotation angle.
 <ul>
-<li data-line="748" class="code-line">Implementing Slerp is not easy.</li>
-<li data-line="749" class="code-line">We need to:
+<li data-line="809" class="code-line">You can see the example here
+where the w-component is equal to <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>cos</mi><mo>⁡</mo><mfrac><mi>ϕ</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\cos\frac{\phi}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.277216em;vertical-align:-0.345em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322159999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">ϕ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></eq>
+and the z-component is equal to <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mfrac><mi>ϕ</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\sin\frac{\phi}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.277216em;vertical-align:-0.345em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322159999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">ϕ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></eq>.</li>
+</ul>
+</li>
+</ul>
+<h1 id="implementing-slerp-3" data-line="813" class="code-line">Implementing Slerp</h1>
 <ul>
-<li data-line="750" class="code-line">Negate one endpoint if needed to guarantee a &quot;shortest arc&quot; rotation.</li>
-<li data-line="751" class="code-line">Calculate the angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></eq>
+<li data-line="815" class="code-line">Implementing Slerp is not easy.</li>
+<li data-line="816" class="code-line">We need to:
+<ul>
+<li data-line="817" class="code-line">Negate one endpoint if needed to guarantee a &quot;shortest arc&quot; rotation.</li>
+<li data-line="818" class="code-line">Calculate the angle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></eq>
 between <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">q_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>
 and <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">q_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq>.</li>
-<li data-line="754" class="code-line">Be careful to avoid a domain error
+<li data-line="821" class="code-line">Be careful to avoid a domain error
 in the inverse cosine function.</li>
 </ul>
 </li>
-<li data-line="756" class="code-line">Also, when <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq> or is very small,
+<li data-line="823" class="code-line">Also, when <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></eq> or is very small,
 we need to switch to an alternative equation
 to prevent a division-by-zero.</li>
-<li data-line="759" class="code-line">Is there an easier (and faster) way
+<li data-line="826" class="code-line">Is there an easier (and faster) way
 that still meets our requirements?</li>
-<li data-line="761" class="code-line">Well, YES, of course there is!</li>
+<li data-line="828" class="code-line">Well, YES, of course there is!</li>
 </ul>
-<h1 id="an-approximation-2" data-line="763" class="code-line">An approximation</h1>
+<h1 id="an-approximation-3" data-line="830" class="code-line">An approximation</h1>
 <ul>
-<li data-line="765" class="code-line">If we simply Lerp the quaternions
+<li data-line="832" class="code-line">If we simply Lerp the quaternions
 we actually get a descent
 approximation of Slerp
 without the need to calculate <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span></eq>
 and without the division-by-zero problem.</li>
-<li data-line="770" class="code-line">Just two things here:
+<li data-line="837" class="code-line">Just two things here:
 <ol>
-<li data-line="771" class="code-line">As with Slerp,
+<li data-line="838" class="code-line">As with Slerp,
 we need to negate one of the endpoints
 if their dot product is negative
 to ensure a &quot;shortest arc&quot; rotation.</li>
-<li data-line="775" class="code-line">We must normalize the result of the Lerp
+<li data-line="842" class="code-line">We must normalize the result of the Lerp
 to ensure that we return a <strong>unit</strong> quaternion.</li>
 </ol>
 </li>
-<li data-line="777" class="code-line">Let's call it
+<li data-line="844" class="code-line">These are both straightforward
+and relatively simple
+compared to Slerp.</li>
+<li data-line="847" class="code-line">Let's call it
 &quot;normalized linear interpolation&quot;:</li>
 </ul>
 <section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">Nlerp</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">1</mn></msub><mo separator="true">,</mo><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">2</mn></msub><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">normalize</mi><mo>⁡</mo><mrow><mo fence="true">{</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">1</mn></msub><mo>+</mo><mi>t</mi><msub><mi mathvariant="bold">q</mi><mn mathvariant="bold">2</mn></msub><mo fence="true">}</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
@@ -939,144 +1014,160 @@ to ensure that we return a <strong>unit</strong> quaternion.</li>
   \right\} \\
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5000000000000002em;vertical-align:-0.5000000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mord mathrm">N</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">p</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mord mathrm">n</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">m</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span><span class="mord mathrm">i</span><span class="mord mathrm">z</span><span class="mord mathrm">e</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mord"><span class="mord"><span class="mord mathbf">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">}</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></eqn></section><ul>
-<li data-line="793" class="code-line">How good is the approximation?</li>
-</ul>
-<h1 id="rotation-comparison-2" data-line="795" class="code-line">Rotation comparison</h1>
-<ul>
-<li data-line="797" class="code-line">Well, the approximation is surprizingly good.</li>
-<li data-line="798" class="code-line">The green line here is the Slerp result
-and the red line is the Lerp result.</li>
-<li data-line="800" class="code-line">This is a testament to how unit quaternions
+<li data-line="863" class="code-line">How good is the approximation?</li>
+<li data-line="864" class="code-line">Well, when I first saw how good it was
+it really blew my mind.</li>
+<li data-line="866" class="code-line">I mean, we are basically drawing a straight line
+between the two endpoints in 4-dimensional space,
+and this somehow gives us a result
+that is nearly as good as Slerp!</li>
+<li data-line="870" class="code-line">I think that this is a real testament
+to how unit quaternions
 are remarkably well-suited for representing 3D rotations.</li>
 </ul>
-<h1 id="what-have-we-learned-2" data-line="803" class="code-line">What have we learned?</h1>
+<h1 id="rotation-comparison-3" data-line="874" class="code-line">Rotation comparison</h1>
 <ul>
-<li data-line="805" class="code-line">We have achieved our 3 learning objectives
+<li data-line="876" class="code-line">Here we go.</li>
+<li data-line="877" class="code-line">The green line is the Slerp result
+and the red line is the Lerp result.</li>
+<li data-line="879" class="code-line">How crazy is that.</li>
+<li data-line="880" class="code-line">As far as I'm concerned,
+unless there is a really good reason NOT to use it,
+I would strongly recommend Nlerp over Slerp any day.</li>
+</ul>
+<h1 id="what-have-we-learned-3" data-line="884" class="code-line">What have we learned?</h1>
+<ul>
+<li data-line="886" class="code-line">We have achieved our 3 learning objectives
 by walking through the mathematics
 that we might encounter
 while trying to implement 2 features in a game.</li>
 </ul>
-<h1 id="conclusion-2" data-line="810" class="code-line">Conclusion</h1>
+<h1 id="conclusion-3" data-line="891" class="code-line">Conclusion</h1>
 <ul>
-<li data-line="812" class="code-line">Maybe not everyone would agree that math is fun,
+<li data-line="893" class="code-line">Maybe not everyone would agree that math is fun,
 but for me it's one of the more enjoyable aspects
 of programming.</li>
-<li data-line="815" class="code-line">Video games can provide the motivation needed
+<li data-line="896" class="code-line">Video games can provide the motivation needed
 to learn new things,
 but developing a complete game is a huge effort.</li>
-<li data-line="818" class="code-line">Focusing on just a small feature
-is more attainable.</li>
-<li data-line="820" class="code-line">Hopefully we've seen some examples
-of the very interesting things
-that we might learn along the way:
+<li data-line="899" class="code-line">Focusing on just a small feature is more attainable
+and you can still learn some very interesting things
+along the way.
 <ul>
-<li data-line="823" class="code-line">The output of a pseudorandom number generator
-with poorly-chosen constants
-can contain undesirable patterns
-that are not obvious at first glance.</li>
-<li data-line="827" class="code-line">Tests exist to detect these patterns.</li>
-<li data-line="828" class="code-line">Normalized linear interpolation
-is a good approximation to Slerp
-and is easier to implement.</li>
+<li data-line="902" class="code-line">Even if you use an existing pseudorandom number generator,
+be aware that poorly-chosen constants
+can cause undesirable patterns
+which are not obvious at first glance.</li>
+<li data-line="906" class="code-line">Tests exist for detecting this.</li>
+<li data-line="907" class="code-line">Since the generator in JavaScript does not let you set the seed,
+you may want to use the source code shown here
+if you need a seedable generator.</li>
+<li data-line="910" class="code-line">Unit quaternions are easier to understand
+when you can visualize how +q and -q form a bisector
+in the plane of rotation.</li>
+<li data-line="913" class="code-line">(<em>remember the clock garden</em>)</li>
+<li data-line="914" class="code-line">Normalized linear interpolation
+is a good approximation to Slerp and is remarkably simple.</li>
+<li data-line="916" class="code-line">This also makes Nlerp faster and easier to maintain.</li>
 </ul>
 </li>
 </ul>
-<h1 id="image-credits-still-needs-to-be-cleaned-up-2" data-line="832" class="code-line">Image credits (still needs to be cleaned-up)</h1>
-<blockquote data-line="834" class="code-line">
-<p data-line="834" class="code-line"><a href="./intro.html" data-href="./intro.html">Intro</a></p>
+<h1 id="image-credits-still-needs-to-be-cleaned-up-3" data-line="918" class="code-line">Image credits (still needs to be cleaned-up)</h1>
+<blockquote data-line="920" class="code-line">
+<p data-line="920" class="code-line"><a href="./intro.html" data-href="./intro.html">Intro</a></p>
 </blockquote>
-<blockquote data-line="836" class="code-line">
-<p data-line="836" class="code-line"><a href="./takeaway-all.html" data-href="./takeaway-all.html">Learning objectives</a></p>
+<blockquote data-line="922" class="code-line">
+<p data-line="922" class="code-line"><a href="./takeaway-all.html" data-href="./takeaway-all.html">Learning objectives</a></p>
 </blockquote>
-<blockquote data-line="838" class="code-line">
-<p data-line="838" class="code-line"><a href="./premise.html" data-href="./premise.html">Premise</a></p>
+<blockquote data-line="924" class="code-line">
+<p data-line="924" class="code-line"><a href="./premise.html" data-href="./premise.html">Premise</a></p>
 </blockquote>
-<blockquote data-line="840" class="code-line">
-<p data-line="840" class="code-line"><a href="./random-number.html" data-href="./random-number.html">Random number</a></p>
+<blockquote data-line="926" class="code-line">
+<p data-line="926" class="code-line"><a href="./random-number.html" data-href="./random-number.html">Random number</a></p>
 </blockquote>
-<blockquote data-line="842" class="code-line">
-<p data-line="842" class="code-line"><a href="./perlin.html" data-href="./perlin.html">Terrain height</a></p>
+<blockquote data-line="928" class="code-line">
+<p data-line="928" class="code-line"><a href="./perlin.html" data-href="./perlin.html">Terrain height</a></p>
 </blockquote>
-<blockquote data-line="844" class="code-line">
-<p data-line="844" class="code-line"><a href="./voronoi.html" data-href="./voronoi.html">Voronoi diagram</a></p>
+<blockquote data-line="930" class="code-line">
+<p data-line="930" class="code-line"><a href="./voronoi.html" data-href="./voronoi.html">Voronoi diagram</a></p>
 </blockquote>
-<blockquote data-line="846" class="code-line">
-<p data-line="846" class="code-line"><a href="./takeaway-1.html" data-href="./takeaway-1.html">Learning objective 1</a></p>
+<blockquote data-line="932" class="code-line">
+<p data-line="932" class="code-line"><a href="./takeaway-1.html" data-href="./takeaway-1.html">Learning objective 1</a></p>
 </blockquote>
-<blockquote data-line="848" class="code-line">
-<p data-line="848" class="code-line"><a href="./modulo.html" data-href="./modulo.html">modular arithmetic</a></p>
+<blockquote data-line="934" class="code-line">
+<p data-line="934" class="code-line"><a href="./modulo.html" data-href="./modulo.html">modular arithmetic</a></p>
 </blockquote>
-<blockquote data-line="850" class="code-line">
-<p data-line="850" class="code-line"><a href="./lcg.html" data-href="./lcg.html">simple generator (or &quot;LCG&quot;)</a></p>
+<blockquote data-line="936" class="code-line">
+<p data-line="936" class="code-line"><a href="./lcg.html" data-href="./lcg.html">simple generator (or &quot;LCG&quot;)</a></p>
 </blockquote>
-<blockquote data-line="852" class="code-line">
-<p data-line="852" class="code-line"><a href="./floating-point.html" data-href="./floating-point.html">built-in number type</a></p>
+<blockquote data-line="938" class="code-line">
+<p data-line="938" class="code-line"><a href="./floating-point.html" data-href="./floating-point.html">built-in number type</a></p>
 </blockquote>
-<blockquote data-line="854" class="code-line">
-<p data-line="854" class="code-line"><a href="./takeaway-2.html" data-href="./takeaway-2.html">Learning objective 2</a></p>
+<blockquote data-line="940" class="code-line">
+<p data-line="940" class="code-line"><a href="./takeaway-2.html" data-href="./takeaway-2.html">Learning objective 2</a></p>
 </blockquote>
-<blockquote data-line="856" class="code-line">
-<p data-line="856" class="code-line"><a href="./sphere-bunched.html" data-href="./sphere-bunched.html">bunching</a></p>
+<blockquote data-line="942" class="code-line">
+<p data-line="942" class="code-line"><a href="./sphere-bunched.html" data-href="./sphere-bunched.html">bunching</a></p>
 </blockquote>
-<blockquote data-line="858" class="code-line">
-<p data-line="858" class="code-line"><a href="./sphere-uniform.html" data-href="./sphere-uniform.html">this</a></p>
+<blockquote data-line="944" class="code-line">
+<p data-line="944" class="code-line"><a href="./sphere-uniform.html" data-href="./sphere-uniform.html">this</a></p>
 </blockquote>
-<blockquote data-line="860" class="code-line">
-<p data-line="860" class="code-line"><a href="./spherical-segment.html" data-href="./spherical-segment.html">spherical segment</a></p>
+<blockquote data-line="946" class="code-line">
+<p data-line="946" class="code-line"><a href="./spherical-segment.html" data-href="./spherical-segment.html">spherical segment</a></p>
 </blockquote>
-<blockquote data-line="862" class="code-line">
-<p data-line="862" class="code-line"><a href="./takeaway-3.html" data-href="./takeaway-3.html">Learning objective 3</a></p>
+<blockquote data-line="948" class="code-line">
+<p data-line="948" class="code-line"><a href="./takeaway-3.html" data-href="./takeaway-3.html">Learning objective 3</a></p>
 </blockquote>
-<blockquote data-line="864" class="code-line">
-<p data-line="864" class="code-line"><a href="./orbiting-satellite.html" data-href="./orbiting-satellite.html">Orbiting satellite</a></p>
+<blockquote data-line="950" class="code-line">
+<p data-line="950" class="code-line"><a href="./orbiting-satellite.html" data-href="./orbiting-satellite.html">Orbiting satellite</a></p>
 </blockquote>
-<blockquote data-line="866" class="code-line">
-<p data-line="866" class="code-line"><a href="./clock-face.html" data-href="./clock-face.html">the face of a clock</a></p>
+<blockquote data-line="952" class="code-line">
+<p data-line="952" class="code-line"><a href="./clock-face.html" data-href="./clock-face.html">the face of a clock</a></p>
 </blockquote>
-<blockquote data-line="868" class="code-line">
-<p data-line="868" class="code-line"><a href="./vector.html" data-href="./vector.html">vectors</a></p>
+<blockquote data-line="954" class="code-line">
+<p data-line="954" class="code-line"><a href="./vector.html" data-href="./vector.html">vectors</a></p>
 </blockquote>
-<blockquote data-line="870" class="code-line">
-<p data-line="870" class="code-line"><a href="./euler.html" data-href="./euler.html">Euler angles</a></p>
+<blockquote data-line="956" class="code-line">
+<p data-line="956" class="code-line"><a href="./euler.html" data-href="./euler.html">Euler angles</a></p>
 </blockquote>
-<blockquote data-line="872" class="code-line">
-<p data-line="872" class="code-line"><a href="./double-cover.html" data-href="./double-cover.html"><strong>square roots</strong> of a rotation</a></p>
+<blockquote data-line="958" class="code-line">
+<p data-line="958" class="code-line"><a href="./double-cover.html" data-href="./double-cover.html"><strong>square roots</strong> of a rotation</a></p>
 </blockquote>
-<blockquote data-line="874" class="code-line">
-<p data-line="874" class="code-line"><a href="./easy.html" data-href="./easy.html">Easy button!</a></p>
+<blockquote data-line="960" class="code-line">
+<p data-line="960" class="code-line"><a href="./easy.html" data-href="./easy.html">Easy button!</a></p>
 </blockquote>
-<blockquote data-line="876" class="code-line">
-<p data-line="876" class="code-line"><a href="./nlerp-versus-slerp.html" data-href="./nlerp-versus-slerp.html">compare</a></p>
+<blockquote data-line="962" class="code-line">
+<p data-line="962" class="code-line"><a href="./nlerp-versus-slerp.html" data-href="./nlerp-versus-slerp.html">compare</a></p>
 </blockquote>
-<h1 id="references-2" data-line="878" class="code-line">References</h1>
+<h1 id="references-3" data-line="964" class="code-line">References</h1>
 <ol>
-<li data-line="880" class="code-line">Blow, Jonathan (January 17, 2004). <a href="http://number-none.com/product/Hacking%20Quaternions/" data-href="http://number-none.com/product/Hacking%20Quaternions/">&quot;Hacking Quaternions&quot;</a>.</li>
-<li data-line="881" class="code-line">Blow, Jonathan (February 26, 2004). <a href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It" data-href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It">&quot;Understanding Slerp, Then Not Using It&quot;</a>.</li>
-<li data-line="882" class="code-line">Evans, Barry (August 7, 2014). <a href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622" data-href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622">&quot;The Mapmaker's Dilemma.&quot;</a> From the <a href="https://www.northcoastjournal.com/" data-href="https://www.northcoastjournal.com/"><em>North Coast Journal of Politics, People &amp; Art</em></a>.</li>
-<li data-line="883" class="code-line">Marsaglia, G. &quot;Choosing a Point from the Surface of a Sphere.&quot; <em>Ann. Math. Stat.</em> <strong>43</strong>, 645-646, 1972.</li>
-<li data-line="884" class="code-line"><a href="https://developer.mozilla.org/en-US/" data-href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
-<li data-line="885" class="code-line">Park, Stephen K.; Miller, Keith W. (October 1988). <a href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf" data-href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf">&quot;Random Number Generators: Good Ones Are Hard To Find&quot;</a> (PDF). <em>Communications of the ACM</em>. <strong>31</strong> (10): 1192–1201.</li>
-<li data-line="886" class="code-line">Ronja (September 29, 2018). <a href="https://www.ronja-tutorials.com/post/028-voronoi-noise/" data-href="https://www.ronja-tutorials.com/post/028-voronoi-noise/">&quot;Voronoi Noise&quot;</a>.</li>
-<li data-line="887" class="code-line">Shoemake, Ken. <a href="https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf" data-href="https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf">&quot;Animating Rotation with Quaternion Curves&quot;</a> (PDF). <a href="https://en.wikipedia.org/wiki/SIGGRAPH" data-href="https://en.wikipedia.org/wiki/SIGGRAPH">SIGGRAPH</a> 1985.</li>
-<li data-line="888" class="code-line">Simon, Cory (February 27, 2015). <a href="http://corysimon.github.io/articles/uniformdistn-on-sphere/" data-href="http://corysimon.github.io/articles/uniformdistn-on-sphere/">&quot;Generating uniformly distributed numbers on a sphere&quot;</a>.</li>
-<li data-line="889" class="code-line">Weisstein, Eric W. &quot;Sphere Point Picking.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SpherePointPicking.html" data-href="https://mathworld.wolfram.com/SpherePointPicking.html">https://mathworld.wolfram.com/SpherePointPicking.html</a></li>
-<li data-line="890" class="code-line">Weisstein, Eric W. &quot;Spherical Segment.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SphericalSegment.html" data-href="https://mathworld.wolfram.com/SphericalSegment.html">https://mathworld.wolfram.com/SphericalSegment.html</a></li>
-<li data-line="891" class="code-line">Weisstein, Eric W. &quot;Zone.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/Zone.html" data-href="https://mathworld.wolfram.com/Zone.html">https://mathworld.wolfram.com/Zone.html</a></li>
-<li data-line="892" class="code-line">Wikipedia contributors. &quot;Diehard tests.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.</li>
-<li data-line="893" class="code-line">Wikipedia contributors. &quot;Double-precision floating-point format.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.</li>
-<li data-line="894" class="code-line">Wikipedia contributors. &quot;Euclidean vector.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.</li>
-<li data-line="895" class="code-line">Wikipedia contributors. &quot;Euler angles.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 18 Feb. 2021.</li>
-<li data-line="896" class="code-line">Wikipedia contributors. &quot;George Marsaglia.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.</li>
-<li data-line="897" class="code-line">Wikipedia contributors. &quot;IEEE 754.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 15 Feb. 2021.</li>
-<li data-line="898" class="code-line">Wikipedia contributors. &quot;Lehmer random number generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.</li>
-<li data-line="899" class="code-line">Wikipedia contributors. &quot;Linear congruential generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.</li>
-<li data-line="900" class="code-line">Wikipedia contributors. &quot;Linear interpolation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.</li>
-<li data-line="901" class="code-line">Wikipedia contributors. &quot;Modulo operation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 25 Feb. 2021.</li>
-<li data-line="902" class="code-line">Wikipedia contributors. &quot;Perlin noise.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 7 Feb. 2021.</li>
-<li data-line="903" class="code-line">Wikipedia contributors. &quot;Quaternions and spatial rotation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.</li>
-<li data-line="904" class="code-line">Wikipedia contributors. &quot;Slerp.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.</li>
-<li data-line="905" class="code-line">Wikipedia contributors. &quot;Spherical segment.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.</li>
-<li data-line="906" class="code-line">Wikipedia contributors. &quot;Voronoi diagram.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 23 Feb. 2021.</li>
+<li data-line="966" class="code-line">Blow, Jonathan (January 17, 2004). <a href="http://number-none.com/product/Hacking%20Quaternions/" data-href="http://number-none.com/product/Hacking%20Quaternions/">&quot;Hacking Quaternions&quot;</a>.</li>
+<li data-line="967" class="code-line">Blow, Jonathan (February 26, 2004). <a href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It" data-href="http://number-none.com/product/Understanding%20Slerp,%20Then%20Not%20Using%20It">&quot;Understanding Slerp, Then Not Using It&quot;</a>.</li>
+<li data-line="968" class="code-line">Evans, Barry (August 7, 2014). <a href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622" data-href="https://www.northcoastjournal.com/humboldt/the-mapmakers-dilemma/Content?oid=2694622">&quot;The Mapmaker's Dilemma.&quot;</a> From the <a href="https://www.northcoastjournal.com/" data-href="https://www.northcoastjournal.com/"><em>North Coast Journal of Politics, People &amp; Art</em></a>.</li>
+<li data-line="969" class="code-line">Marsaglia, G. &quot;Choosing a Point from the Surface of a Sphere.&quot; <em>Ann. Math. Stat.</em> <strong>43</strong>, 645-646, 1972.</li>
+<li data-line="970" class="code-line"><a href="https://developer.mozilla.org/en-US/" data-href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+<li data-line="971" class="code-line">Park, Stephen K.; Miller, Keith W. (October 1988). <a href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf" data-href="http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf">&quot;Random Number Generators: Good Ones Are Hard To Find&quot;</a> (PDF). <em>Communications of the ACM</em>. <strong>31</strong> (10): 1192–1201.</li>
+<li data-line="972" class="code-line">Ronja (September 29, 2018). <a href="https://www.ronja-tutorials.com/post/028-voronoi-noise/" data-href="https://www.ronja-tutorials.com/post/028-voronoi-noise/">&quot;Voronoi Noise&quot;</a>.</li>
+<li data-line="973" class="code-line">Shoemake, Ken. <a href="https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf" data-href="https://www.cs.cmu.edu/~kiranb/animation/p245-shoemake.pdf">&quot;Animating Rotation with Quaternion Curves&quot;</a> (PDF). <a href="https://en.wikipedia.org/wiki/SIGGRAPH" data-href="https://en.wikipedia.org/wiki/SIGGRAPH">SIGGRAPH</a> 1985.</li>
+<li data-line="974" class="code-line">Simon, Cory (February 27, 2015). <a href="http://corysimon.github.io/articles/uniformdistn-on-sphere/" data-href="http://corysimon.github.io/articles/uniformdistn-on-sphere/">&quot;Generating uniformly distributed numbers on a sphere&quot;</a>.</li>
+<li data-line="975" class="code-line">Weisstein, Eric W. &quot;Sphere Point Picking.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SpherePointPicking.html" data-href="https://mathworld.wolfram.com/SpherePointPicking.html">https://mathworld.wolfram.com/SpherePointPicking.html</a></li>
+<li data-line="976" class="code-line">Weisstein, Eric W. &quot;Spherical Segment.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/SphericalSegment.html" data-href="https://mathworld.wolfram.com/SphericalSegment.html">https://mathworld.wolfram.com/SphericalSegment.html</a></li>
+<li data-line="977" class="code-line">Weisstein, Eric W. &quot;Zone.&quot; From <a href="https://mathworld.wolfram.com/" data-href="https://mathworld.wolfram.com/"><em>MathWorld</em></a>--A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/Zone.html" data-href="https://mathworld.wolfram.com/Zone.html">https://mathworld.wolfram.com/Zone.html</a></li>
+<li data-line="978" class="code-line">Wikipedia contributors. &quot;Diehard tests.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 5 Feb. 2021.</li>
+<li data-line="979" class="code-line">Wikipedia contributors. &quot;Double-precision floating-point format.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.</li>
+<li data-line="980" class="code-line">Wikipedia contributors. &quot;Euclidean vector.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 9 Feb. 2021.</li>
+<li data-line="981" class="code-line">Wikipedia contributors. &quot;Euler angles.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 18 Feb. 2021.</li>
+<li data-line="982" class="code-line">Wikipedia contributors. &quot;George Marsaglia.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 24 Jan. 2021.</li>
+<li data-line="983" class="code-line">Wikipedia contributors. &quot;IEEE 754.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 15 Feb. 2021.</li>
+<li data-line="984" class="code-line">Wikipedia contributors. &quot;Lehmer random number generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 13 Jan. 2021.</li>
+<li data-line="985" class="code-line">Wikipedia contributors. &quot;Linear congruential generator.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 22 Jan. 2021.</li>
+<li data-line="986" class="code-line">Wikipedia contributors. &quot;Linear interpolation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 2 Feb. 2021.</li>
+<li data-line="987" class="code-line">Wikipedia contributors. &quot;Modulo operation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 25 Feb. 2021.</li>
+<li data-line="988" class="code-line">Wikipedia contributors. &quot;Perlin noise.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 7 Feb. 2021.</li>
+<li data-line="989" class="code-line">Wikipedia contributors. &quot;Quaternions and spatial rotation.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 14 Feb. 2021.</li>
+<li data-line="990" class="code-line">Wikipedia contributors. &quot;Slerp.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 12 Feb. 2021.</li>
+<li data-line="991" class="code-line">Wikipedia contributors. &quot;Spherical segment.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 28 Apr. 2020.</li>
+<li data-line="992" class="code-line">Wikipedia contributors. &quot;Voronoi diagram.&quot; <em>Wikipedia, The Free Encyclopedia</em>. Wikipedia, The Free Encyclopedia, 23 Feb. 2021.</li>
 </ol>
 
 </body></html>
