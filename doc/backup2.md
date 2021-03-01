@@ -1,90 +1,67 @@
+- Thank you very much for the introduction.
+- This is my first time using Google Slides
+  for a presentation so please bear with me.
+- It seems to have a lot of nice features
+  for graphs and charts,
+  so I'd like to start things off
+  with a **pie chart**.
+
 # Writing a game
 
-> - _Do you know how hard it is
->   to make a pie chart in Google Slides
->   that looks like Pacman?_
-
-- What are the ingredients that we need for effective learning?
-  - Well, we need positive reinforcement
-  - And, we need intrinsic motivation
-  - Video games can provide both of these.
-- On the other side,
-  we have things that we can learn from writing software:
-  - We learn to solve problems
-  - And, often we learn about logic and mathematics
-- So it makes sense to combine all of these together by writing a game.
-- The problem is that writing a game is a huge effort,
-  even with all of the development tools and game engines that are available.
-  - What if we tackle something more attainable
-    like writing just a single feature within a game?
-  - Do we still get all of these benefits?
-  - _I_ think so.
-- Today, I would like to share my own experience
-  and show you some pretty amazing things that I've learned
-  and which I think you will find interesting too,
-  whether or not you are a programmer.
+- This pie chart shows the results of a scientific,
+  in-depth study that I made... _(just kidding - it's a Pacman)_
+- Let's face it, video games are just plain **fun**.
+- They can also provide many key ingredients
+  for effective learning
+  such as positive reinforcement
+  and intrinsic motivation.
+- For someone with a passion for video games,
+  writing a game can be a great way
+  to learn mathematics and problem solving skills.
+- However writing a complete game
+  is a huge undertaking,
+  even with all of the development tools
+  and game engines
+  that are available.
+- Rather than writing a complete game,
+  let's consider writing just a small demo
+  or a couple of individual features within the game,
+  and we will see some of the interesting things
+  that we can learn along the way.
 
 # Learning objectives
 
-- Let's talk briefly about some of the things that we are going to learn today.
-  - I've made a checklist with 3 things on it
-    so that we can check them off as we go.
-  - The takeaways will be a little different
-    depending on if you are a technical person
-    or a non-technical person,
-    but regardless, there will be something for everyone.
-- First, we're going to start by using a certain type of arithmetic
-  called "modular arithmetic".
-  - We will use it to generate a random-looking sequence of numbers for our game.
-  - Don't worry about the name "modular arithmetic".
-  - It's actually something that you've already learned
-    way back in elementary school.
-  - We are going to walk through a simple example
-    and I will show you just how easy it is.
-  - If you are a programmer then you already know how this works,
-    so I've got another takeaway for you.
-  - I've got a JavaScript implementation of a seedable pseudorandom number generator
-    that you can use in your own game or simulation.
-  - The thing that I find really amazing here
-    is that such a simple equation
-    can produce such chaotic results.
-  - I mean, it literally just uses a multiplication and the modulo operator
-    to generate the next random number.
-  - The real secret is in how to select the right set of constants
-    to use.
-- The second learning objective is about taking the random numbers
-  that we generated
-  and mapping them to points on a planet.
-  - To do this, we are going to use a little trick.
-  - It's based on a very surprizing result in "spherical geometry".
-  - By taking advantage of this, we will see how to map our random numbers
-    to different locations on the planet
-    such that they are distributed uniformly.
-- The third learning objective is probably my favourite.
-  - It uses something called quaternion algebra.
-  - We are going to use it for rotating the 3D view in our game.
-  - But I've got an interesting way of visualizing quaternions
-    in terms of how they represent 3D rotations.
-  - If you are not familiar with quaternions,
-    this will help you to understand
-    or at least appreciate how fascinating the math really is.
-  - Even if you are a programmer who has used quaternions before,
-    hopefully this will give you new insight into how remarkably well-suited they are
-    for things like this.
-  - If you've used the Slerp function before
-    then you already know how useful it is.
-  - But it's also a tricky function to implement.
-  - In fact, many years ago I spent a lot of time
-    trying to optimize it to make it run faster.
-  - It turns out that there is an alternative
-    which is much faster and easier to implement.
-  - What's remarkable about that is how well it works
-    considering how simple it is
-    compared to Slerp.
+- What do we hope to take away from this presentation?
+- Our learning objective is
+  to gain an appreciation
+  for some of the interesting mathematics
+  involved in video game development,
+  such as:
+  - Modular arithmetic
+    - for generating random-looking numbers
+  - Spherical geometry
+    - for mapping those numbers to points on a planet
+  - Quaternion algebra
+    - for rotating a 3D view of the planet
+      from an orbiting satellite
+- You don't need to be a programmer or a mathematician.
+- In fact, we will see
+  how to generate random-looking numbers
+  using nothing more than the arithmetic
+  that you learned in elementary school -
+  (just with bigger numbers).
+- The goal here is to keep things fun and interesting
+  for everyone.
+- If you **are** a programmer,
+  then another takeaway
+  from this presentation
+  is a random number generator
+  in JavaScript
+  which you are welcome to use
+  in your own game.
 
 # Premise
 
-- Ok, this is the fun part...
 - We need a premise for our game
   to provide some motivation.
 - The following is just an example
@@ -95,36 +72,32 @@
   so please feel free to contribute any ideas you have!_
   - Suppose that we want to write a multi-player web game
     about exploring a Mars-like planet.
-  - Players can:
-    - Remotely control satellites
-    - Deploy rovers to the surface of the planet
-      for collecting samples
-    - Run tests on those samples
-      to look for signs of life
-    - And, then, share their results
-      with the community.
+  - Players can remotely control satellites,
+    deploy rovers to the surface of the planet
+    for collecting samples,
+    run tests on those samples
+    to look for signs of life,
+    and then share their results
+    with the community.
   - Players get credit when they contribute to discoveries.
-  - _Ah, ok, I know what some of you are thinking:_
-    - "Where's the fire button?"
-    - "How do I shoot?"
-    - Well, maybe that's a different game altogether..
-  - Regardless, for now we are just going to consider
+  - It all sounds like fun,
+    but for now we are just going to consider
     two small features of the game
     which relate to how players
     can view the surface of the planet from space.
-    - To plan their simulated expeditions,
-      players will use an orbiting satellite
-      equipped with a camera.
-    - Players will be able to point the camera
-      at a particular region and zoom in
-      to see the terrain in detail.
-    - Maybe the player is looking for a particular
-      outcropping of rocks
-      or evidence of an ancient lake bed.
-    - As a game developer:
-      - We need to generate the terrain itself
-      - And we need to simulate the view from the satellite.
-    - That brings us to our feature list...
+  - To plan their simulated expeditions,
+    players will use an orbiting satellite
+    equipped with a camera.
+  - Players will be able to point the camera
+    at a particular region and zoom in
+    to see the terrain in detail.
+  - Maybe the player is looking for a particular
+    outcropping of rocks
+    or evidence of an ancient lake bed.
+  - As a game developer,
+    we need to generate the terrain itself
+    and we need to simulate the view from the satellite.
+  - So that will be the two features on our list...
 
 # Feature list
 
@@ -140,27 +113,25 @@
 
 # Pseudorandom
 
-> - This is probably my favourite comic:
->   - To be fair, the code is well-commented...
->   - But I'd like to see at least one unit test for it...
-
-- Clearly we need to qualify what we mean by "random".
+- This is probably my favourite comic (_read it_).
+- To be fair, the code is well-commented...
+- But clearly we need to qualify what we mean by "random".
 - Has anyone here played the game Minecraft?
 - In Minecraft, each world is generated uniquely
   from a **seed** value
   that you can share with other players.
 - If you use the same seed as another player,
   then you both play in the same world.
-- For our game, we want something similar:
-  - We want to generate the planet's terrain procedurally
-    based on a seed value.
-  - Given a seed, the terrain that we generate
-    must be the same in every detail.
-  - But we also want the terrain to look random,
-    meaning there should be no visible patterns.
-  - We call this **pseudorandom**: The terrain is
-    random-looking but perfectly reproducible
-    based on the initial seed.
+- For our game, we want something similar.
+- We want to generate the planet's terrain procedurally
+  based on a seed value.
+- Given a seed, the terrain that we generate
+  must be the same in every detail.
+- But we also want the terrain to look random,
+  meaning there should be no visible patterns.
+- We call this **pseudorandom**: The terrain is
+  random-looking but perfectly reproducible
+  based on the initial seed.
 
 # Generating random terrain
 
@@ -170,56 +141,52 @@
   and deserves its own presentation.
 - Typically it involves generating terrain information
   like height, slope, and colour for each location
-  on the planet that we're interested in.
+  on the planet that we are interested in.
 - In order to keep this presentation within scope,
   we are going to make a sweeping assumption:
   - We are going to assume that we already know
     how to generate that information
     given a set of random points
-    on the planet.
+    on the surface of the planet.
   - We won't worry about **how** those points are used.
-  - We'll just say that "a suitable technique exists".
-  - Here is an example of what I mean...
+  - We'll just say that a suitable technique exists.
 
 # Voronoi diagram
 
-- A **Voronoi diagram** assigns the colour of each pixel
+- One such technique is called a **Voronoi diagram**
+  which assigns the colour of each pixel
   according to the nearest generator point.
-- But it doesn't need to be colour.
-  - It could be terrain height,
-    for example,
-    as a function of the distance
-    to the nearest point.
-  - We could clamp that or put a lower limit on it,
-    and then we get a basic-looking landscape.
-- Regardless, the idea here is
+- It doesn't need to be colour.
+- For example, it could be terrain height
+  as a function of the distance
+  to the nearest generator location.
+- In any case, the point here is
   that given a set of random points,
-  techniques do exist to generate terrain.
+  there are ways to generate the terrain.
 
 # Our first two learning objectives
 
-- With our big assumption,
+- With our sweeping assumption,
   we can focus just on generating
-  points on the planet.
+  points at pseudorandom locations
+  on the planet.
 - We will take it step-by-step
-  so that it lines up with
-  our first 2 learning objectives.
+  so that everyone can appreciate
+  the math behind it.
 - First, we need a sequence of pseudorandom numbers.
-  - This is where I'll show you just how simple
-    the equation is.
-  - But we will also gain an appreciation
-    for how difficult it would be
-    to select the constants in that equation
-    such that the output is sufficiently random-looking.
+  - To do this, we will use using a very simple equation
+    based on modular arithmetic.
+  - That's our first learning objective.
 - Second, we need to map those numbers
   to locations on the planet.
-  - This is where I will show you
-    that little trick from spherical geometry.
+  - To do this, we will use a clever trick
+    in spherical geometry.
+  - That's our second learning objective.
 
 # Learning objective #1
 
-- In our game, we don't need
-  a cryptographically-strong generator.
+- This is just a game that we are writing,
+  so we don't need a cryptographically-strong generator.
 - The built-in generators
   provided by most programming languages
   should be sufficient.
@@ -234,31 +201,26 @@
 - The equation used for this
   is called a linear congruential generator
   or **LCG**:
-  - The LCG that we will use is the **Lehmer** type.
-  - It looks even simpler than other types,
-    but still produces amazing results.
-  - The arithmetic it uses is actually
-    something that you learned
-    in elementary school,
-    just with bigger numbers.
+  - The LCG that we use is the **Lehmer** type.
+  - The equation for it is very simple
+    and we will see how it works using
+    the same arithmetic that you learned
+    in elementary school.
   - It involves two constants
     which need to be chosen very carefully
     to ensure that the output is sufficiently random.
-  - We will use very small constants
-    for the demonstration
-    but the arithmetic is essentially the same.
+  - For demonstration purposes, we will use very small values
+    for the constants but the arithmetic is the same.
 
 # Modulo operation
 
 - The modulo operator returns the remainder of a division.
-- _(This is true for positive numbers which is all we care about here)._
 - "31 mod 10" is just the remainder of dividing 31 by 10.
+- 31 divided by 10 is equal to 3 with a remainder of 1.
 - So, "31 mod 10" is equal to 1.
 - If you remember doing long division, at the end
   we are left with a remainder.
-- Using the long division,
-  31 divided by 10 is equal to 3 with a remainder of 1.
-- That remainder part exactly what the modulo operation returns.
+- That's exactly what the modulo operation returns.
 
 # Generator equation: s<sub>n+1</sub> = (7 \* s<sub>n</sub>) mod 10
 
@@ -271,53 +233,43 @@
   - Aside from using larger constants, the equation is the same.
 - Let's work through this example
   starting with an initial seed of 1 (_go to edit mode_)...
-
-> - The sequence repeats after 4 iterations.
-> - We say that this sequence has a **period** of 4.
-
-> - Also, note how the generated values
->   are always less than the modulus
->   (which in this case is 10).
+- The sequence repeats after 4 iterations.
+- We say that this sequence has a **period** of 4.
+- Also, note how the generated values
+  are always less than the modulus
+  which in this case is 10.
 
 # Starting from a different seed
 
-- What happens if we start
-  from a different value?
-  - Let's try an initial seed of 2.
-  - As you can see, we get a different sequence.
+- If we start with an initial seed of 2,
+  we get a different sequence.
 - This sequence also has a period of 4.
-
-> - You might notice that there is one number
->   we haven't seen yet.
-> - It's the number 5.
 
 # An example of a short period
 
 - If we start with an initial seed of 5,
   we repeat forever on that value.
-- This is a period of just 1.
-- _Obviously, we want to avoid this
-  otherwise we aren't really any better
-  than that comic which I showed you_.
+- This sequence has a period of just 1.
+- Obviously we want to avoid the value 5.
 - We can actually avoid short periods like us
   by choosing the constants carefully.
 - In fact, there are well-defined rules
   for choosing the constants
   to ensure a maximal period
   regardless of the initial seed.
-- Unfortunately, even if we choose our constants
+- But even if we choose our constants
   according to those rules,
   we can still end up with undesirable patterns
   in the output.
-- And to make matters worse, those patterns
+- Furthermore, those undesirable patterns
   might not be obvious at first glance.
-- In fact, selecting constants to ensure sufficient randomness
+- Selecting constants to ensure sufficient randomness
   is non-trivial and has been a topic of research.
-- Let's do a poll to show an example.
+- Let's do a poll to see whether anyone can spot
+  the hidden pattern.
 
 # Now it's time for our POLL!
 
-- _The poll is anonymous and just for fun_.
 - Here are two LCG sequences
   starting from the same seed value
   and using the same modulus.
@@ -326,13 +278,16 @@
   sequence A or sequence B?
 - (_conduct poll_)
 - It turns out that one of the sequences
-  contains an obvious pattern
+  contains a hidden pattern
   if you try to use it for plotting points.
 - There is a simple test called the **spectral test**
-  which helps us to see these patterns.
-- Each time you generate a new number,
-  you plot it on the x-axis
-  against the previous number on the y-axis.
+  which plots a point for each number in the sequence
+  after the initial seed.
+- The x-coordinate of the point
+  is the current output $s_n$
+  and the y-coordinate
+  is the previous output $s_{n-1}$.
+- Here are the spectral plots for the sequences A and B.
 
 # Spectral plot for sequence A
 
@@ -341,18 +296,14 @@
 
 # Spectral plot for sequence B
 
-- These points seem more scattered.
+- These points appear to be more scattered.
 - Based on these plots,
   we can say that sequence B is more random.
-- The spectral test is not exhaustive
-  and there are existing tests
-  which are more sophisticated.
-- In our game, since we are using the numbers
-  for generating terrain,
-  we want to avoid any patterns.
-- So we need to find suitable constants
-  that are well-known
-  to produce good results.
+- The pattern revealled by the spectral test
+  is something that we would like to avoid in our game
+  since we plan to map those numbers to points on our planet.
+- So, we need to seach for some suitable constants
+  to use in our generator.
 
 # Number format in JavaScript
 
@@ -360,30 +311,28 @@
   require support for 64-bit integers.
 - In JavaScript, numbers are represented
   using a floating-point format like this.
-- (It's called the IEEE double-precision format).
-- It only has about 52 bits of precision
+- So we really only have about 52 bits of precision
   since the other bits are used for the sign
-  and exponent.
+  and the exponent.
 - Fortunately there is something called
   the Park-Miller random number generator.
-  - The constants suggested by Park and Miller in 1993
-    just happen to be suitable for JavaScript,
-    and should be sufficient for the purposes of our game.
-  - The multiplier is a 16-bit number
-    and the modulus is a 32-bit number.
-  - We already saw how the output
-    is always less than the modulus.
-  - When we multiply the 16-bit multiplier constant
-    by the the largest possible output of 32 bits,
-    the result requires at most 48 bits
-    (since 16 + 32 = 48).
-  - So we are ok, in fact we actually have
-    a few bits to spare.
+- The constants suggested by Park and Miller in 1993
+  just happen to be suitable for JavaScript,
+  and should be sufficient for the purposes of our game.
+- The multiplier is a 16-bit number
+  and the modulus is a 32-bit number.
+- Assuming we start from a valid seed,
+  the output will always be less than the modulus.
+- Therefore the result of the multiplication
+  will always fit within 16 + 32 = 48 bits.
+- That gives us a few bits to spare,
+  so we should be good.
 
 # Park-Miller generator in JavaScript
 
 - The multiplier is 48,271
-  and the modulus is 2,147,483,647.
+  and the modulus is 2,147,483,647
+  (_or, in binary, 31 ones_).
 - It uses the same, simple equation
   that we saw before
   just with these larger constants.
@@ -410,7 +359,7 @@
 - Here is an example of what we get
   if we aren't careful.
 - There is a slightly higher density of points
-  around the North and South poles.
+  near the North and South poles.
 
 # Sphere point picking
 
@@ -420,8 +369,7 @@
 - The method shown here
   uses just two pseudorandom numbers
   for each point on the sphere.
-- For a sphere of radius R
-  (_i.e., the radius of our planet_):
+- For a sphere of radius R:
   - Generate a pair of pseudorandom numbers $s_1,s_2$
     between $0$
     and $1$
@@ -444,12 +392,7 @@ $$
 \end{aligned}
 $$
 
-> - Note how the first two equations are very different looking
->   than the third.
-
-- This technique produces a uniform distribution of points,
-  assuming $s_1,s_2$
-  have uniform distribution.
+- This produces a uniform distribution of points.
 
 # Uniform distribution
 
@@ -457,11 +400,11 @@ $$
 
 # Spherical segment
 
-- It's interesting how
-  the result is so uniform
-  when you consider that third equation.
-- It seems to suggest that the $z$
-  coordinates are uniformly distributed.
+- It seems a bit surprizing
+  that this works so well
+  when the equation that we used for $z$
+  looked so different than the equations for $x$
+  and $y$.
 - The reason this trick works
   is due to a rather surprizing result
   for the surface area of a **spherical segment**:
@@ -478,8 +421,12 @@ $$
 
 # Learning objective #3
 
+- As we saw, the first feature on our list
+  was all about generating
+  random points on the planet.
+- That gave us our first two learning objectives.
 - Our third learning objective
-  is about rotating the camera in 3D
+  is about rotating a 3D view of the planet
   to get realistic transitions between views.
 
 # Realistic transitions
