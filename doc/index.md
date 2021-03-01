@@ -251,24 +251,21 @@
 # Modulo operation
 
 - The modulo operator returns the remainder of a division.
-- _(This is true for positive numbers which is all we care about here)._
+- _(At least this is true for the positive numbers which we care about)._
 - "31 mod 10" is just the remainder of dividing 31 by 10.
 - So, "31 mod 10" is equal to 1.
-- If you remember doing long division, at the end
-  we are left with a remainder.
-- Using the long division,
-  31 divided by 10 is equal to 3 with a remainder of 1.
-- That remainder part exactly what the modulo operation returns.
+- If you remember doing long division, the remainder
+  is what we are left with at the end.
+- That remainder is exactly what the modulo operation returns.
 
 # Generator equation: s<sub>n+1</sub> = (7 \* s<sub>n</sub>) mod 10
 
-- This is the LCG equation using small constants
-  to illustrate how it works:
-  - The new value is equal to 7 times the old value, modulo 10.
+- The equation above is the Lehmer LCG equation using small constants:
+  - In a real generator, the constants would be much larger.
+  - It says: The next value is equal to 7 times the previous value,
+    modulo 10.
   - The "7" is called the multiplier.
   - The "10" is called the modulus.
-  - In a real generator, the modulus is usually a large prime number.
-  - Aside from using larger constants, the equation is the same.
 - Let's work through this example
   starting with an initial seed of 1 (_go to edit mode_)...
 
@@ -288,18 +285,15 @@
 - This sequence also has a period of 4.
 
 > - You might notice that there is one number
->   we haven't seen yet.
-> - It's the number 5.
+>   we haven't seen yet: the number 5.
 
 # An example of a short period
 
 - If we start with an initial seed of 5,
   we repeat forever on that value.
 - This is a period of just 1.
-- _Obviously, we want to avoid this
-  otherwise we aren't really any better
-  than that comic which I showed you_.
-- We can actually avoid short periods like us
+- _Obviously, we want to avoid this_.
+- We can avoid short periods like this
   by choosing the constants carefully.
 - In fact, there are well-defined rules
   for choosing the constants
@@ -309,10 +303,8 @@
   according to those rules,
   we can still end up with undesirable patterns
   in the output.
-- And to make matters worse, those patterns
+- And, to make matters worse, those patterns
   might not be obvious at first glance.
-- In fact, selecting constants to ensure sufficient randomness
-  is non-trivial and has been a topic of research.
 - Let's do a poll to show an example.
 
 # Now it's time for our POLL!
@@ -330,9 +322,10 @@
   if you try to use it for plotting points.
 - There is a simple test called the **spectral test**
   which helps us to see these patterns.
-- Each time you generate a new number,
-  you plot it on the x-axis
-  against the previous number on the y-axis.
+- The way it works is:
+  - Each time you generate a new number,
+    you plot that number on the x-axis
+    against the previous number on the y-axis.
 
 # Spectral plot for sequence A
 
@@ -344,21 +337,18 @@
 - These points seem more scattered.
 - Based on these plots,
   we can say that sequence B is more random.
-- The spectral test is not exhaustive
-  and there are existing tests
-  which are more sophisticated.
-- In our game, since we are using the numbers
-  for generating terrain,
-  we want to avoid any patterns.
-- So we need to find suitable constants
-  that are well-known
-  to produce good results.
+- The spectral test is not exhaustive.
+- There are tests which are more sophisticated.
+- Researchers have published constants
+  that are known to produce good results.
+- We just need to find a set that is suitable
+  for our generator in JavaScript.
 
 # Number format in JavaScript
 
 - Many of the recommended constants
   require support for 64-bit integers.
-- In JavaScript, numbers are represented
+- In JavaScript however, numbers are represented
   using a floating-point format like this.
 - (It's called the IEEE double-precision format).
 - It only has about 52 bits of precision
